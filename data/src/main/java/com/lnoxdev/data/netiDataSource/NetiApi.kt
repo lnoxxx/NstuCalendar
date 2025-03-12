@@ -1,4 +1,4 @@
-package com.lnoxdev.data
+package com.lnoxdev.data.netiDataSource
 
 import okhttp3.ResponseBody
 import retrofit2.Response

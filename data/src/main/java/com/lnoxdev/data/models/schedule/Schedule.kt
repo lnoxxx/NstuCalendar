@@ -1,4 +1,4 @@
-package com.lnoxdev.data.models
+package com.lnoxdev.data.models.schedule
 
 data class Schedule(
     val group: String,

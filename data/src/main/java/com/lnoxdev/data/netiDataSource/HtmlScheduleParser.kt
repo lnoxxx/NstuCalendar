@@ -1,8 +1,7 @@
-package com.lnoxdev.data
+package com.lnoxdev.data.netiDataSource
 
-import android.util.Log
-import com.lnoxdev.data.models.Schedule
-import com.lnoxdev.data.models.ScheduleDay
+import com.lnoxdev.data.models.schedule.Schedule
+import com.lnoxdev.data.models.schedule.ScheduleDay
 import com.lnoxdev.data.models.lesson.Lesson
 import com.lnoxdev.data.models.lesson.LessonDateType
 import com.lnoxdev.data.models.lesson.LessonType
@@ -13,46 +12,64 @@ import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 import java.time.LocalTime
 
+/**
+ * `HtmlScheduleParser` is a utility object responsible for parsing HTML content
+ * representing a schedule and extracting relevant information to construct a
+ * structured `Schedule` object.
+ *
+ * It uses the Jsoup library to parse the HTML and extract data from specific
+ * CSS selectors.
+ */
 object HtmlScheduleParser {
 
     fun parseSchedule(stringHtml: String): Schedule? {
         val doc = Jsoup.parse(stringHtml)
+        val group = parseGroup(doc) ?: return null
+        val semester = parseSemester(doc) ?: return null
         val days = doc.select(".schedule__table-row[data-empty]").toList()
-        val group = getGroup(doc) ?: return null
-        val semester = getSemester(doc) ?: return null
+        val dayList = parseDaysToList(days)
+        return Schedule(group = group, semester = semester, dayList)
+    }
+
+    private fun parseDaysToList(days: List<Element>): MutableList<ScheduleDay> {
         val resultDayList = mutableListOf<ScheduleDay>()
         for (day in days) {
             val dayChild = day.select("> *")
             val dayOfWeekText = dayChild[0].text()
-            val dayOfWeek = getDayOfWeek(dayOfWeekText)
+            val dayOfWeek = parseDayOfWeek(dayOfWeekText)
             val dayData = dayChild[1]
             val dateDataChild = dayData.select("> *")
-            val resultLessonList = mutableListOf<Lesson>()
-            for (timeWithLessons in dateDataChild) {
-                val timeWithLessonsChild = timeWithLessons.select("> *")
-                val lessonsTimeText = timeWithLessonsChild[0].text()
-                val lessonTime = getLessonTime(lessonsTimeText)
-                val lessons = timeWithLessonsChild[1]
-                val lessonsChild = lessons.select("> *")
-                for (lesson in lessonsChild) {
-                    val newLesson = parseLesson(lesson, lessonTime)
-                    newLesson?.let { resultLessonList.add(it) }
-                }
-            }
-            val scheduleDay = ScheduleDay(dayOfWeek = dayOfWeek, lessons = resultLessonList)
+            val lessonList = parseLessonsToList(dateDataChild)
+            val scheduleDay = ScheduleDay(dayOfWeek = dayOfWeek, lessons = lessonList)
             resultDayList.add(scheduleDay)
         }
-        return Schedule(group = group, semester = semester, resultDayList)
+        return resultDayList
+    }
+
+    private fun parseLessonsToList(dateDataChild: List<Element>): MutableList<Lesson> {
+        val resultLessonList = mutableListOf<Lesson>()
+        for (timeWithLessons in dateDataChild) {
+            val timeWithLessonsChild = timeWithLessons.select("> *")
+            val lessonsTimeText = timeWithLessonsChild[0].text()
+            val lessonTime = parseLessonTime(lessonsTimeText)
+            val lessons = timeWithLessonsChild[1]
+            val lessonsChild = lessons.select("> *")
+            for (lesson in lessonsChild) {
+                val newLesson = parseLesson(lesson, lessonTime)
+                newLesson?.let { resultLessonList.add(it) }
+            }
+        }
+        return resultLessonList
     }
 
     private fun parseLesson(lesson: Element, lessonTime: LessonTime): Lesson? {
-        val lessonName = getLessonName(lesson) ?: return null
-        val lessonDateType = getLessonDateType(lesson)
+        val lessonName = parseLessonName(lesson) ?: return null
+        val lessonDateType = parseLessonDateType(lesson)
         val uniqueWeeks =
-            if (lessonDateType == LessonDateType.UNIQUE) getUniqueWeeks(lesson) else null
-        val teacher = getTeacher(lesson)
-        val cabinet = getCabinet(lesson)
-        val lessonType = getLessonType(lesson)
+            if (lessonDateType == LessonDateType.UNIQUE) parseUniqueWeeks(lesson) else null
+        val teacher = parseTeacher(lesson)
+        val cabinet = parseCabinet(lesson)
+        val lessonType = parseLessonType(lesson)
         return Lesson(
             name = lessonName,
             dateType = lessonDateType,
@@ -64,14 +81,14 @@ object HtmlScheduleParser {
         )
     }
 
-    private fun getLessonName(lesson: Element): String? {
+    private fun parseLessonName(lesson: Element): String? {
         val lessonNameRaw =
             lesson.select(".schedule__table-item").firstOrNull()?.ownText() ?: return null
         val lessonName = lessonNameRaw.replace("·", "").trim()
         return lessonName.ifEmpty { null }
     }
 
-    private fun getLessonDateType(lesson: Element): LessonDateType {
+    private fun parseLessonDateType(lesson: Element): LessonDateType {
         val dateTypeText = lesson.select(".schedule__table-label").text()
         return when {
             dateTypeText.contains(LessonDateType.ODD.sourceName) -> LessonDateType.ODD
@@ -81,25 +98,25 @@ object HtmlScheduleParser {
         }
     }
 
-    private fun getUniqueWeeks(lesson: Element): List<Int> {
+    private fun parseUniqueWeeks(lesson: Element): List<Int> {
         val dateTypeText = lesson.select(".schedule__table-label").text()
         val weeksList = dateTypeText.split(' ').toMutableList()
         weeksList.removeAt(0)
         return weeksList.map { week -> week.toInt() }
     }
 
-    private fun getTeacher(lesson: Element): Teacher {
+    private fun parseTeacher(lesson: Element): Teacher {
         val teacherFullInfo = lesson.select("a")
         val teacherName = teacherFullInfo.text().ifEmpty { null }
         val teacherUrl = teacherFullInfo.attr("href").ifEmpty { null }
         return Teacher(name = teacherName, url = teacherUrl)
     }
 
-    private fun getCabinet(lesson: Element): String? {
+    private fun parseCabinet(lesson: Element): String? {
         return lesson.select(".schedule__table-class").firstOrNull()?.text()?.ifEmpty { null }
     }
 
-    private fun getLessonType(lesson: Element): LessonType {
+    private fun parseLessonType(lesson: Element): LessonType {
         val lessonType = lesson.select(".schedule__table-typework").text()
         return when {
             lessonType.contains(LessonType.LABORATORY.sourceName) -> LessonType.LABORATORY
@@ -109,15 +126,15 @@ object HtmlScheduleParser {
         }
     }
 
-    private fun getGroup(doc: Document): String? {
+    private fun parseGroup(doc: Document): String? {
         return doc.select(".schedule__title-h1").text().ifEmpty { null }
     }
 
-    private fun getSemester(doc: Document): String? {
+    private fun parseSemester(doc: Document): String? {
         return doc.select(".schedule__title-content").text().ifEmpty { null }
     }
 
-    private fun getDayOfWeek(day: String): Int {
+    private fun parseDayOfWeek(day: String): Int {
         return when (day) {
             "пн" -> 1
             "вт" -> 2
@@ -129,7 +146,7 @@ object HtmlScheduleParser {
         }
     }
 
-    private fun getLessonTime(lessonTimeText: String): LessonTime {
+    private fun parseLessonTime(lessonTimeText: String): LessonTime {
         val time = lessonTimeText.split('-')
         val startTime = time.first().split(':')
         val endTime = time.last().split(':')

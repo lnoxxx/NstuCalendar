@@ -1,5 +1,6 @@
 package com.lnoxdev.data
 
+import com.lnoxdev.data.netiDataSource.NetiApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

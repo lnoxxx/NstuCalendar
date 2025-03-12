@@ -1,6 +1,8 @@
 package com.lnoxdev.data
 
 import android.util.Log
+import com.lnoxdev.data.netiDataSource.HtmlScheduleParser
+import com.lnoxdev.data.netiDataSource.NetiApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
