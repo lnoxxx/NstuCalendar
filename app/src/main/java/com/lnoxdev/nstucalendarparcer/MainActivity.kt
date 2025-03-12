@@ -2,12 +2,15 @@ package com.lnoxdev.nstucalendarparcer
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.lnoxdev.data.NetiRepository
+import com.lnoxdev.data.netiSchedule.NetiScheduleLoader
+import com.lnoxdev.data.toSchedule
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -16,7 +19,8 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var netiRepository: NetiRepository
+    lateinit var netiRepository: NetiScheduleLoader
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +36,15 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         lifecycleScope.launch {
-            netiRepository.getSchedule()
+            netiRepository.updateSchedule("АБс-223")
+        }
+
+        val main = findViewById<ConstraintLayout>(R.id.main)
+        main.setOnClickListener {
+            lifecycleScope.launch {
+                val schedule = netiRepository.TESTFUN().toSchedule()
+                Log.d("testlog", schedule.days[3].lessons.first().toString())
+            }
         }
     }
 

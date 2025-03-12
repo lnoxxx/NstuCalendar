@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.serialization)
 }
 
 android {
@@ -28,7 +29,13 @@ android {
 }
 
 dependencies {
-    implementation (libs.jsoup)
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
+    implementation(libs.kotlinx.serialization.json)
+
+    implementation(libs.jsoup)
 
     implementation(libs.retrofit)
 

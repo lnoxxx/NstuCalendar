@@ -1,4 +1,4 @@
-package com.lnoxdev.data.netiDataSource
+package com.lnoxdev.data.netiSchedule
 
 import com.lnoxdev.data.models.schedule.Schedule
 import com.lnoxdev.data.models.schedule.ScheduleDay
@@ -12,14 +12,6 @@ import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 import java.time.LocalTime
 
-/**
- * `HtmlScheduleParser` is a utility object responsible for parsing HTML content
- * representing a schedule and extracting relevant information to construct a
- * structured `Schedule` object.
- *
- * It uses the Jsoup library to parse the HTML and extract data from specific
- * CSS selectors.
- */
 object HtmlScheduleParser {
 
     fun parseSchedule(stringHtml: String): Schedule? {
@@ -36,7 +28,7 @@ object HtmlScheduleParser {
         for (day in days) {
             val dayChild = day.select("> *")
             val dayOfWeekText = dayChild[0].text()
-            val dayOfWeek = parseDayOfWeek(dayOfWeekText)
+            val dayOfWeek = parseDayOfWeek(dayOfWeekText) ?: continue
             val dayData = dayChild[1]
             val dateDataChild = dayData.select("> *")
             val lessonList = parseLessonsToList(dateDataChild)
@@ -105,10 +97,11 @@ object HtmlScheduleParser {
         return weeksList.map { week -> week.toInt() }
     }
 
-    private fun parseTeacher(lesson: Element): Teacher {
+    private fun parseTeacher(lesson: Element): Teacher? {
         val teacherFullInfo = lesson.select("a")
         val teacherName = teacherFullInfo.text().ifEmpty { null }
         val teacherUrl = teacherFullInfo.attr("href").ifEmpty { null }
+        if (teacherName == null || teacherUrl == null) return null
         return Teacher(name = teacherName, url = teacherUrl)
     }
 
@@ -134,7 +127,7 @@ object HtmlScheduleParser {
         return doc.select(".schedule__title-content").text().ifEmpty { null }
     }
 
-    private fun parseDayOfWeek(day: String): Int {
+    private fun parseDayOfWeek(day: String): Int? {
         return when (day) {
             "пн" -> 1
             "вт" -> 2
@@ -142,7 +135,7 @@ object HtmlScheduleParser {
             "чт" -> 4
             "пт" -> 5
             "сб" -> 6
-            else -> throw IllegalArgumentException("Unknown day of the week")
+            else -> null
         }
     }
 

@@ -1,9 +1,16 @@
 package com.lnoxdev.data
 
-import com.lnoxdev.data.netiDataSource.NetiApi
+import android.content.Context
+import androidx.room.Room
+import com.lnoxdev.data.netiNetworkDataSource.NetiApi
+import com.lnoxdev.data.netiSchedule.NetiScheduleLoader
+import com.lnoxdev.data.netiSchedule.NetiScheduleOnDatabaseSaver
+import com.lnoxdev.data.netiSchedule.netiScheduleDatabase.ScheduleDao
+import com.lnoxdev.data.netiSchedule.netiScheduleDatabase.ScheduleDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -47,5 +54,28 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideNetiRepository(netiApi: NetiApi): NetiRepository = NetiRepository(netiApi)
+    fun provideNetiRepository(
+        netiApi: NetiApi,
+        saver: NetiScheduleOnDatabaseSaver
+    ): NetiScheduleLoader = NetiScheduleLoader(netiApi, saver)
+
+    @Provides
+    @Singleton
+    fun provideScheduleDatabase(@ApplicationContext context: Context): ScheduleDatabase {
+        return Room.databaseBuilder(
+            context,
+            ScheduleDatabase::class.java,
+            "schedule_database"
+        ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideScheduleDao(scheduleDatabase: ScheduleDatabase): ScheduleDao =
+        scheduleDatabase.scheduleDao()
+
+    @Provides
+    @Singleton
+    fun provideNetiScheduleOnDatabaseSaver(scheduleDao: ScheduleDao): NetiScheduleOnDatabaseSaver =
+        NetiScheduleOnDatabaseSaver(scheduleDao)
 }
