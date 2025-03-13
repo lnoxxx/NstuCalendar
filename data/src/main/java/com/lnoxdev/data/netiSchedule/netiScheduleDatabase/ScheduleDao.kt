@@ -4,12 +4,13 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ScheduleDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertSchedule(schedule: ScheduleEntity): Long
+    suspend fun insertSchedule(schedule: Schedule): Long
 
     @Query("SELECT * FROM schedules WHERE id = 0")
-    suspend fun getSchedule(): ScheduleEntity
+    fun getSchedule(): Flow<Schedule>
 }

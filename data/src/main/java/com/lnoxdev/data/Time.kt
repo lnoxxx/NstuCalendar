@@ -1,7 +1,9 @@
 package com.lnoxdev.data
 
-import java.time.LocalTime
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 object Time {
-    fun getNowTime(): LocalTime = LocalTime.now()
+    fun getNowDateTime(): LocalDateTime = LocalDateTime.now()
+    fun getNowDate(): LocalDate = LocalDate.now()
 }

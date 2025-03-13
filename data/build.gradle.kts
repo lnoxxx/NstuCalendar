@@ -29,6 +29,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.datastore.preferences)
+
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)

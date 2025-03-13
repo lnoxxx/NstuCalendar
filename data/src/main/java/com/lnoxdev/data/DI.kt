@@ -2,9 +2,11 @@ package com.lnoxdev.data
 
 import android.content.Context
 import androidx.room.Room
-import com.lnoxdev.data.netiNetworkDataSource.NetiApi
-import com.lnoxdev.data.netiSchedule.NetiScheduleLoader
-import com.lnoxdev.data.netiSchedule.NetiScheduleOnDatabaseSaver
+import com.lnoxdev.data.appSettings.SettingsRepository
+import com.lnoxdev.data.appSettings.dataStore
+import com.lnoxdev.data.netiSchedule.NetiScheduleRepository
+import com.lnoxdev.data.netiSchedule.netiScheduleDataSource.NetiApi
+import com.lnoxdev.data.netiSchedule.netiScheduleDataSource.NetiScheduleLoader
 import com.lnoxdev.data.netiSchedule.netiScheduleDatabase.ScheduleDao
 import com.lnoxdev.data.netiSchedule.netiScheduleDatabase.ScheduleDatabase
 import dagger.Module
@@ -56,8 +58,8 @@ object DataModule {
     @Singleton
     fun provideNetiRepository(
         netiApi: NetiApi,
-        saver: NetiScheduleOnDatabaseSaver
-    ): NetiScheduleLoader = NetiScheduleLoader(netiApi, saver)
+        scheduleDao: ScheduleDao,
+    ): NetiScheduleLoader = NetiScheduleLoader(netiApi, scheduleDao)
 
     @Provides
     @Singleton
@@ -76,6 +78,15 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideNetiScheduleOnDatabaseSaver(scheduleDao: ScheduleDao): NetiScheduleOnDatabaseSaver =
-        NetiScheduleOnDatabaseSaver(scheduleDao)
+    fun provideSettingsRepository(@ApplicationContext context: Context): SettingsRepository =
+        SettingsRepository(context.dataStore)
+
+    @Provides
+    @Singleton
+    fun provideNetiScheduleRepository(
+        scheduleDao: ScheduleDao,
+        netiScheduleLoader: NetiScheduleLoader,
+        settingsRepository: SettingsRepository,
+    ): NetiScheduleRepository =
+        NetiScheduleRepository(scheduleDao, netiScheduleLoader, settingsRepository)
 }

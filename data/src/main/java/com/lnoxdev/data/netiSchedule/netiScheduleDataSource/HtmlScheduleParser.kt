@@ -1,26 +1,37 @@
-package com.lnoxdev.data.netiSchedule
+package com.lnoxdev.data.netiSchedule.netiScheduleDataSource
 
-import com.lnoxdev.data.models.schedule.Schedule
+import com.lnoxdev.data.Time
 import com.lnoxdev.data.models.schedule.ScheduleDay
 import com.lnoxdev.data.models.lesson.Lesson
 import com.lnoxdev.data.models.lesson.LessonDateType
 import com.lnoxdev.data.models.lesson.LessonType
 import com.lnoxdev.data.models.Teacher
 import com.lnoxdev.data.models.lesson.LessonTime
+import com.lnoxdev.data.netiSchedule.netiScheduleDatabase.Schedule
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
+import java.time.LocalDate
 import java.time.LocalTime
+
+data class WeeksParseResult(val startDay: Int, val startMonth: Int, val weekCount: Int)
 
 object HtmlScheduleParser {
 
-    fun parseSchedule(stringHtml: String): Schedule? {
+    fun parseSchedule(stringHtml: String, startDate: LocalDate, endDate: LocalDate): Schedule? {
         val doc = Jsoup.parse(stringHtml)
         val group = parseGroup(doc) ?: return null
         val semester = parseSemester(doc) ?: return null
         val days = doc.select(".schedule__table-row[data-empty]").toList()
         val dayList = parseDaysToList(days)
-        return Schedule(group = group, semester = semester, dayList)
+        return Schedule(
+            group = group,
+            semester = semester,
+            days = dayList,
+            saveTime = Time.getNowDateTime(),
+            startDate = startDate,
+            endDate = endDate
+        )
     }
 
     private fun parseDaysToList(days: List<Element>): MutableList<ScheduleDay> {
@@ -83,9 +94,9 @@ object HtmlScheduleParser {
     private fun parseLessonDateType(lesson: Element): LessonDateType {
         val dateTypeText = lesson.select(".schedule__table-label").text()
         return when {
-            dateTypeText.contains(LessonDateType.ODD.sourceName) -> LessonDateType.ODD
-            dateTypeText.contains(LessonDateType.EVEN.sourceName) -> LessonDateType.EVEN
-            dateTypeText.contains(LessonDateType.UNIQUE.sourceName) -> LessonDateType.UNIQUE
+            dateTypeText.contains("по нечётным") -> LessonDateType.ODD
+            dateTypeText.contains("по чётным") -> LessonDateType.EVEN
+            dateTypeText.contains("недели") -> LessonDateType.UNIQUE
             else -> LessonDateType.ALL
         }
     }
@@ -112,9 +123,9 @@ object HtmlScheduleParser {
     private fun parseLessonType(lesson: Element): LessonType {
         val lessonType = lesson.select(".schedule__table-typework").text()
         return when {
-            lessonType.contains(LessonType.LABORATORY.sourceName) -> LessonType.LABORATORY
-            lessonType.contains(LessonType.LECTURE.sourceName) -> LessonType.LECTURE
-            lessonType.contains(LessonType.PRACTICE.sourceName) -> LessonType.PRACTICE
+            lessonType.contains("Лабораторная") -> LessonType.LABORATORY
+            lessonType.contains("Лекция") -> LessonType.LECTURE
+            lessonType.contains("Практика") -> LessonType.PRACTICE
             else -> LessonType.OTHER
         }
     }
@@ -146,5 +157,16 @@ object HtmlScheduleParser {
         val localTimeStart = LocalTime.of(startTime.first().toInt(), startTime.last().toInt())
         val localTimeEnd = LocalTime.of(endTime.first().toInt(), endTime.last().toInt())
         return LessonTime(timeStart = localTimeStart, timeEnd = localTimeEnd)
+    }
+
+    fun parseScheduleWeek(stringHtml: String): WeeksParseResult {
+        val doc = Jsoup.parse(stringHtml)
+        val firstDay = doc.select(".schedule__table-day").firstOrNull() ?: throw Exception()
+        val firstDayDate = firstDay.select(".schedule__table-date").text()
+        val startDay = firstDayDate.split('.')[0].toIntOrNull() ?: throw Exception()
+        val startMonth = firstDayDate.split('.')[1].toIntOrNull() ?: throw Exception()
+        val lastWeek = doc.select("a.schedule__weeks-item.link-dashed.js-week-item").lastOrNull()
+        val weekCount = lastWeek?.attr("data-week")?.toIntOrNull() ?: throw Exception()
+        return WeeksParseResult(startDay, startMonth, weekCount)
     }
 }

@@ -18,7 +18,6 @@ data class LessonTime(
     val timeEnd: LocalTime,
 )
 
-
 object LocalTimeSerializer : KSerializer<LocalTime> {
     private val formatter = DateTimeFormatter.ISO_LOCAL_TIME
 
