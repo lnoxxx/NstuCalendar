@@ -2,7 +2,7 @@ package com.lnoxdev.data
 
 import android.content.Context
 import androidx.room.Room
-import com.lnoxdev.data.appSettings.SettingsRepository
+import com.lnoxdev.data.appSettings.SettingsManager
 import com.lnoxdev.data.appSettings.dataStore
 import com.lnoxdev.data.netiSchedule.NetiScheduleRepository
 import com.lnoxdev.data.netiSchedule.netiScheduleDataSource.NetiApi
@@ -78,15 +78,15 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideSettingsRepository(@ApplicationContext context: Context): SettingsRepository =
-        SettingsRepository(context.dataStore)
+    fun provideSettingsRepository(@ApplicationContext context: Context): SettingsManager =
+        SettingsManager(context.dataStore)
 
     @Provides
     @Singleton
     fun provideNetiScheduleRepository(
         scheduleDao: ScheduleDao,
         netiScheduleLoader: NetiScheduleLoader,
-        settingsRepository: SettingsRepository,
+        settingsManager: SettingsManager,
     ): NetiScheduleRepository =
-        NetiScheduleRepository(scheduleDao, netiScheduleLoader, settingsRepository)
+        NetiScheduleRepository(scheduleDao, netiScheduleLoader, settingsManager)
 }

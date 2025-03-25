@@ -1,9 +1,9 @@
 package com.lnoxdev.data.netiSchedule
 
 import com.lnoxdev.data.SettingGroupException
-import com.lnoxdev.data.appSettings.SettingsRepository
-import com.lnoxdev.data.models.lesson.Lesson
-import com.lnoxdev.data.models.lesson.LessonDateType
+import com.lnoxdev.data.appSettings.SettingsManager
+import com.lnoxdev.data.models.schedule.lesson.Lesson
+import com.lnoxdev.data.models.schedule.lesson.LessonDateType
 import com.lnoxdev.data.models.schedule.ScheduleDay
 import com.lnoxdev.data.models.weeklySchedule.ScheduleWeek
 import com.lnoxdev.data.models.weeklySchedule.WeeklySchedule
@@ -19,16 +19,24 @@ import kotlinx.coroutines.withContext
 class NetiScheduleRepository(
     scheduleDao: ScheduleDao,
     private val netiScheduleLoader: NetiScheduleLoader,
-    private val settingsRepository: SettingsRepository,
+    private val settingsManager: SettingsManager,
 ) {
-    val schedule: Flow<Schedule?> = scheduleDao.getSchedule()
+    // All schedule
+    private val schedule: Flow<Schedule?> = scheduleDao.getSchedule()
+
+    // Weekly schedule
     val weeklySchedule: Flow<WeeklySchedule?> =
-        scheduleDao.getSchedule().map { scheduleToWeeklySchedule(it) }
+        schedule.map { schedule -> schedule?.let { scheduleToWeeklySchedule(it) } }
+
+    // Schedule for week
+    fun getWeekSchedule(weekNumber: Int): Flow<ScheduleWeek?> {
+        return weeklySchedule.map { it?.weeks?.getOrNull(weekNumber) }
+    }
 
     suspend fun updateSchedule() {
         withContext(Dispatchers.IO) {
             val group =
-                settingsRepository.group.first() ?: throw SettingGroupException("Group not found")
+                settingsManager.group.first() ?: throw SettingGroupException("Group not found")
             netiScheduleLoader.updateSchedule(group)
         }
     }
@@ -58,7 +66,13 @@ class NetiScheduleRepository(
                     if (needAddLesson) lessons.add(lesson)
                 }
                 // add day in days
-                days.add(ScheduleDay(dayOfWeek = iteratorDay.dayOfWeek.value, lessons = lessons))
+                days.add(
+                    ScheduleDay(
+                        dayOfWeek = iteratorDay.dayOfWeek.value,
+                        lessons = lessons,
+                        date = iteratorDay
+                    )
+                )
                 iteratorDay = iteratorDay.plusDays(1)
             }
             // add week in weeks

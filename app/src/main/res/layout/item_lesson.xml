@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="16dp">
+
+        <TextView
+            android:id="@+id/tvLessonType"
+            style="@style/NstuCalendar.TextView.Medium.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Лекция" />
+
+        <TextView
+            android:id="@+id/tvCabinet"
+            style="@style/NstuCalendar.TextView.Medium.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/shape_default_corners"
+            android:backgroundTint="?attr/colorPrimary"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:textColor="?attr/colorOnPrimary"
+            app:drawableStartCompat="@drawable/ic_cabinet"
+            app:drawableTint="?attr/colorOnPrimary"
+            app:layout_constraintBottom_toBottomOf="@id/tvLessonType"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="7-1" />
+
+        <TextView
+            android:id="@+id/tvLessonName"
+            style="@style/NstuCalendar.TextView.Medium.Text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLessonType"
+            tools:text="Програмно-аппаратные средства обеспечения информационной безопасности" />
+
+        <TextView
+            android:id="@+id/tvLessonTime"
+            style="@style/NstuCalendar.TextView.Black.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLessonName"
+            tools:text="12:30 - 13:30" />
+
+        <TextView
+            android:id="@+id/tvTeacherName"
+            style="@style/NstuCalendar.TextView.Regular.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLessonName"
+            tools:text="Огнев И.А" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

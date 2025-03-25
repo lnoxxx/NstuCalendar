@@ -14,8 +14,7 @@ import kotlinx.coroutines.launch
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
-class SettingsRepository(private val dataStore: DataStore<Preferences>) {
-
+class SettingsManager(private val dataStore: DataStore<Preferences>) {
     val group: Flow<String?> = dataStore.data.map { it[GROUP] }
 
     fun changeGroup(group: String) {

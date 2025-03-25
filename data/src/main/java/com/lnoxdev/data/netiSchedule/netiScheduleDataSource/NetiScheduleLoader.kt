@@ -2,7 +2,6 @@ package com.lnoxdev.data.netiSchedule.netiScheduleDataSource
 
 import android.util.Log
 import com.lnoxdev.data.InternetException
-import com.lnoxdev.data.LoadWeekRangeException
 import com.lnoxdev.data.ParseException
 import com.lnoxdev.data.SaveException
 import com.lnoxdev.data.Time
@@ -59,16 +58,29 @@ class NetiScheduleLoader(
     }
 
     private suspend fun getScheduleDateRange(group: String): Pair<LocalDate, LocalDate> {
+        val scheduleHtml = loadScheduleWeekHtml(group)
+        val weeksInfo = parseScheduleWeekHtml(scheduleHtml)
+        val year = Time.getNowDate().year
+        val startDate = LocalDate.of(year, weeksInfo.startMonth, weeksInfo.startDay)
+        val endDate = startDate.plusWeeks(weeksInfo.weekCount.toLong()).minusDays(2)
+        return startDate to endDate
+    }
+
+    private suspend fun loadScheduleWeekHtml(group: String): String {
         try {
-            val scheduleHtml = netiApi.getScheduleWeek(group).body()?.string() ?: throw Exception()
-            val weeksInfo = HtmlScheduleParser.parseScheduleWeek(scheduleHtml)
-            val year = Time.getNowDate().year
-            val startDate = LocalDate.of(year, weeksInfo.startMonth, weeksInfo.startDay)
-            val endDate = startDate.plusWeeks(weeksInfo.weekCount.toLong()).minusDays(2)
-            return startDate to endDate
+            return netiApi.getScheduleWeek(group).body()?.string() ?: throw Exception()
         } catch (e: Exception) {
             Log.e("NetiScheduleLoader", e.toString())
-            throw LoadWeekRangeException("Failed to load week range")
+            throw InternetException("Failed load schedule")
+        }
+    }
+
+    private fun parseScheduleWeekHtml(scheduleHtml: String): WeeksParseResult {
+        try {
+            return HtmlScheduleParser.parseScheduleWeek(scheduleHtml)
+        } catch (e: Exception) {
+            Log.e("NetiScheduleLoader", e.toString())
+            throw ParseException("Failed parse schedule")
         }
     }
 }

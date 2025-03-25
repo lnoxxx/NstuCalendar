@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="NstuCalendar" />
+
+    <!--    TextView-->
+
+    <style name="NstuCalendar.TextView">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <!--    TextView.Medium-->
+    <style name="NstuCalendar.TextView.Medium">
+        <item name="android:fontFamily">@font/medium</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Medium.Headline">
+        <item name="android:textSize">@dimen/text_size_headline</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Medium.Headline.Outline">
+        <item name="android:textColor">?attr/colorOutline</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Medium.Title">
+        <item name="android:textSize">@dimen/text_size_title</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Medium.Text">
+        <item name="android:textSize">@dimen/text_size_text</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Medium.Text.Outline">
+        <item name="android:textColor">?attr/colorOutline</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Medium.Label">
+        <item name="android:textSize">@dimen/text_size_label</item>
+    </style>
+
+    <!--    TextView.Black-->
+    <style name="NstuCalendar.TextView.Black">
+        <item name="android:fontFamily">@font/black</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Black.Headline">
+        <item name="android:textSize">@dimen/text_size_headline</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Black.Title">
+        <item name="android:textSize">@dimen/text_size_title</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Black.Text">
+        <item name="android:textSize">@dimen/text_size_text</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Black.Label">
+        <item name="android:textSize">@dimen/text_size_label</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Black.Label.Outline">
+        <item name="android:textColor">?attr/colorOutline</item>
+    </style>
+
+    <!--    TextView.Regular-->
+    <style name="NstuCalendar.TextView.Regular">
+        <item name="android:fontFamily">@font/regular</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Regular.Headline">
+        <item name="android:textSize">@dimen/text_size_headline</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Regular.Title">
+        <item name="android:textSize">@dimen/text_size_title</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Regular.Text">
+        <item name="android:textSize">@dimen/text_size_text</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Regular.Label">
+        <item name="android:textSize">@dimen/text_size_label</item>
+    </style>
+
+    <!--    TextView.Light-->
+    <style name="NstuCalendar.TextView.Light">
+        <item name="android:fontFamily">@font/light</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Light.Headline">
+        <item name="android:textSize">@dimen/text_size_headline</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Light.Title">
+        <item name="android:textSize">@dimen/text_size_title</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Light.Text">
+        <item name="android:textSize">@dimen/text_size_text</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Light.Label">
+        <item name="android:textSize">@dimen/text_size_label</item>
+    </style>
+
+    <!--    CardView-->
+
+    <style name="NstuCalendar.CardView.Filled" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">@dimen/corner_radius_default</item>
+    </style>
+
+    <style name="NstuCalendar.CardView.Elevated" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/corner_radius_default</item>
+    </style>
+
+    <style name="NstuCalendar.CardView.Outlined" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardCornerRadius">@dimen/corner_radius_default</item>
+    </style>
+
+</resources>
