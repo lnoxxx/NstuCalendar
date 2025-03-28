@@ -1,11 +1,12 @@
 package com.lnoxdev.nstucalendarparcer.models
 
+import com.lnoxdev.nstucalendarparcer.R
 import java.time.LocalDate
 import java.time.LocalTime
 
 data class WeekScheduleUiState(
     val weekIndex: Int,
-    val schedule: List<WeekScheduleItem>
+    val schedule: List<WeekScheduleItem>?
 )
 
 sealed class WeekScheduleItem
@@ -18,12 +19,14 @@ data class WeekScheduleLesson(
     val startTime: LocalTime,
     val endTime: LocalTime,
     val isFinished: Boolean,
+    val index: Int,
 ) : WeekScheduleItem()
 
 data class WeekScheduleDate(
     val date: LocalDate,
     val dayOfWeek: Int,
     val isFinished: Boolean,
+    val isToday: Boolean,
 ) : WeekScheduleItem()
 
 data class WeekScheduleNowLessonTime(
@@ -37,6 +40,9 @@ data class WeekScheduleTeacher(
     val url: String?,
 )
 
-enum class WeekScheduleLessonType {
-    LECTURE, PRACTICE, LABORATORY, OTHER,
+enum class WeekScheduleLessonType(val stringResource: Int) {
+    LECTURE(R.string.lesson_type_lecture),
+    PRACTICE(R.string.lesson_type_practice),
+    LABORATORY(R.string.lesson_type_laboratory),
+    OTHER(R.string.lesson_type_other),
 }

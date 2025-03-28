@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">NstuCalendar</string>
+
+    <string name="lesson_type_lecture">Lecture</string>
+    <string name="lesson_type_practice">Practice</string>
+    <string name="lesson_type_laboratory">Laboratory</string>
+    <string name="lesson_type_other">Other</string>
+    
+    <string name="day_of_week_monday">Monday</string>
+    <string name="day_of_week_tuesday">Tuesday</string>
+    <string name="day_of_week_wednesday">Wednesday</string>
+    <string name="day_of_week_thursday">Thursday</string>
+    <string name="day_of_week_friday">Friday</string>
+    <string name="day_of_week_saturday">Saturday</string>
+    <string name="day_of_week_sunday">Sunday</string>
+    <string name="day_of_week_unknown">Unknown</string>
+
 </resources>

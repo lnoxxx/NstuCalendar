@@ -21,14 +21,11 @@ class NetiScheduleRepository(
     private val netiScheduleLoader: NetiScheduleLoader,
     private val settingsManager: SettingsManager,
 ) {
-    // All schedule
     private val schedule: Flow<Schedule?> = scheduleDao.getSchedule()
 
-    // Weekly schedule
     val weeklySchedule: Flow<WeeklySchedule?> =
         schedule.map { schedule -> schedule?.let { scheduleToWeeklySchedule(it) } }
 
-    // Schedule for week
     fun getWeekSchedule(weekNumber: Int): Flow<ScheduleWeek?> {
         return weeklySchedule.map { it?.weeks?.getOrNull(weekNumber) }
     }
@@ -44,16 +41,12 @@ class NetiScheduleRepository(
     private fun scheduleToWeeklySchedule(schedule: Schedule): WeeklySchedule {
         var iteratorWeek = schedule.startDate
         var weekCounter = 1
-        // result weeks list
         val weeks = mutableListOf<ScheduleWeek>()
         while (iteratorWeek.isBefore(schedule.endDate)) {
             var iteratorDay = iteratorWeek
-            // result days list
             val days = mutableListOf<ScheduleDay>()
             while (iteratorDay.dayOfWeek.value <= 6) {
-                // day in schedule
                 val scheduleDay = schedule.days[iteratorDay.dayOfWeek.value - 1]
-                // result day list
                 val lessons = mutableListOf<Lesson>()
                 for (lesson in scheduleDay.lessons) {
                     val isEvenWeek = weekCounter % 2 == 0
@@ -65,7 +58,6 @@ class NetiScheduleRepository(
                     }
                     if (needAddLesson) lessons.add(lesson)
                 }
-                // add day in days
                 days.add(
                     ScheduleDay(
                         dayOfWeek = iteratorDay.dayOfWeek.value,
@@ -75,12 +67,10 @@ class NetiScheduleRepository(
                 )
                 iteratorDay = iteratorDay.plusDays(1)
             }
-            // add week in weeks
             weeks.add(ScheduleWeek(days))
             weekCounter += 1
             iteratorWeek = iteratorWeek.plusWeeks(1)
         }
-        // result
         return WeeklySchedule(
             group = schedule.group,
             semester = schedule.semester,

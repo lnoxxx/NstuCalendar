@@ -7,7 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.lnoxdev.nstucalendarparcer.databinding.FragmentWeekBinding
+import com.lnoxdev.nstucalendarparcer.models.WeekScheduleItem
+import com.lnoxdev.nstucalendarparcer.models.WeekScheduleUiState
+import com.lnoxdev.nstucalendarparcer.weeklyScheduleFragment.weekFragment.weekRecyclerView.WeekRecyclerViewAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -15,7 +19,12 @@ import kotlinx.coroutines.launch
 class WeekFragment : Fragment() {
 
     private var _binding: FragmentWeekBinding? = null
-    private val binding get() = _binding ?: throw IllegalStateException("Week binding null!")
+    private val binding
+        get() = _binding ?: throw IllegalStateException("Week fragment binding null!")
+
+    private var _adapter: WeekRecyclerViewAdapter? = null
+    private val adapter
+        get() = _adapter ?: throw IllegalStateException("Week fragment rvAdapter null!")
 
     private val viewModel: WeekViewModel by lazy {
         val viewModel: WeekViewModel by viewModels()
@@ -30,6 +39,7 @@ class WeekFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentWeekBinding.inflate(inflater, container, false)
+        initRecyclerView()
         return binding.root
     }
 
@@ -37,9 +47,23 @@ class WeekFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         lifecycleScope.launch {
             viewModel.uiState.collect { state ->
-
+                state?.let { bindNewUiState(it) }
             }
         }
+    }
+
+    private fun initRecyclerView() {
+        _adapter = WeekRecyclerViewAdapter()
+        binding.rvWeekSchedule.adapter = adapter
+        binding.rvWeekSchedule.layoutManager = LinearLayoutManager(context)
+    }
+
+    private fun bindNewUiState(state: WeekScheduleUiState) {
+        state.schedule?.let { updateSchedule(it) }
+    }
+
+    private fun updateSchedule(schedule: List<WeekScheduleItem>) {
+        adapter.updateSchedule(schedule)
     }
 
     companion object {
