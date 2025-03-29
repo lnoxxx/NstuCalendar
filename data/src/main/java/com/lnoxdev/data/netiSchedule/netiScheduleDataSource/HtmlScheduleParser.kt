@@ -87,7 +87,10 @@ object HtmlScheduleParser {
     private fun parseLessonName(lesson: Element): String? {
         val lessonNameRaw =
             lesson.select(".schedule__table-item").firstOrNull()?.ownText() ?: return null
-        val lessonName = lessonNameRaw.replace("·", "").trim()
+        val lessonName = lessonNameRaw
+            .replace("·", "")
+            .replace(",", "")
+            .trim()
         return lessonName.ifEmpty { null }
     }
 
