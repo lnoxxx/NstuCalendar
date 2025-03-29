@@ -2,7 +2,6 @@ package com.lnoxdev.nstucalendarparcer.weeklyScheduleFragment.weekFragment.weekR
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.lnoxdev.nstucalendarparcer.R
 import com.lnoxdev.nstucalendarparcer.databinding.ItemScheduleDateBinding
 import com.lnoxdev.nstucalendarparcer.models.WeekScheduleDate
 import com.lnoxdev.nstucalendarparcer.utils.getDateFormatter

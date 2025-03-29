@@ -5,7 +5,7 @@
     <string name="lesson_type_practice">Practice</string>
     <string name="lesson_type_laboratory">Laboratory</string>
     <string name="lesson_type_other">Other</string>
-    
+
     <string name="day_of_week_monday">Monday</string>
     <string name="day_of_week_tuesday">Tuesday</string>
     <string name="day_of_week_wednesday">Wednesday</string>
@@ -14,5 +14,9 @@
     <string name="day_of_week_saturday">Saturday</string>
     <string name="day_of_week_sunday">Sunday</string>
     <string name="day_of_week_unknown">Unknown</string>
+    <string name="bottom_nav_schedule">Schedule</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bottom_nav_settings">Settings</string>
 
 </resources>

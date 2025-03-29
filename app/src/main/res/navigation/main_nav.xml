@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/weeklyScheduleFragment">
+    app:startDestination="@+id/schedule_tab">
 
-    <fragment
-        android:id="@+id/weeklyScheduleFragment"
-        android:name="com.lnoxdev.nstucalendarparcer.weeklyScheduleFragment.WeeklyScheduleFragment"
-        android:label="fragment_weekly_schedule"
-        tools:layout="@layout/fragment_weekly_schedule" />
+    <include app:graph="@navigation/schedule_tab" />
+    <include app:graph="@navigation/settings_tab" />
 </navigation>
