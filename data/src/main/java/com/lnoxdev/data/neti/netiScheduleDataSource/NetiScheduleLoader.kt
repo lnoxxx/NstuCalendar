@@ -1,12 +1,13 @@
-package com.lnoxdev.data.netiSchedule.netiScheduleDataSource
+package com.lnoxdev.data.neti.netiScheduleDataSource
 
 import android.util.Log
 import com.lnoxdev.data.InternetException
 import com.lnoxdev.data.ParseException
 import com.lnoxdev.data.SaveException
 import com.lnoxdev.data.Time
-import com.lnoxdev.data.netiSchedule.netiScheduleDatabase.Schedule
-import com.lnoxdev.data.netiSchedule.netiScheduleDatabase.ScheduleDao
+import com.lnoxdev.data.neti.NetiApi
+import com.lnoxdev.data.neti.netiScheduleDatabase.Schedule
+import com.lnoxdev.data.neti.netiScheduleDatabase.ScheduleDao
 import java.time.LocalDate
 
 class NetiScheduleLoader(

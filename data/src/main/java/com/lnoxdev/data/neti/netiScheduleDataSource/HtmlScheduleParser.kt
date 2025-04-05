@@ -1,4 +1,4 @@
-package com.lnoxdev.data.netiSchedule.netiScheduleDataSource
+package com.lnoxdev.data.neti.netiScheduleDataSource
 
 import com.lnoxdev.data.Time
 import com.lnoxdev.data.models.schedule.ScheduleDay
@@ -7,7 +7,7 @@ import com.lnoxdev.data.models.schedule.lesson.LessonDateType
 import com.lnoxdev.data.models.schedule.lesson.LessonType
 import com.lnoxdev.data.models.Teacher
 import com.lnoxdev.data.models.schedule.lesson.LessonTime
-import com.lnoxdev.data.netiSchedule.netiScheduleDatabase.Schedule
+import com.lnoxdev.data.neti.netiScheduleDatabase.Schedule
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element

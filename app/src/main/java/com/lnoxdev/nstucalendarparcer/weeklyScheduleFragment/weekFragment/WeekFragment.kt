@@ -1,5 +1,6 @@
 package com.lnoxdev.nstucalendarparcer.weeklyScheduleFragment.weekFragment
 
+import android.content.res.Resources
 import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,10 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.lnoxdev.nstucalendarparcer.R
 import com.lnoxdev.nstucalendarparcer.databinding.FragmentWeekBinding
 import com.lnoxdev.nstucalendarparcer.models.WeekScheduleItem
 import com.lnoxdev.nstucalendarparcer.models.WeekScheduleUiState
 import com.lnoxdev.nstucalendarparcer.weeklyScheduleFragment.weekFragment.weekRecyclerView.WeekRecyclerViewAdapter
+import com.lnoxdev.nstucalendarparcer.weeklyScheduleFragment.weekFragment.weekRecyclerView.WeekScheduleDecorator
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -54,8 +57,10 @@ class WeekFragment : Fragment() {
 
     private fun initRecyclerView() {
         _adapter = WeekRecyclerViewAdapter()
+        val margin = resources.getDimension(R.dimen.schedule_margin).toInt()
         binding.rvWeekSchedule.adapter = adapter
         binding.rvWeekSchedule.layoutManager = LinearLayoutManager(context)
+        binding.rvWeekSchedule.addItemDecoration(WeekScheduleDecorator(margin))
     }
 
     private fun bindNewUiState(state: WeekScheduleUiState) {

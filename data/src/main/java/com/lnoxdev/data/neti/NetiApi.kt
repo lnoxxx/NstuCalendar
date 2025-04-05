@@ -1,4 +1,4 @@
-package com.lnoxdev.data.netiSchedule.netiScheduleDataSource
+package com.lnoxdev.data.neti
 
 import okhttp3.ResponseBody
 import retrofit2.Response
@@ -17,4 +17,7 @@ interface NetiApi {
         @Query("group") group: String,
         @Query("week") week: String = "1",
     ): Response<ResponseBody>
+
+    @GET("studies/schedule/schedule_classes")
+    suspend fun getGroupSearchResult(@Query("query") searchText: String): Response<ResponseBody>
 }

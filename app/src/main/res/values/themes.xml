@@ -1,10 +1,11 @@
 <resources>
 
-    <style name="Base.Theme.NstuCalendarParcer" parent="Theme.Material3.Light.NoActionBar">
+    <style name="Base.Theme.NstuCalendar" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:fontFamily">@font/medium</item>
         <item name="android:textViewStyle">@style/NstuCalendar.TextView.Medium</item>
         <item name="materialCardViewStyle">@style/NstuCalendar.CardView.Filled</item>
-
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.NstuCalendar.BottomSheet</item>
+        <!--        Material 3 colors-->
         <item name="colorPrimary">@color/md_theme_primary</item>
         <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>
@@ -52,6 +53,11 @@
         <item name="colorSurfaceContainerHigh">@color/md_theme_surfaceContainerHigh</item>
         <item name="colorSurfaceContainerHighest">@color/md_theme_surfaceContainerHighest</item>
     </style>
+    <!--    AppTheme-->
+    <style name="Theme.NstuCalendar" parent="Base.Theme.NstuCalendar" />
 
-    <style name="Theme.NstuCalendarParcer" parent="Base.Theme.NstuCalendarParcer" />
+    <style name="ThemeOverlay.NstuCalendar.BottomSheet" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/NstuCalendar.ModalBottomSheetDialog</item>
+    </style>
+
 </resources>

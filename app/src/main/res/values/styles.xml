@@ -3,6 +3,42 @@
 
     <style name="NstuCalendar" />
 
+    <!--    TextInputLayout-->
+
+    <style name="NstuCalendar.TextInputLayout.Filled" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/corner_radius_default</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/corner_radius_default</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/corner_radius_default</item>
+        <item name="boxCornerRadiusTopStart">@dimen/corner_radius_default</item>
+    </style>
+
+    <style name="NstuCalendar.TextInputLayout.Outlined" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusBottomEnd">@dimen/corner_radius_default</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/corner_radius_default</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/corner_radius_default</item>
+        <item name="boxCornerRadiusTopStart">@dimen/corner_radius_default</item>
+    </style>
+
+    <!--    BottomSheet-->
+
+    <style name="NstuCalendar.ModalBottomSheetDialog" parent="Widget.Material3.BottomSheet.Modal" />
+
+    <!--    CardView-->
+
+    <style name="NstuCalendar.CardView.Filled" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">@dimen/corner_radius_default</item>
+    </style>
+
+    <style name="NstuCalendar.CardView.Elevated" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/corner_radius_default</item>
+    </style>
+
+    <style name="NstuCalendar.CardView.Outlined" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardCornerRadius">@dimen/corner_radius_default</item>
+    </style>
+
     <!--    TextView-->
 
     <style name="NstuCalendar.TextView">
@@ -36,6 +72,24 @@
 
     <style name="NstuCalendar.TextView.Medium.Label">
         <item name="android:textSize">@dimen/text_size_label</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Medium.Label.PrimaryBackground">
+        <item name="android:background">@drawable/shape_default_corners</item>
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
+        <item name="android:paddingHorizontal">12dp</item>
+        <item name="android:paddingVertical">4dp</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="drawableTint">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="NstuCalendar.TextView.Medium.Label.OutlineBackground">
+        <item name="android:background">@drawable/shape_default_corners</item>
+        <item name="android:backgroundTint">?attr/colorOutline</item>
+        <item name="android:paddingHorizontal">12dp</item>
+        <item name="android:paddingVertical">4dp</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="drawableTint">?attr/colorOnPrimary</item>
     </style>
 
     <!--    TextView.Black-->
@@ -103,20 +157,6 @@
 
     <style name="NstuCalendar.TextView.Light.Label">
         <item name="android:textSize">@dimen/text_size_label</item>
-    </style>
-
-    <!--    CardView-->
-
-    <style name="NstuCalendar.CardView.Filled" parent="Widget.Material3.CardView.Filled">
-        <item name="cardCornerRadius">@dimen/corner_radius_default</item>
-    </style>
-
-    <style name="NstuCalendar.CardView.Elevated" parent="Widget.Material3.CardView.Elevated">
-        <item name="cardCornerRadius">@dimen/corner_radius_default</item>
-    </style>
-
-    <style name="NstuCalendar.CardView.Outlined" parent="Widget.Material3.CardView.Outlined">
-        <item name="cardCornerRadius">@dimen/corner_radius_default</item>
     </style>
 
 </resources>

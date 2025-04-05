@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="schedule_margin">8dp</dimen>
+    <dimen name="group_margin">8dp</dimen>
+
     <dimen name="corner_radius_default">32dp</dimen>
 
     <dimen name="text_size_headline">22sp</dimen>

@@ -4,11 +4,12 @@ import android.content.Context
 import androidx.room.Room
 import com.lnoxdev.data.appSettings.SettingsManager
 import com.lnoxdev.data.appSettings.dataStore
-import com.lnoxdev.data.netiSchedule.NetiScheduleRepository
-import com.lnoxdev.data.netiSchedule.netiScheduleDataSource.NetiApi
-import com.lnoxdev.data.netiSchedule.netiScheduleDataSource.NetiScheduleLoader
-import com.lnoxdev.data.netiSchedule.netiScheduleDatabase.ScheduleDao
-import com.lnoxdev.data.netiSchedule.netiScheduleDatabase.ScheduleDatabase
+import com.lnoxdev.data.neti.NetiScheduleRepository
+import com.lnoxdev.data.neti.NetiApi
+import com.lnoxdev.data.neti.netiFindGroupDataSource.NetiFindGroupRepository
+import com.lnoxdev.data.neti.netiScheduleDataSource.NetiScheduleLoader
+import com.lnoxdev.data.neti.netiScheduleDatabase.ScheduleDao
+import com.lnoxdev.data.neti.netiScheduleDatabase.ScheduleDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -89,4 +90,9 @@ object DataModule {
         settingsManager: SettingsManager,
     ): NetiScheduleRepository =
         NetiScheduleRepository(scheduleDao, netiScheduleLoader, settingsManager)
+
+    @Provides
+    @Singleton
+    fun provideNetiFindGroupRepository(netiApi: NetiApi): NetiFindGroupRepository =
+        NetiFindGroupRepository(netiApi)
 }

@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.lnoxdev.data.Time
 import com.lnoxdev.data.models.schedule.lesson.LessonType
 import com.lnoxdev.data.models.weeklySchedule.ScheduleWeek
-import com.lnoxdev.data.netiSchedule.NetiScheduleRepository
+import com.lnoxdev.data.neti.NetiScheduleRepository
 import com.lnoxdev.nstucalendarparcer.models.WeekScheduleDate
 import com.lnoxdev.nstucalendarparcer.models.WeekScheduleItem
 import com.lnoxdev.nstucalendarparcer.models.WeekScheduleLesson

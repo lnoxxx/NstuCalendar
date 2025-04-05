@@ -1,4 +1,4 @@
-package com.lnoxdev.data.netiSchedule
+package com.lnoxdev.data.neti
 
 import com.lnoxdev.data.SettingGroupException
 import com.lnoxdev.data.appSettings.SettingsManager
@@ -7,9 +7,9 @@ import com.lnoxdev.data.models.schedule.lesson.LessonDateType
 import com.lnoxdev.data.models.schedule.ScheduleDay
 import com.lnoxdev.data.models.weeklySchedule.ScheduleWeek
 import com.lnoxdev.data.models.weeklySchedule.WeeklySchedule
-import com.lnoxdev.data.netiSchedule.netiScheduleDataSource.NetiScheduleLoader
-import com.lnoxdev.data.netiSchedule.netiScheduleDatabase.Schedule
-import com.lnoxdev.data.netiSchedule.netiScheduleDatabase.ScheduleDao
+import com.lnoxdev.data.neti.netiScheduleDataSource.NetiScheduleLoader
+import com.lnoxdev.data.neti.netiScheduleDatabase.Schedule
+import com.lnoxdev.data.neti.netiScheduleDatabase.ScheduleDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -32,8 +32,8 @@ class NetiScheduleRepository(
 
     suspend fun updateSchedule() {
         withContext(Dispatchers.IO) {
-            val group =
-                settingsManager.group.first() ?: throw SettingGroupException("Group not found")
+            val group = settingsManager.settings.first().group
+                ?: throw SettingGroupException("Group not found")
             netiScheduleLoader.updateSchedule(group)
         }
     }

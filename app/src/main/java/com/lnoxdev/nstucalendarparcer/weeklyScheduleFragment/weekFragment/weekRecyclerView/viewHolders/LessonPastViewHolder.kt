@@ -2,11 +2,11 @@ package com.lnoxdev.nstucalendarparcer.weeklyScheduleFragment.weekFragment.weekR
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.lnoxdev.nstucalendarparcer.databinding.ItemLessonPastBinding
+import com.lnoxdev.nstucalendarparcer.databinding.ItemScheduleLessonPastBinding
 import com.lnoxdev.nstucalendarparcer.models.WeekScheduleLesson
 
 class LessonPastViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    private val binding = ItemLessonPastBinding.bind(view)
+    private val binding = ItemScheduleLessonPastBinding.bind(view)
     fun bind(lesson: WeekScheduleLesson) {
         val lessonName = lesson.name
         val lessonTimeStart = lesson.startTime.toString()

@@ -23,17 +23,11 @@
 
         <TextView
             android:id="@+id/tvCabinet"
-            style="@style/NstuCalendar.TextView.Medium.Label"
+            style="@style/NstuCalendar.TextView.Medium.Label.PrimaryBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:background="@drawable/shape_default_corners"
-            android:backgroundTint="?attr/colorPrimary"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="4dp"
-            android:textColor="?attr/colorOnPrimary"
             app:drawableStartCompat="@drawable/ic_cabinet"
-            app:drawableTint="?attr/colorOnPrimary"
             app:layout_constraintBottom_toBottomOf="@id/tvLessonType"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

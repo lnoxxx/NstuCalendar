@@ -1,4 +1,4 @@
-package com.lnoxdev.data.netiSchedule.netiScheduleDatabase
+package com.lnoxdev.data.neti.netiScheduleDatabase
 
 import androidx.room.TypeConverter
 import com.lnoxdev.data.models.schedule.ScheduleDay

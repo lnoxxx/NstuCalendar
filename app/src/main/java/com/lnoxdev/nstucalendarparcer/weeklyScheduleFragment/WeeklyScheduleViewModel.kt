@@ -7,7 +7,8 @@ import com.lnoxdev.data.InternetException
 import com.lnoxdev.data.ParseException
 import com.lnoxdev.data.SaveException
 import com.lnoxdev.data.SettingGroupException
-import com.lnoxdev.data.netiSchedule.NetiScheduleRepository
+import com.lnoxdev.data.appSettings.SettingsManager
+import com.lnoxdev.data.neti.NetiScheduleRepository
 import com.lnoxdev.nstucalendarparcer.models.UiWeeklyScheduleExceptions
 import com.lnoxdev.nstucalendarparcer.models.WeeklyScheduleState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,14 +21,19 @@ import javax.inject.Inject
 
 @HiltViewModel
 class WeeklyScheduleViewModel @Inject constructor(
-    private val scheduleRepository: NetiScheduleRepository
+    private val scheduleRepository: NetiScheduleRepository,
+    private val settingsManager: SettingsManager,
 ) : ViewModel() {
 
     private val _uiState: MutableStateFlow<WeeklyScheduleState?> = MutableStateFlow(null)
     val uiState: StateFlow<WeeklyScheduleState?> = _uiState
 
     init {
-        startUpdateSchedule()
+        viewModelScope.launch {
+            settingsManager.settings.collect {
+                startUpdateSchedule()
+            }
+        }
         startCollectSchedule()
     }
 

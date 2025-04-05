@@ -28,17 +28,17 @@ class WeekRecyclerViewAdapter : RecyclerView.Adapter<ViewHolder>() {
             }
 
             VIEW_TYPE_LESSON_PAST -> {
-                val view = inflateView(R.layout.item_lesson_past, parent)
+                val view = inflateView(R.layout.item_schedule_lesson_past, parent)
                 LessonPastViewHolder(view)
             }
 
             VIEW_TYPE_LESSON -> {
-                val view = inflateView(R.layout.item_lesson, parent)
+                val view = inflateView(R.layout.item_schedule_lesson, parent)
                 LessonViewHolder(view)
             }
 
             VIEW_TYPE_NOW_TIME -> {
-                val view = inflateView(R.layout.item_now_lesson_time, parent)
+                val view = inflateView(R.layout.item_schedule_now_lesson_time, parent)
                 NowLessonTimeViewHolder(view)
             }
 
