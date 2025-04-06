@@ -5,10 +5,6 @@ import java.time.LocalDateTime
 data class WeeklyScheduleState(
     val lastUpdateTime: LocalDateTime?,
     val weeksCount: Int?,
-    val isUpdate: Boolean = false,
-    val exception: UiWeeklyScheduleExceptions? = null,
+    val group: String?,
+    val nowWeekIndex: Int?,
 )
-
-enum class UiWeeklyScheduleExceptions {
-    INTERNET, PARSE, SAVE, SETTING_GROUP, UNKNOWN,
-}

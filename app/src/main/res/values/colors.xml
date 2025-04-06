@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="transparent">#00000000</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
@@ -52,4 +53,8 @@
     <color name="md_theme_surfaceContainer">#ECEDF4</color>
     <color name="md_theme_surfaceContainerHigh">#E7E8EE</color>
     <color name="md_theme_surfaceContainerHighest">#E1E2E8</color>
+
+    <color name="colorLecture">#715C0C</color>
+    <color name="colorPractice">#306A43</color>
+    <color name="colorLaboratory">#904A46</color>
 </resources>

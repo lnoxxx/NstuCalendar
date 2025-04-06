@@ -30,22 +30,15 @@ android {
 
 dependencies {
     implementation(libs.androidx.datastore.preferences)
-
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
-
     implementation(libs.kotlinx.serialization.json)
-
     implementation(libs.jsoup)
-
     implementation(libs.retrofit)
-
     implementation(libs.okhttp)
     implementation(libs.okhttp3.logging.interceptor)
-
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
-
     implementation(libs.androidx.core.ktx)
 }

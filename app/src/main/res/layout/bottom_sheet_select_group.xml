@@ -38,8 +38,8 @@
         android:id="@+id/rvGroups"
         android:layout_width="0dp"
         android:layout_height="300dp"
-        android:layout_marginHorizontal="4dp"
         android:layout_marginTop="8dp"
+        android:paddingHorizontal="4dp"
         android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,12 +47,10 @@
 
     <TextView
         android:id="@+id/tvException"
-        style="@style/NstuCalendar.TextView.Light.Title"
+        style="@style/NstuCalendar.TextView.Light.Title.Hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="?attr/colorOutline"
-        app:drawableTint="?attr/colorOutline"
         app:drawableTopCompat="@drawable/ic_error"
         app:layout_constraintBottom_toBottomOf="@id/rvGroups"
         app:layout_constraintEnd_toEndOf="@id/rvGroups"

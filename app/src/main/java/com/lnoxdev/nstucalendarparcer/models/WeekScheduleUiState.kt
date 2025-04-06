@@ -6,7 +6,7 @@ import java.time.LocalTime
 
 data class WeekScheduleUiState(
     val weekIndex: Int,
-    val schedule: List<WeekScheduleItem>?
+    val schedule: List<WeekScheduleItem>?,
 )
 
 sealed class WeekScheduleItem
@@ -40,9 +40,9 @@ data class WeekScheduleTeacher(
     val url: String?,
 )
 
-enum class WeekScheduleLessonType(val stringResource: Int) {
-    LECTURE(R.string.lesson_type_lecture),
-    PRACTICE(R.string.lesson_type_practice),
-    LABORATORY(R.string.lesson_type_laboratory),
-    OTHER(R.string.lesson_type_other),
+enum class WeekScheduleLessonType(val stringResource: Int, val colorResId: Int?) {
+    LECTURE(R.string.lesson_type_lecture, R.color.colorLecture),
+    PRACTICE(R.string.lesson_type_practice, R.color.colorPractice),
+    LABORATORY(R.string.lesson_type_laboratory, R.color.colorLaboratory),
+    OTHER(R.string.lesson_type_other, null),
 }
