@@ -1,19 +1,6 @@
 <resources>
-    <!--    AppTheme-->
-    <style name="Theme.NstuCalendar" parent="Base.Theme.NstuCalendar.Default">
-        <item name="android:fontFamily">@font/medium</item>
-        <item name="android:textViewStyle">@style/NstuCalendar.TextView.Medium</item>
-        <item name="materialCardViewStyle">@style/NstuCalendar.CardView.Filled</item>
-        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.NstuCalendar.BottomSheet</item>
-    </style>
-
-    <!--    BottomSheetDialog-->
-    <style name="ThemeOverlay.NstuCalendar.BottomSheet" parent="ThemeOverlay.Material3.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/NstuCalendar.ModalBottomSheetDialog</item>
-    </style>
-
     <!--    Default-->
-    <style name="Base.Theme.NstuCalendar.Default" parent="Theme.Material3.Light.NoActionBar">
+    <style name="Base.Theme.NstuCalendar.Default" parent="Theme.Material3.Dark.NoActionBar">
         <item name="colorPrimary">@color/md_theme_primary</item>
         <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>

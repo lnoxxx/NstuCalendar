@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.shape.MaterialShapeDrawable
@@ -16,6 +18,7 @@ import com.lnoxdev.nstucalendarparcer.exceptions.showErrorSnackBar
 import com.lnoxdev.nstucalendarparcer.models.UiExceptions
 import com.lnoxdev.nstucalendarparcer.models.WeeklyScheduleState
 import com.lnoxdev.nstucalendarparcer.utils.getDateTimeFormatter
+import com.lnoxdev.nstucalendarparcer.utils.getThemeColor
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -36,6 +39,11 @@ class WeeklyScheduleFragment : Fragment() {
         // fix edgeToEdge
         binding.ablWeeklySchedule.statusBarForeground =
             MaterialShapeDrawable.createWithElevationOverlay(context)
+        binding.ablWeeklySchedule
+            .setStatusBarForegroundColor(
+                requireContext()
+                    .getThemeColor(com.google.android.material.R.attr.colorSurfaceContainer)
+            )
         // default visibility
         binding.tvGroup.visibility = View.GONE
         binding.tvLastUpdateTime.visibility = View.GONE

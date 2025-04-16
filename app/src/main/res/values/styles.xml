@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="NstuCalendar" />
 
     <!--    Button-->
 
-    <style name="NstuCalendar.Button" parent="Widget.Material3.Button"/>
+    <style name="NstuCalendar.Button" parent="Widget.Material3.Button" />
 
     <!--    ToolBar-->
 
-    <style name="NstuCalendar.Toolbar" parent="Widget.Material3.Toolbar"/>
+    <style name="NstuCalendar.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextColor">?attr/colorOnSurface</item>
+    </style>
 
     <!--    TabLayout-->
 
-    <style name="NstuCalendar.TabLayout.Secondary" parent="Widget.Material3.TabLayout.Secondary"/>
+    <style name="NstuCalendar.TabLayout.Secondary" parent="Widget.Material3.TabLayout.Secondary">
+        <item name="android:background">@color/transparent</item>
+        <item name="tabTextColor">@color/tab_layout_color_selector</item>
+    </style>
 
     <!--    TextInputLayout-->
 
@@ -88,7 +94,7 @@
     </style>
 
     <style name="NstuCalendar.TextView.Medium.Label.PrimaryBackground">
-        <item name="android:background">@drawable/shape_default_corners</item>
+        <item name="android:background">@drawable/shape_corners_circle</item>
         <item name="android:backgroundTint">?attr/colorPrimary</item>
         <item name="android:paddingHorizontal">12dp</item>
         <item name="android:paddingVertical">4dp</item>
@@ -98,7 +104,7 @@
     </style>
 
     <style name="NstuCalendar.TextView.Medium.Label.OutlineVariantBackground">
-        <item name="android:background">@drawable/shape_default_corners</item>
+        <item name="android:background">@drawable/shape_corners_circle</item>
         <item name="android:backgroundTint">?attr/colorOutlineVariant</item>
         <item name="android:paddingHorizontal">12dp</item>
         <item name="android:paddingVertical">4dp</item>
@@ -108,7 +114,7 @@
     </style>
 
     <style name="NstuCalendar.TextView.Medium.Label.TertiaryBackground">
-        <item name="android:background">@drawable/shape_default_corners</item>
+        <item name="android:background">@drawable/shape_corners_circle</item>
         <item name="android:backgroundTint">?attr/colorTertiaryContainer</item>
         <item name="android:paddingHorizontal">12dp</item>
         <item name="android:paddingVertical">4dp</item>
@@ -118,7 +124,7 @@
     </style>
 
     <style name="NstuCalendar.TextView.Medium.Label.SecondaryBackground">
-        <item name="android:background">@drawable/shape_default_corners</item>
+        <item name="android:background">@drawable/shape_corners_circle</item>
         <item name="android:backgroundTint">?attr/colorSecondaryContainer</item>
         <item name="android:paddingHorizontal">12dp</item>
         <item name="android:paddingVertical">4dp</item>
@@ -129,7 +135,7 @@
 
 
     <style name="NstuCalendar.TextView.Medium.Label.OutlineBackground">
-        <item name="android:background">@drawable/shape_default_corners</item>
+        <item name="android:background">@drawable/shape_corners_circle</item>
         <item name="android:backgroundTint">?attr/colorOutline</item>
         <item name="android:paddingHorizontal">12dp</item>
         <item name="android:paddingVertical">4dp</item>
