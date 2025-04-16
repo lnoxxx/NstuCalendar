@@ -103,7 +103,8 @@ class WeeklyScheduleFragment : Fragment() {
         if (updateTime != null) {
             binding.tvLastUpdateTime.visibility = View.VISIBLE
             binding.tvLastUpdateTime.text =
-                updateTime.format(getDateTimeFormatter()) ?: getString(R.string.not_update)
+                updateTime.format(getDateTimeFormatter(state.is12HourTimeFormat))
+                    ?: getString(R.string.not_update)
         } else {
             binding.tvLastUpdateTime.visibility = View.GONE
         }

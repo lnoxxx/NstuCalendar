@@ -43,13 +43,15 @@ class WeeklyScheduleViewModel @Inject constructor(
         viewModelScope.launch {
             scheduleRepository.weeklySchedule.collect { schedule ->
                 val group = settingsManager.settings.first().group
+                val is12hourTimeFormat = settingsManager.settings.first().is12TimeFormat
                 val nowDate = Time.getNowDateTime().toLocalDate()
                 schedule?.let {
                     _uiState.value = WeeklyScheduleState(
                         lastUpdateTime = it.saveTime,
                         weeksCount = it.weeks.size,
                         group = group,
-                        nowWeekIndex = getWeekNumber(schedule.startDate, schedule.endDate, nowDate)
+                        nowWeekIndex = getWeekNumber(schedule.startDate, schedule.endDate, nowDate),
+                        is12HourTimeFormat = is12hourTimeFormat
                     )
                 }
             }
@@ -91,7 +93,7 @@ class WeeklyScheduleViewModel @Inject constructor(
             return null
         }
         val daysSinceStart = ChronoUnit.DAYS.between(startDate, targetDate)
-        return (daysSinceStart / 7).toInt() + 1
+        return (daysSinceStart / 7).toInt()
     }
 
 }

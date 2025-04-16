@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <style name="NstuCalendar" />
 
+    <!--    Button-->
 
-    Button
-
-    <style name="NstuCalendar.Button" parent="Widget.Material3.Button">
-
-    </style>
+    <style name="NstuCalendar.Button" parent="Widget.Material3.Button"/>
 
     <!--    ToolBar-->
 
-    <style name="NstuCalendar.Toolbar" parent="Widget.Material3.Toolbar">
-
-    </style>
+    <style name="NstuCalendar.Toolbar" parent="Widget.Material3.Toolbar"/>
 
     <!--    TabLayout-->
 
-    <style name="NstuCalendar.TabLayout.Secondary" parent="Widget.Material3.TabLayout.Secondary">
-
-    </style>
+    <style name="NstuCalendar.TabLayout.Secondary" parent="Widget.Material3.TabLayout.Secondary"/>
 
     <!--    TextInputLayout-->
 
@@ -34,10 +26,12 @@
     </style>
 
     <style name="NstuCalendar.TextInputLayout.Outlined" parent="Widget.Material3.TextInputLayout.OutlinedBox">
-        <item name="boxCornerRadiusBottomEnd">@dimen/corner_radius_default</item>
-        <item name="boxCornerRadiusBottomStart">@dimen/corner_radius_default</item>
-        <item name="boxCornerRadiusTopEnd">@dimen/corner_radius_default</item>
-        <item name="boxCornerRadiusTopStart">@dimen/corner_radius_default</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="boxCornerRadiusBottomEnd">32dp</item>
+        <item name="boxCornerRadiusBottomStart">32dp</item>
+        <item name="boxCornerRadiusTopEnd">32dp</item>
+        <item name="boxCornerRadiusTopStart">32dp</item>
     </style>
 
     <!--    BottomSheet-->

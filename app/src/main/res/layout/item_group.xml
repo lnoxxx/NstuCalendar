@@ -13,5 +13,4 @@
         android:padding="12dp"
         tools:text="АБс223" />
 
-
 </com.google.android.material.card.MaterialCardView>

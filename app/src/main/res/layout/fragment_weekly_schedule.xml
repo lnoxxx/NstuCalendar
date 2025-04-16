@@ -39,6 +39,19 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="АБс-223" />
 
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/cpiScheduleLoading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:indeterminate="true"
+                app:hideAnimationBehavior="escape"
+                app:indicatorSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvLastUpdateTime"
+                app:layout_constraintEnd_toStartOf="@id/tvLastUpdateTime"
+                app:layout_constraintTop_toTopOf="@id/tvLastUpdateTime"
+                app:showAnimationBehavior="inward" />
+
             <TextView
                 android:id="@+id/tvLastUpdateTime"
                 style="@style/NstuCalendar.TextView.Medium.Label.TertiaryBackground"
@@ -73,17 +86,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/button_select_group" />
-
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/cpiScheduleLoading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/shape_default_corners"
-        android:backgroundTint="?attr/colorSurfaceContainer"
-        android:indeterminate="true"
-        android:padding="16dp"
-        app:hideAnimationBehavior="outward"
-        app:showAnimationBehavior="inward" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

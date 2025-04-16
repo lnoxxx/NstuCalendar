@@ -1,6 +1,5 @@
 package com.lnoxdev.nstucalendarparcer.weeklyScheduleFragment.weekFragment
 
-import android.content.res.Resources
 import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment

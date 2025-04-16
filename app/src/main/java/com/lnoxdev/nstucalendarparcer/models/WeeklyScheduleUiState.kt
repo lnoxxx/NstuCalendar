@@ -7,4 +7,5 @@ data class WeeklyScheduleState(
     val weeksCount: Int?,
     val group: String?,
     val nowWeekIndex: Int?,
+    val is12HourTimeFormat: Boolean,
 )

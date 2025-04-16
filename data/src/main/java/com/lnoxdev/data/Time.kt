@@ -16,11 +16,8 @@ object Time {
         emit(currentDateTime)
 
         while (true) {
-            val nextMinute = currentDateTime.plusMinutes(1).truncatedTo(ChronoUnit.MINUTES)
-            val delayMillis = ChronoUnit.MILLIS.between(LocalDateTime.now(), nextMinute)
-            delay(delayMillis)
-
-            currentDateTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES)
+            delay(3000)
+            currentDateTime = LocalDateTime.now()
             emit(currentDateTime)
         }
     }

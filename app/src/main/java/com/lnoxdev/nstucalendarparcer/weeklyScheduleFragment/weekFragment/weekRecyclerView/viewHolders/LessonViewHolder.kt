@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lnoxdev.nstucalendarparcer.databinding.ItemScheduleLessonBinding
 import com.lnoxdev.nstucalendarparcer.models.WeekScheduleLesson
 import com.lnoxdev.nstucalendarparcer.utils.getThemeColor
+import com.lnoxdev.nstucalendarparcer.utils.getTimeFormat
 
 class LessonViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val binding = ItemScheduleLessonBinding.bind(view)
@@ -13,17 +14,17 @@ class LessonViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val colorType = lesson.type.colorResId?.let { itemView.context.getColor(it) }
         val location = lesson.cabinet
         val lessonName = lesson.name
-        val lessonTimeStart = lesson.startTime.toString()
-        val lessonTimeEnd = lesson.endTime.toString()
+        val lessonTimeStart = lesson.startTime.format(getTimeFormat(lesson.is12HourTimeFormat))
+        val lessonTimeEnd = lesson.endTime.format(getTimeFormat(lesson.is12HourTimeFormat))
         val lessonTime = "$lessonTimeStart - $lessonTimeEnd"
         val teacher = lesson.teacher?.name
 
         with(binding) {
             tvLessonType.text = lessonType
             if (colorType == null) {
-                val color =
+                val defaultTextColor =
                     itemView.context.getThemeColor(com.google.android.material.R.attr.colorOnSurface)
-                tvLessonType.setTextColor(color)
+                tvLessonType.setTextColor(defaultTextColor)
             } else {
                 tvLessonType.setTextColor(colorType)
             }

@@ -3,6 +3,7 @@ package com.lnoxdev.nstucalendarparcer.weeklyScheduleFragment.weekFragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lnoxdev.data.Time
+import com.lnoxdev.data.appSettings.SettingsManager
 import com.lnoxdev.data.models.schedule.lesson.LessonType
 import com.lnoxdev.data.models.weeklySchedule.ScheduleWeek
 import com.lnoxdev.data.neti.NetiScheduleRepository
@@ -17,14 +18,17 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 import javax.inject.Inject
 
 @HiltViewModel
-class WeekViewModel @Inject constructor(private val netiScheduleRepository: NetiScheduleRepository) :
-    ViewModel() {
+class WeekViewModel @Inject constructor(
+    private val netiScheduleRepository: NetiScheduleRepository,
+    private val settingsManager: SettingsManager,
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow<WeekScheduleUiState?>(null)
     val uiState: StateFlow<WeekScheduleUiState?> = _uiState
@@ -41,7 +45,8 @@ class WeekViewModel @Inject constructor(private val netiScheduleRepository: Neti
             val weekScheduleFlow = netiScheduleRepository.getWeekSchedule(weekIndex)
             val dateTimeFlow = Time.getCurrentDateTimeFlow()
             val scheduleFlow = weekScheduleFlow.combine(dateTimeFlow) { schedule, dateTime ->
-                schedule?.let { makeWeekScheduleList(it, dateTime) }
+                val is12HourTimeFormat = settingsManager.settings.first().is12TimeFormat
+                schedule?.let { makeWeekScheduleList(it, dateTime, is12HourTimeFormat) }
             }
             scheduleFlow.collect {
                 val newUiState = WeekScheduleUiState(weekIndex, it)
@@ -52,7 +57,8 @@ class WeekViewModel @Inject constructor(private val netiScheduleRepository: Neti
 
     private fun makeWeekScheduleList(
         schedule: ScheduleWeek,
-        dateTime: LocalDateTime
+        dateTime: LocalDateTime,
+        is12HourTimeFormat: Boolean
     ): List<WeekScheduleItem> {
         val scheduleList = mutableListOf<WeekScheduleItem>()
         for (day in schedule.days) {
@@ -86,7 +92,8 @@ class WeekViewModel @Inject constructor(private val netiScheduleRepository: Neti
                     startTime = lesson.time.timeStart,
                     endTime = lesson.time.timeEnd,
                     isFinished = dateTime.isAfter(localDateTimeOfEndLesson),
-                    index = index
+                    index = index,
+                    is12HourTimeFormat = is12HourTimeFormat
                 )
                 scheduleList.add(newLesson)
                 val isNowLesson = dateTime.isAfter(localDateTimeOfStartLesson)
@@ -105,7 +112,8 @@ class WeekViewModel @Inject constructor(private val netiScheduleRepository: Neti
                     val nowTime = WeekScheduleNowLessonTime(
                         timeStart = lesson.time.timeStart,
                         timeEnd = lesson.time.timeEnd,
-                        progress = progress.toInt()
+                        progress = progress.toInt(),
+                        is12HourTimeFormat = is12HourTimeFormat
                     )
                     scheduleList.add(nowTime)
                 }

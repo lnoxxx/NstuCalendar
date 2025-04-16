@@ -3,14 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_default_corners"
+    android:backgroundTint="?attr/colorPrimaryContainer"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp">
+
+    <ImageView
+        android:id="@+id/ivIconUp"
+        android:contentDescription="@string/cd_now_lesson_up"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_arrow_up"/>
 
     <TextView
         android:id="@+id/tvStartTime"
         style="@style/NstuCalendar.TextView.Medium.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="?attr/colorOnPrimaryContainer"
+        app:layout_constraintStart_toEndOf="@id/ivIconUp"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="12:00" />
 
@@ -19,6 +34,7 @@
         style="@style/NstuCalendar.TextView.Medium.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="?attr/colorOnPrimaryContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="13:30" />
@@ -28,9 +44,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
+        app:indicatorColor="?attr/colorOnPrimaryContainer"
         app:layout_constraintBottom_toBottomOf="@id/tvStartTime"
         app:layout_constraintEnd_toStartOf="@id/tvEndTime"
         app:layout_constraintStart_toEndOf="@id/tvStartTime"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:trackColor="?attr/colorSurface" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

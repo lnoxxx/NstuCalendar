@@ -20,6 +20,7 @@ data class WeekScheduleLesson(
     val endTime: LocalTime,
     val isFinished: Boolean,
     val index: Int,
+    val is12HourTimeFormat: Boolean,
 ) : WeekScheduleItem()
 
 data class WeekScheduleDate(
@@ -33,6 +34,7 @@ data class WeekScheduleNowLessonTime(
     val timeStart: LocalTime,
     val timeEnd: LocalTime,
     val progress: Int,
+    val is12HourTimeFormat: Boolean,
 ) : WeekScheduleItem()
 
 data class WeekScheduleTeacher(
