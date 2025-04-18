@@ -1,6 +1,6 @@
 <resources>
-    <!--    AppTheme-->
-    <style name="Theme.NstuCalendar" parent="Base.Theme.NstuCalendar.Default">
+    <!--    Base theme-->
+    <style name="NstuCalendar.Theme.BaseTheme" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar">
         <item name="android:fontFamily">@font/medium</item>
         <item name="android:textViewStyle">@style/NstuCalendar.TextView.Medium</item>
         <item name="materialCardViewStyle">@style/NstuCalendar.CardView.Filled</item>
@@ -13,7 +13,7 @@
     </style>
 
     <!--    Default-->
-    <style name="Base.Theme.NstuCalendar.Default" parent="Theme.Material3.Light.NoActionBar">
+    <style name="NstuCalendar.Theme.Default" parent="NstuCalendar.Theme.BaseTheme">
         <item name="colorPrimary">@color/md_theme_primary</item>
         <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>
@@ -61,4 +61,8 @@
         <item name="colorSurfaceContainerHigh">@color/md_theme_surfaceContainerHigh</item>
         <item name="colorSurfaceContainerHighest">@color/md_theme_surfaceContainerHighest</item>
     </style>
+
+    <!--    Monet-->
+    <style name="NstuCalendar.Theme.Monet" parent="NstuCalendar.Theme.BaseTheme" />
+
 </resources>

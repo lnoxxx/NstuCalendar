@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -20,6 +19,7 @@ import com.lnoxdev.nstucalendarparcer.models.WeeklyScheduleState
 import com.lnoxdev.nstucalendarparcer.utils.getDateTimeFormatter
 import com.lnoxdev.nstucalendarparcer.utils.getThemeColor
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -45,10 +45,6 @@ class WeeklyScheduleFragment : Fragment() {
                     .getThemeColor(com.google.android.material.R.attr.colorSurfaceContainer)
             )
         // default visibility
-        binding.tvGroup.visibility = View.GONE
-        binding.tvLastUpdateTime.visibility = View.GONE
-        binding.tlWeeks.visibility = View.GONE
-        binding.btnSelectGroup.visibility = View.GONE
         binding.cpiScheduleLoading.hide()
         return binding.root
     }
@@ -73,54 +69,57 @@ class WeeklyScheduleFragment : Fragment() {
         binding.tvLastUpdateTime.setOnClickListener {
             viewModel.startUpdateSchedule()
         }
-        binding.btnSelectGroup.setOnClickListener {
-            findNavController().navigate(R.id.selectGroupBottomSheet)
-        }
         lifecycleScope.launch {
-            viewModel.uiState.collect { state ->
-                state?.let { bindUiState(it) }
-            }
-        }
-        lifecycleScope.launch {
-            viewModel.isUpdate.collect {
+            viewModel.isUpdate.collectLatest {
                 if (it) binding.cpiScheduleLoading.show() else binding.cpiScheduleLoading.hide()
             }
         }
         lifecycleScope.launch {
             viewModel.exception.collect {
                 if (it == UiExceptions.SETTING_GROUP) {
-                    binding.btnSelectGroup.visibility = View.VISIBLE
                     return@collect
                 }
                 it?.let { binding.root.showErrorSnackBar(it) }
             }
         }
+        lifecycleScope.launch {
+            viewModel.uiState.collectLatest { state ->
+                state?.let { bindUiState(it) }
+            }
+        }
     }
 
     private fun bindUiState(state: WeeklyScheduleState) {
-        val group = state.group
-        if (group != null) {
-            binding.btnSelectGroup.visibility = View.GONE
-            binding.tvGroup.visibility = View.VISIBLE
-            binding.tvGroup.text = group
-        } else {
-            binding.btnSelectGroup.visibility = View.VISIBLE
-            binding.tvGroup.visibility = View.GONE
-        }
+        binding.tvGroup.text = state.group ?: getString(R.string.select_group)
         val updateTime = state.lastUpdateTime
-        if (updateTime != null) {
-            binding.tvLastUpdateTime.visibility = View.VISIBLE
-            binding.tvLastUpdateTime.text =
-                updateTime.format(getDateTimeFormatter(state.is12HourTimeFormat))
-                    ?: getString(R.string.not_update)
-        } else {
-            binding.tvLastUpdateTime.visibility = View.GONE
-        }
+        binding.tvLastUpdateTime.text =
+            updateTime?.format(getDateTimeFormatter(state.is12HourTimeFormat))
+                ?: getString(R.string.not_update)
         state.weeksCount?.let { initViewPager(it, state.nowWeekIndex) }
+        if (state.group == null) {
+            showHello()
+        } else {
+            hideHello()
+        }
+    }
+
+    private fun showHello() {
+        binding.tlWeeks.visibility = View.GONE
+        val clPadding = resources.getDimension(R.dimen.app_bar_margin).toInt()
+        binding.clAppBarContentContainer.updatePadding(bottom = clPadding)
+        binding.btnSelectGroup.visibility = View.VISIBLE
+        binding.btnSelectGroup.setOnClickListener {
+            findNavController().navigate(R.id.selectGroupBottomSheet)
+        }
+    }
+
+    private fun hideHello() {
+        binding.tlWeeks.visibility = View.VISIBLE
+        binding.clAppBarContentContainer.updatePadding(bottom = 0)
+        binding.btnSelectGroup.visibility = View.GONE
     }
 
     private fun initViewPager(weeksCount: Int, nowWeek: Int?) {
-        binding.tlWeeks.visibility = View.VISIBLE
         val oldWeeksCount = binding.vpWeeks.adapter?.itemCount
         if (oldWeeksCount != weeksCount) {
             binding.vpWeeks.adapter = WeeksPagerAdapter(this, weeksCount)

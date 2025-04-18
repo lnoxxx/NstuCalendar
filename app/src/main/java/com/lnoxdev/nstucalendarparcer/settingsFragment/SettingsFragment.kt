@@ -60,4 +60,11 @@ class SettingsFragment : Fragment(), SettingsRecyclerViewAdapter.SettingsRecycle
     override fun onChangeGroup() {
         findNavController().navigate(R.id.selectGroupBottomSheet)
     }
+
+    override fun onChangeMonetTheme(enable: Boolean) {
+        lifecycleScope.launch {
+            val recreate = viewModel.changeMonetTheme(enable)
+            if (recreate) activity?.recreate()
+        }
+    }
 }

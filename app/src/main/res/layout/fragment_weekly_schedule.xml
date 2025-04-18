@@ -24,6 +24,7 @@
             app:title="@string/toolbar_title_schedule" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clAppBarContentContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
@@ -79,12 +80,13 @@
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSelectGroup"
         style="@style/NstuCalendar.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/button_select_group" />
+        android:text="@string/select_group"
+        app:icon="@drawable/ic_group" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

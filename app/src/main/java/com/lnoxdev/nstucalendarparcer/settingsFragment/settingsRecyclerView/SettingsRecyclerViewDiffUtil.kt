@@ -28,6 +28,7 @@ class SettingsRecyclerViewDiffUtil(
         return when (item) {
             SettingsItem.GROUP -> oldSettings.group == newSettings.group
             SettingsItem.TIME_FORMAT -> oldSettings.is12TimeFormat == newSettings.is12TimeFormat
+            SettingsItem.MONET -> oldSettings.monet == newSettings.monet
         }
     }
 

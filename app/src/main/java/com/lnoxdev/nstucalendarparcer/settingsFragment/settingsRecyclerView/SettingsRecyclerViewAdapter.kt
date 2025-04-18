@@ -18,6 +18,7 @@ class SettingsRecyclerViewAdapter(
     interface SettingsRecyclerViewListener {
         fun onChangeTimeFormat(is12TimeFormat: Boolean)
         fun onChangeGroup()
+        fun onChangeMonetTheme(enable: Boolean)
     }
 
     private var settings: SettingsUiState? = null
@@ -26,6 +27,7 @@ class SettingsRecyclerViewAdapter(
         return when (viewType) {
             SettingsItem.GROUP.ordinal -> createSettingsSelectedViewHolder(parent)
             SettingsItem.TIME_FORMAT.ordinal -> createSettingsSwitchViewHolder(parent)
+            SettingsItem.MONET.ordinal -> createSettingsSwitchViewHolder(parent)
             else -> throw IllegalStateException("SettingsRecyclerViewAdapter unknown viewType!")
         }
     }

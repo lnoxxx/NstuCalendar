@@ -11,8 +11,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SettingsViewModel @Inject constructor(private val settingsManager: SettingsManager) :
-    ViewModel() {
+class SettingsViewModel @Inject constructor(
+    private val settingsManager: SettingsManager
+) : ViewModel() {
     private val _uiState = MutableStateFlow<SettingsUiState?>(null)
     val uiState: StateFlow<SettingsUiState?> = _uiState
 
@@ -21,7 +22,8 @@ class SettingsViewModel @Inject constructor(private val settingsManager: Setting
             settingsManager.settings.collect {
                 val newUiState = SettingsUiState(
                     group = it.group,
-                    is12TimeFormat = it.is12TimeFormat
+                    is12TimeFormat = it.is12TimeFormat,
+                    monet = it.monetTheme
                 )
                 _uiState.value = newUiState
             }
@@ -30,5 +32,9 @@ class SettingsViewModel @Inject constructor(private val settingsManager: Setting
 
     fun changeTimeFormat(is12TimeFormat: Boolean){
         settingsManager.changeTimeFormat(is12TimeFormat)
+    }
+
+    suspend fun changeMonetTheme(enable: Boolean): Boolean{
+        return settingsManager.changeMonetThemeAsyncWithResult(enable)
     }
 }

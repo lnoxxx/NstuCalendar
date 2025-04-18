@@ -61,7 +61,7 @@ class NetiScheduleLoader(
     private suspend fun getScheduleDateRange(group: String): Pair<LocalDate, LocalDate> {
         val scheduleHtml = loadScheduleWeekHtml(group)
         val weeksInfo = parseScheduleWeekHtml(scheduleHtml)
-        val year = Time.getNowDate().year
+        val year = Time.getNowDateTime().year
         val startDate = LocalDate.of(year, weeksInfo.startMonth, weeksInfo.startDay)
         val endDate = startDate.plusWeeks(weeksInfo.weekCount.toLong()).minusDays(2)
         return startDate to endDate

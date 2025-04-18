@@ -19,5 +19,11 @@ class SettingsSwitchViewHolder(
                 listener.onChangeTimeFormat(isChecked)
             }
         }
+        if (settingsItem == SettingsItem.MONET) {
+            binding.swc.isChecked = settings.monet
+            binding.swc.setOnCheckedChangeListener { _, isChecked ->
+                listener.onChangeMonetTheme(isChecked)
+            }
+        }
     }
 }

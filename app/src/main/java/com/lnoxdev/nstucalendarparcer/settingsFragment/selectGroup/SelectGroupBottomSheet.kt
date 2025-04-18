@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.android.material.snackbar.Snackbar
 import com.lnoxdev.nstucalendarparcer.R
 import com.lnoxdev.nstucalendarparcer.databinding.BottomSheetSelectGroupBinding
 import com.lnoxdev.nstucalendarparcer.models.UiExceptions
