@@ -12,5 +12,5 @@ interface ScheduleDao {
     suspend fun insertSchedule(schedule: Schedule): Long
 
     @Query("SELECT * FROM schedules WHERE id = 0")
-    fun getSchedule(): Flow<Schedule>
+    fun getSchedule(): Flow<Schedule?>
 }
