@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.color.DynamicColors
 import com.google.android.material.navigation.NavigationBarView
 import com.lnoxdev.data.appSettings.SettingsManager
 import com.lnoxdev.nstucalendarparcer.databinding.ActivityMainBinding
@@ -30,13 +31,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    private fun activeTheme(){
+    private fun activeTheme() {
         val settings = runBlocking { settingsManager.settings.first() }
-        val theme = if (settings.monetTheme)
-            R.style.NstuCalendar_Theme_Monet
-        else
-            R.style.NstuCalendar_Theme_Default
-        setTheme(theme)
+        if (settings.monetTheme)
+            DynamicColors.applyToActivityIfAvailable(this)
     }
 
     private fun initNavigation() {

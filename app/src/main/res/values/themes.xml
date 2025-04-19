@@ -62,7 +62,4 @@
         <item name="colorSurfaceContainerHighest">@color/md_theme_surfaceContainerHighest</item>
     </style>
 
-    <!--    Monet-->
-    <style name="NstuCalendar.Theme.Monet" parent="NstuCalendar.Theme.BaseTheme" />
-
 </resources>
