@@ -4,6 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lnoxdev.data.appSettings.SettingsManager
 import com.lnoxdev.nstucalendarparcer.models.SettingsUiState
+import com.lnoxdev.nstucalendarparcer.models.UiAppTheme
+import com.lnoxdev.nstucalendarparcer.models.toAppTheme
+import com.lnoxdev.nstucalendarparcer.models.toUiAppTheme
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -23,7 +26,8 @@ class SettingsViewModel @Inject constructor(
                 val newUiState = SettingsUiState(
                     group = it.group,
                     is12TimeFormat = it.is12TimeFormat,
-                    monet = it.monetTheme
+                    monet = it.monetTheme,
+                    appTheme = it.appTheme.toUiAppTheme()
                 )
                 _uiState.value = newUiState
             }
@@ -36,5 +40,9 @@ class SettingsViewModel @Inject constructor(
 
     suspend fun changeMonetTheme(enable: Boolean): Boolean{
         return settingsManager.changeMonetThemeAsyncWithResult(enable)
+    }
+
+    suspend fun changeTheme(theme: UiAppTheme): Boolean {
+        return settingsManager.changeAppThemeAsyncWithResult(theme.toAppTheme())
     }
 }

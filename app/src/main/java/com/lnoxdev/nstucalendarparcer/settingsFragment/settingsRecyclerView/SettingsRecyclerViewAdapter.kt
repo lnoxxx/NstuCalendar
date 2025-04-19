@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.lnoxdev.nstucalendarparcer.R
 import com.lnoxdev.nstucalendarparcer.models.SettingsUiState
+import com.lnoxdev.nstucalendarparcer.models.UiAppTheme
 import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.viewHolders.SettingsItemViewHolder
 import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.viewHolders.SettingsSelectedViewHolder
 import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.viewHolders.SettingsSwitchViewHolder
+import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.viewHolders.SettingsThemeViewHolder
 
 class SettingsRecyclerViewAdapter(
     private val listener: SettingsRecyclerViewListener
@@ -19,6 +21,7 @@ class SettingsRecyclerViewAdapter(
         fun onChangeTimeFormat(is12TimeFormat: Boolean)
         fun onChangeGroup()
         fun onChangeMonetTheme(enable: Boolean)
+        fun onChangeTheme(theme: UiAppTheme)
     }
 
     private var settings: SettingsUiState? = null
@@ -28,22 +31,9 @@ class SettingsRecyclerViewAdapter(
             SettingsItem.GROUP.ordinal -> createSettingsSelectedViewHolder(parent)
             SettingsItem.TIME_FORMAT.ordinal -> createSettingsSwitchViewHolder(parent)
             SettingsItem.MONET.ordinal -> createSettingsSwitchViewHolder(parent)
+            SettingsItem.THEME.ordinal -> createSettingsThemeViewHolder(parent)
             else -> throw IllegalStateException("SettingsRecyclerViewAdapter unknown viewType!")
         }
-    }
-
-    private fun createView(layout: Int, parent: ViewGroup): View {
-        return LayoutInflater.from(parent.context).inflate(layout, parent, false)
-    }
-
-    private fun createSettingsSelectedViewHolder(parent: ViewGroup): SettingsSelectedViewHolder {
-        val view = createView(R.layout.item_settings_selected, parent)
-        return SettingsSelectedViewHolder(view, listener)
-    }
-
-    private fun createSettingsSwitchViewHolder(parent: ViewGroup): SettingsSwitchViewHolder {
-        val view = createView(R.layout.item_settings_switch, parent)
-        return SettingsSwitchViewHolder(view, listener)
     }
 
     override fun getItemCount(): Int = SettingsItem.entries.size
@@ -61,6 +51,25 @@ class SettingsRecyclerViewAdapter(
 
     override fun getItemViewType(position: Int): Int {
         return SettingsItem.entries[position].ordinal
+    }
+
+    private fun createView(layout: Int, parent: ViewGroup): View {
+        return LayoutInflater.from(parent.context).inflate(layout, parent, false)
+    }
+
+    private fun createSettingsSelectedViewHolder(parent: ViewGroup): SettingsSelectedViewHolder {
+        val view = createView(R.layout.item_settings_selected, parent)
+        return SettingsSelectedViewHolder(view, listener)
+    }
+
+    private fun createSettingsSwitchViewHolder(parent: ViewGroup): SettingsSwitchViewHolder {
+        val view = createView(R.layout.item_settings_switch, parent)
+        return SettingsSwitchViewHolder(view, listener)
+    }
+
+    private fun createSettingsThemeViewHolder(parent: ViewGroup): SettingsThemeViewHolder{
+        val view = createView(R.layout.item_settings_theme, parent)
+        return SettingsThemeViewHolder(view, listener)
     }
 
 }

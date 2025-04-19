@@ -9,6 +9,7 @@ import com.google.android.material.color.DynamicColors
 import com.google.android.material.navigation.NavigationBarView
 import com.lnoxdev.data.appSettings.SettingsManager
 import com.lnoxdev.nstucalendarparcer.databinding.ActivityMainBinding
+import com.lnoxdev.nstucalendarparcer.models.toUiAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun activeTheme() {
         val settings = runBlocking { settingsManager.settings.first() }
+        setTheme(settings.appTheme.toUiAppTheme().themeRes)
         if (settings.monetTheme)
             DynamicColors.applyToActivityIfAvailable(this)
     }

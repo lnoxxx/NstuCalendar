@@ -12,7 +12,7 @@
         <item name="bottomSheetStyle">@style/NstuCalendar.ModalBottomSheetDialog</item>
     </style>
 
-    <!--    Default-->
+    <!--    Default theme Nstu-->
     <style name="NstuCalendar.Theme.Default" parent="NstuCalendar.Theme.BaseTheme">
         <item name="colorPrimary">@color/md_theme_primary</item>
         <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
@@ -62,4 +62,103 @@
         <item name="colorSurfaceContainerHighest">@color/md_theme_surfaceContainerHighest</item>
     </style>
 
+    <!--    Cornflower-->
+    <style name="NstuCalendar.Theme.Cornflower" parent="NstuCalendar.Theme.BaseTheme">
+        <item name="colorPrimary">@color/cornflower_primary</item>
+        <item name="colorOnPrimary">@color/cornflower_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/cornflower_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/cornflower_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/cornflower_secondary</item>
+        <item name="colorOnSecondary">@color/cornflower_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/cornflower_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/cornflower_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/cornflower_tertiary</item>
+        <item name="colorOnTertiary">@color/cornflower_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/cornflower_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/cornflower_onTertiaryContainer</item>
+        <item name="colorError">@color/cornflower_error</item>
+        <item name="colorOnError">@color/cornflower_onError</item>
+        <item name="colorErrorContainer">@color/cornflower_errorContainer</item>
+        <item name="colorOnErrorContainer">@color/cornflower_onErrorContainer</item>
+        <item name="android:colorBackground">@color/cornflower_background</item>
+        <item name="colorOnBackground">@color/cornflower_onBackground</item>
+        <item name="colorSurface">@color/cornflower_surface</item>
+        <item name="colorOnSurface">@color/cornflower_onSurface</item>
+        <item name="colorSurfaceVariant">@color/cornflower_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/cornflower_onSurfaceVariant</item>
+        <item name="colorOutline">@color/cornflower_outline</item>
+        <item name="colorOutlineVariant">@color/cornflower_outlineVariant</item>
+        <item name="colorSurfaceInverse">@color/cornflower_inverseSurface</item>
+        <item name="colorOnSurfaceInverse">@color/cornflower_inverseOnSurface</item>
+        <item name="colorPrimaryInverse">@color/cornflower_inversePrimary</item>
+        <item name="colorPrimaryFixed">@color/cornflower_primaryFixed</item>
+        <item name="colorOnPrimaryFixed">@color/cornflower_onPrimaryFixed</item>
+        <item name="colorPrimaryFixedDim">@color/cornflower_primaryFixedDim</item>
+        <item name="colorOnPrimaryFixedVariant">@color/cornflower_onPrimaryFixedVariant</item>
+        <item name="colorSecondaryFixed">@color/cornflower_secondaryFixed</item>
+        <item name="colorOnSecondaryFixed">@color/cornflower_onSecondaryFixed</item>
+        <item name="colorSecondaryFixedDim">@color/cornflower_secondaryFixedDim</item>
+        <item name="colorOnSecondaryFixedVariant">@color/cornflower_onSecondaryFixedVariant</item>
+        <item name="colorTertiaryFixed">@color/cornflower_tertiaryFixed</item>
+        <item name="colorOnTertiaryFixed">@color/cornflower_onTertiaryFixed</item>
+        <item name="colorTertiaryFixedDim">@color/cornflower_tertiaryFixedDim</item>
+        <item name="colorOnTertiaryFixedVariant">@color/cornflower_onTertiaryFixedVariant</item>
+        <item name="colorSurfaceDim">@color/cornflower_surfaceDim</item>
+        <item name="colorSurfaceBright">@color/cornflower_surfaceBright</item>
+        <item name="colorSurfaceContainerLowest">@color/cornflower_surfaceContainerLowest</item>
+        <item name="colorSurfaceContainerLow">@color/cornflower_surfaceContainerLow</item>
+        <item name="colorSurfaceContainer">@color/cornflower_surfaceContainer</item>
+        <item name="colorSurfaceContainerHigh">@color/cornflower_surfaceContainerHigh</item>
+        <item name="colorSurfaceContainerHighest">@color/cornflower_surfaceContainerHighest</item>
+    </style>
+
+    <!--Dark orchid-->
+    <style name="NstuCalendar.Theme.DarkOrchid" parent="NstuCalendar.Theme.BaseTheme">
+        <item name="colorPrimary">@color/dark_orchid_primary</item>
+        <item name="colorOnPrimary">@color/dark_orchid_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/dark_orchid_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/dark_orchid_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/dark_orchid_secondary</item>
+        <item name="colorOnSecondary">@color/dark_orchid_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/dark_orchid_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/dark_orchid_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/dark_orchid_tertiary</item>
+        <item name="colorOnTertiary">@color/dark_orchid_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/dark_orchid_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/dark_orchid_onTertiaryContainer</item>
+        <item name="colorError">@color/dark_orchid_error</item>
+        <item name="colorOnError">@color/dark_orchid_onError</item>
+        <item name="colorErrorContainer">@color/dark_orchid_errorContainer</item>
+        <item name="colorOnErrorContainer">@color/dark_orchid_onErrorContainer</item>
+        <item name="android:colorBackground">@color/dark_orchid_background</item>
+        <item name="colorOnBackground">@color/dark_orchid_onBackground</item>
+        <item name="colorSurface">@color/dark_orchid_surface</item>
+        <item name="colorOnSurface">@color/dark_orchid_onSurface</item>
+        <item name="colorSurfaceVariant">@color/dark_orchid_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/dark_orchid_onSurfaceVariant</item>
+        <item name="colorOutline">@color/dark_orchid_outline</item>
+        <item name="colorOutlineVariant">@color/dark_orchid_outlineVariant</item>
+        <item name="colorSurfaceInverse">@color/dark_orchid_inverseSurface</item>
+        <item name="colorOnSurfaceInverse">@color/dark_orchid_inverseOnSurface</item>
+        <item name="colorPrimaryInverse">@color/dark_orchid_inversePrimary</item>
+        <item name="colorPrimaryFixed">@color/dark_orchid_primaryFixed</item>
+        <item name="colorOnPrimaryFixed">@color/dark_orchid_onPrimaryFixed</item>
+        <item name="colorPrimaryFixedDim">@color/dark_orchid_primaryFixedDim</item>
+        <item name="colorOnPrimaryFixedVariant">@color/dark_orchid_onPrimaryFixedVariant</item>
+        <item name="colorSecondaryFixed">@color/dark_orchid_secondaryFixed</item>
+        <item name="colorOnSecondaryFixed">@color/dark_orchid_onSecondaryFixed</item>
+        <item name="colorSecondaryFixedDim">@color/dark_orchid_secondaryFixedDim</item>
+        <item name="colorOnSecondaryFixedVariant">@color/dark_orchid_onSecondaryFixedVariant</item>
+        <item name="colorTertiaryFixed">@color/dark_orchid_tertiaryFixed</item>
+        <item name="colorOnTertiaryFixed">@color/dark_orchid_onTertiaryFixed</item>
+        <item name="colorTertiaryFixedDim">@color/dark_orchid_tertiaryFixedDim</item>
+        <item name="colorOnTertiaryFixedVariant">@color/dark_orchid_onTertiaryFixedVariant</item>
+        <item name="colorSurfaceDim">@color/dark_orchid_surfaceDim</item>
+        <item name="colorSurfaceBright">@color/dark_orchid_surfaceBright</item>
+        <item name="colorSurfaceContainerLowest">@color/dark_orchid_surfaceContainerLowest</item>
+        <item name="colorSurfaceContainerLow">@color/dark_orchid_surfaceContainerLow</item>
+        <item name="colorSurfaceContainer">@color/dark_orchid_surfaceContainer</item>
+        <item name="colorSurfaceContainerHigh">@color/dark_orchid_surfaceContainerHigh</item>
+        <item name="colorSurfaceContainerHighest">@color/dark_orchid_surfaceContainerHighest</item>
+    </style>
 </resources>

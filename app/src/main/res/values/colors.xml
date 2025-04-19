@@ -8,7 +8,7 @@
     <color name="colorPractice">#1DA647</color>
     <color name="colorLaboratory">#921413</color>
 
-    <!--    Default theme-->
+    <!--    Default theme Nstu-->
     <color name="md_theme_primary">#336940</color>
     <color name="md_theme_onPrimary">#FFFFFF</color>
     <color name="md_theme_primaryContainer">#B5F1BD</color>
@@ -57,5 +57,102 @@
     <color name="md_theme_surfaceContainerHigh">#E5EAE1</color>
     <color name="md_theme_surfaceContainerHighest">#DFE4DC</color>
 
+    <!--    Cornflower-->
+    <color name="cornflower_primary">#435E91</color>
+    <color name="cornflower_onPrimary">#FFFFFF</color>
+    <color name="cornflower_primaryContainer">#D7E2FF</color>
+    <color name="cornflower_onPrimaryContainer">#2A4678</color>
+    <color name="cornflower_secondary">#565E71</color>
+    <color name="cornflower_onSecondary">#FFFFFF</color>
+    <color name="cornflower_secondaryContainer">#DAE2F9</color>
+    <color name="cornflower_onSecondaryContainer">#3F4759</color>
+    <color name="cornflower_tertiary">#705574</color>
+    <color name="cornflower_onTertiary">#FFFFFF</color>
+    <color name="cornflower_tertiaryContainer">#FBD7FC</color>
+    <color name="cornflower_onTertiaryContainer">#573E5B</color>
+    <color name="cornflower_error">#BA1A1A</color>
+    <color name="cornflower_onError">#FFFFFF</color>
+    <color name="cornflower_errorContainer">#FFDAD6</color>
+    <color name="cornflower_onErrorContainer">#93000A</color>
+    <color name="cornflower_background">#F9F9FF</color>
+    <color name="cornflower_onBackground">#1A1B20</color>
+    <color name="cornflower_surface">#F9F9FF</color>
+    <color name="cornflower_onSurface">#1A1B20</color>
+    <color name="cornflower_surfaceVariant">#E1E2EC</color>
+    <color name="cornflower_onSurfaceVariant">#44474E</color>
+    <color name="cornflower_outline">#74777F</color>
+    <color name="cornflower_outlineVariant">#C4C6D0</color>
+    <color name="cornflower_scrim">#000000</color>
+    <color name="cornflower_inverseSurface">#2E3036</color>
+    <color name="cornflower_inverseOnSurface">#F0F0F7</color>
+    <color name="cornflower_inversePrimary">#ACC7FF</color>
+    <color name="cornflower_primaryFixed">#D7E2FF</color>
+    <color name="cornflower_onPrimaryFixed">#001A40</color>
+    <color name="cornflower_primaryFixedDim">#ACC7FF</color>
+    <color name="cornflower_onPrimaryFixedVariant">#2A4678</color>
+    <color name="cornflower_secondaryFixed">#DAE2F9</color>
+    <color name="cornflower_onSecondaryFixed">#131C2C</color>
+    <color name="cornflower_secondaryFixedDim">#BEC6DC</color>
+    <color name="cornflower_onSecondaryFixedVariant">#3F4759</color>
+    <color name="cornflower_tertiaryFixed">#FBD7FC</color>
+    <color name="cornflower_onTertiaryFixed">#29132E</color>
+    <color name="cornflower_tertiaryFixedDim">#DEBCDF</color>
+    <color name="cornflower_onTertiaryFixedVariant">#573E5B</color>
+    <color name="cornflower_surfaceDim">#D9D9E0</color>
+    <color name="cornflower_surfaceBright">#F9F9FF</color>
+    <color name="cornflower_surfaceContainerLowest">#FFFFFF</color>
+    <color name="cornflower_surfaceContainerLow">#F3F3FA</color>
+    <color name="cornflower_surfaceContainer">#EDEDF4</color>
+    <color name="cornflower_surfaceContainerHigh">#E8E7EE</color>
+    <color name="cornflower_surfaceContainerHighest">#E2E2E9</color>
+
+    <!--Dark orchid-->
+    <color name="dark_orchid_primary">#755085</color>
+    <color name="dark_orchid_onPrimary">#FFFFFF</color>
+    <color name="dark_orchid_primaryContainer">#F6D9FF</color>
+    <color name="dark_orchid_onPrimaryContainer">#5C396C</color>
+    <color name="dark_orchid_secondary">#68596D</color>
+    <color name="dark_orchid_onSecondary">#FFFFFF</color>
+    <color name="dark_orchid_secondaryContainer">#F0DCF4</color>
+    <color name="dark_orchid_onSecondaryContainer">#504255</color>
+    <color name="dark_orchid_tertiary">#815251</color>
+    <color name="dark_orchid_onTertiary">#FFFFFF</color>
+    <color name="dark_orchid_tertiaryContainer">#FFDAD9</color>
+    <color name="dark_orchid_onTertiaryContainer">#663B3B</color>
+    <color name="dark_orchid_error">#BA1A1A</color>
+    <color name="dark_orchid_onError">#FFFFFF</color>
+    <color name="dark_orchid_errorContainer">#FFDAD6</color>
+    <color name="dark_orchid_onErrorContainer">#93000A</color>
+    <color name="dark_orchid_background">#FFF7FC</color>
+    <color name="dark_orchid_onBackground">#1E1A1F</color>
+    <color name="dark_orchid_surface">#FFF7FC</color>
+    <color name="dark_orchid_onSurface">#1E1A1F</color>
+    <color name="dark_orchid_surfaceVariant">#EBDFEA</color>
+    <color name="dark_orchid_onSurfaceVariant">#4C444D</color>
+    <color name="dark_orchid_outline">#7D747E</color>
+    <color name="dark_orchid_outlineVariant">#CEC3CE</color>
+    <color name="dark_orchid_scrim">#000000</color>
+    <color name="dark_orchid_inverseSurface">#342F34</color>
+    <color name="dark_orchid_inverseOnSurface">#F8EEF6</color>
+    <color name="dark_orchid_inversePrimary">#E3B7F4</color>
+    <color name="dark_orchid_primaryFixed">#F6D9FF</color>
+    <color name="dark_orchid_onPrimaryFixed">#2D0B3D</color>
+    <color name="dark_orchid_primaryFixedDim">#E3B7F4</color>
+    <color name="dark_orchid_onPrimaryFixedVariant">#5C396C</color>
+    <color name="dark_orchid_secondaryFixed">#F0DCF4</color>
+    <color name="dark_orchid_onSecondaryFixed">#231728</color>
+    <color name="dark_orchid_secondaryFixedDim">#D4C0D8</color>
+    <color name="dark_orchid_onSecondaryFixedVariant">#504255</color>
+    <color name="dark_orchid_tertiaryFixed">#FFDAD9</color>
+    <color name="dark_orchid_onTertiaryFixed">#331112</color>
+    <color name="dark_orchid_tertiaryFixedDim">#F5B7B6</color>
+    <color name="dark_orchid_onTertiaryFixedVariant">#663B3B</color>
+    <color name="dark_orchid_surfaceDim">#E1D7DF</color>
+    <color name="dark_orchid_surfaceBright">#FFF7FC</color>
+    <color name="dark_orchid_surfaceContainerLowest">#FFFFFF</color>
+    <color name="dark_orchid_surfaceContainerLow">#FBF1F8</color>
+    <color name="dark_orchid_surfaceContainer">#F5EBF3</color>
+    <color name="dark_orchid_surfaceContainerHigh">#EFE5ED</color>
+    <color name="dark_orchid_surfaceContainerHighest">#E9E0E7</color>
 
 </resources>

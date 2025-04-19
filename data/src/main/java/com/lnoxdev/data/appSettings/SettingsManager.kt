@@ -22,7 +22,13 @@ class SettingsManager(private val dataStore: DataStore<Preferences>) {
         val group = it[GROUP]
         val is12TimeFormat = it[TIME_FORMAT] == TRUE
         val monet = it[MONET_THEME] == TRUE
-        Settings(group, is12TimeFormat, monet)
+        val appTheme = when (it[APP_THEME]) {
+            AppTheme.NSTU.saveKey -> AppTheme.NSTU
+            AppTheme.CORNFLOWER.saveKey -> AppTheme.CORNFLOWER
+            AppTheme.DARK_ORCHID.saveKey -> AppTheme.DARK_ORCHID
+            else -> AppTheme.NSTU
+        }
+        Settings(group, is12TimeFormat, monet, appTheme)
     }
 
     fun changeGroup(group: String) {
@@ -39,9 +45,16 @@ class SettingsManager(private val dataStore: DataStore<Preferences>) {
         }
     }
 
-    suspend fun changeMonetThemeAsyncWithResult(enable: Boolean): Boolean{
-        return withContext(Dispatchers.IO){
+    suspend fun changeMonetThemeAsyncWithResult(enable: Boolean): Boolean {
+        return withContext(Dispatchers.IO) {
             dataStore.edit { it[MONET_THEME] = if (enable) TRUE else FALSE }
+            true
+        }
+    }
+
+    suspend fun changeAppThemeAsyncWithResult(theme: AppTheme): Boolean {
+        return withContext(Dispatchers.IO) {
+            dataStore.edit { it[APP_THEME] = theme.saveKey }
             true
         }
     }
@@ -50,7 +63,14 @@ class SettingsManager(private val dataStore: DataStore<Preferences>) {
         private val GROUP = stringPreferencesKey("group")
         private val TIME_FORMAT = stringPreferencesKey("time format")
         private val MONET_THEME = stringPreferencesKey("monet theme")
+        private val APP_THEME = stringPreferencesKey("app theme")
         private const val TRUE = "true"
         private const val FALSE = "false"
+
+        enum class AppTheme(val saveKey: String) {
+            NSTU("NstuTheme"),
+            CORNFLOWER("CornflowerTheme"),
+            DARK_ORCHID("DarkOrchid")
+        }
     }
 }

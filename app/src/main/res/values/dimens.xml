@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="theme_margin">8dp</dimen>
     <dimen name="settings_margin">16dp</dimen>
-
     <dimen name="schedule_margin">8dp</dimen>
     <dimen name="group_margin">8dp</dimen>
-
     <dimen name="app_bar_margin">16dp</dimen>
 
     <dimen name="corner_radius_default">12dp</dimen>

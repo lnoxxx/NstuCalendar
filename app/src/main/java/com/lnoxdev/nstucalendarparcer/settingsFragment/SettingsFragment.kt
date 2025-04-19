@@ -14,6 +14,7 @@ import com.google.android.material.shape.MaterialShapeDrawable
 import com.lnoxdev.nstucalendarparcer.R
 import com.lnoxdev.nstucalendarparcer.databinding.FragmentSettingsBinding
 import com.lnoxdev.nstucalendarparcer.models.SettingsUiState
+import com.lnoxdev.nstucalendarparcer.models.UiAppTheme
 import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.SettingsRecyclerViewAdapter
 import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.SettingsRecyclerViewItemDecorator
 import com.lnoxdev.nstucalendarparcer.utils.getThemeColor
@@ -80,6 +81,13 @@ class SettingsFragment : Fragment(), SettingsRecyclerViewAdapter.SettingsRecycle
     override fun onChangeMonetTheme(enable: Boolean) {
         lifecycleScope.launch {
             val recreate = viewModel.changeMonetTheme(enable)
+            if (recreate) activity?.recreate()
+        }
+    }
+
+    override fun onChangeTheme(theme: UiAppTheme) {
+        lifecycleScope.launch {
+            val recreate = viewModel.changeTheme(theme)
             if (recreate) activity?.recreate()
         }
     }
