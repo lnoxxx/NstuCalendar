@@ -1,4 +1,7 @@
 <resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="app_name">NstuCalendar</string>
 
     <string name="error_internet">Internet problems, try again later!</string>
@@ -48,8 +51,7 @@
 
     <string name="select_group">Select a group!</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cd_now_lesson_up">Icon now lesson up</string>
-    <string name="settings_monet">Use Coins Theme with Dynamic Colors (Android 12 and above)</string>
+    <string name="settings_monet">Use Monet theme with Dynamic Colors (Android 12 and above)</string>
+    <string name="toolbar_title_settings">Settings</string>
 </resources>

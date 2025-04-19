@@ -9,10 +9,14 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.divider.MaterialDividerItemDecoration
+import com.google.android.material.shape.MaterialShapeDrawable
 import com.lnoxdev.nstucalendarparcer.R
 import com.lnoxdev.nstucalendarparcer.databinding.FragmentSettingsBinding
 import com.lnoxdev.nstucalendarparcer.models.SettingsUiState
 import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.SettingsRecyclerViewAdapter
+import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.SettingsRecyclerViewItemDecorator
+import com.lnoxdev.nstucalendarparcer.utils.getThemeColor
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -33,6 +37,13 @@ class SettingsFragment : Fragment(), SettingsRecyclerViewAdapter.SettingsRecycle
     ): View {
         _binding = FragmentSettingsBinding.inflate(inflater)
         _adapter = SettingsRecyclerViewAdapter(this)
+        binding.ablSettings.statusBarForeground =
+            MaterialShapeDrawable.createWithElevationOverlay(context)
+        binding.ablSettings
+            .setStatusBarForegroundColor(
+                requireContext()
+                    .getThemeColor(com.google.android.material.R.attr.colorSurfaceContainer)
+            )
         return binding.root
     }
 
@@ -47,6 +58,11 @@ class SettingsFragment : Fragment(), SettingsRecyclerViewAdapter.SettingsRecycle
     private fun initRecyclerView() {
         binding.rvSettings.adapter = adapter
         binding.rvSettings.layoutManager = LinearLayoutManager(context)
+        val divider = MaterialDividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL)
+        divider.isLastItemDecorated = false
+        binding.rvSettings.addItemDecoration(divider)
+        val margin = resources.getDimension(R.dimen.settings_margin).toInt()
+        binding.rvSettings.addItemDecoration(SettingsRecyclerViewItemDecorator(margin))
     }
 
     private fun bindUiState(uiState: SettingsUiState) {

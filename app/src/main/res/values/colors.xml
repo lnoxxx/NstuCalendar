@@ -52,7 +52,7 @@
     <color name="md_theme_surfaceContainerHigh">#E4EAE3</color>
     <color name="md_theme_surfaceContainerHighest">#DFE4DD</color>
 
-    <color name="colorLecture">#9B821E</color>
-    <color name="colorPractice">#1D9E4E</color>
-    <color name="colorLaboratory">#A82F28</color>
+    <color name="colorLecture">#957B18</color>
+    <color name="colorPractice">#1DA647</color>
+    <color name="colorLaboratory">#921413</color>
 </resources>

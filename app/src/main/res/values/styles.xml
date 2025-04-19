@@ -7,10 +7,15 @@
 
     <style name="NstuCalendar.Button" parent="Widget.Material3.Button" />
 
+    <!--    Switch-->
+
+    <style name="NstuCalendar.Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch" />
+
     <!--    ToolBar-->
 
     <style name="NstuCalendar.Toolbar" parent="Widget.Material3.Toolbar">
         <item name="titleTextColor">?attr/colorOnSurface</item>
+        <item name="android:background">@color/transparent</item>
     </style>
 
     <!--    TabLayout-->

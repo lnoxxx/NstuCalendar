@@ -1,6 +1,7 @@
 package com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.viewHolders
 
 import android.view.View
+import androidx.appcompat.content.res.AppCompatResources
 import com.lnoxdev.nstucalendarparcer.R
 import com.lnoxdev.nstucalendarparcer.databinding.ItemSettingsSelectedBinding
 import com.lnoxdev.nstucalendarparcer.models.SettingsUiState
@@ -14,6 +15,12 @@ class SettingsSelectedViewHolder(
     private val binding = ItemSettingsSelectedBinding.bind(view)
     override fun bind(settings: SettingsUiState, settingsItem: SettingsItem) {
         binding.tvTitle.text = itemView.context.getString(settingsItem.titleResId)
+        binding.tvTitle.setCompoundDrawablesRelativeWithIntrinsicBounds(
+            settingsItem.iconResId,
+            0,
+            0,
+            0
+        )
         if (settingsItem == SettingsItem.GROUP) {
             binding.tvSelectedItem.text =
                 settings.group ?: itemView.context.getString(R.string.settings_not_select)

@@ -1,6 +1,7 @@
 package com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.viewHolders
 
 import android.view.View
+import androidx.appcompat.content.res.AppCompatResources
 import com.lnoxdev.nstucalendarparcer.databinding.ItemSettingsSwitchBinding
 import com.lnoxdev.nstucalendarparcer.models.SettingsUiState
 import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.SettingsItem
@@ -13,6 +14,12 @@ class SettingsSwitchViewHolder(
     private val binding = ItemSettingsSwitchBinding.bind(view)
     override fun bind(settings: SettingsUiState, settingsItem: SettingsItem) {
         binding.tvTitle.text = itemView.context.getString(settingsItem.titleResId)
+        binding.tvTitle.setCompoundDrawablesRelativeWithIntrinsicBounds(
+            settingsItem.iconResId,
+            0,
+            0,
+            0
+        )
         if (settingsItem == SettingsItem.TIME_FORMAT) {
             binding.swc.isChecked = settings.is12TimeFormat
             binding.swc.setOnCheckedChangeListener { _, isChecked ->
