@@ -16,6 +16,12 @@ class SettingsThemeViewHolder(
 ) : SettingsItemViewHolder(view, listener) {
     private val binding = ItemSettingsThemeBinding.bind(view)
     override fun bind(settings: SettingsUiState, settingsItem: SettingsItem) {
+        if (!settings.monet) {
+            itemView.visibility = View.VISIBLE
+        } else {
+            itemView.visibility = View.GONE
+        }
+
         binding.tvTitle.text = itemView.context.getString(settingsItem.titleResId)
         binding.tvTitle.setCompoundDrawablesRelativeWithIntrinsicBounds(
             settingsItem.iconResId,

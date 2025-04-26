@@ -1,7 +1,6 @@
 package com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.viewHolders
 
 import android.view.View
-import androidx.appcompat.content.res.AppCompatResources
 import com.lnoxdev.nstucalendarparcer.databinding.ItemSettingsSwitchBinding
 import com.lnoxdev.nstucalendarparcer.models.SettingsUiState
 import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.SettingsItem
