@@ -1,21 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cvBackground"
-    style="@style/NstuCalendar.CardView.Filled"
-    android:layout_width="wrap_content"
+    android:id="@+id/llMain"
+    android:layout_width="78dp"
     android:layout_height="wrap_content"
-    android:checkable="true"
-    android:clickable="true"
-    android:focusable="true">
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvStroke"
+        style="@style/NstuCalendar.CardView.Outlined"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        app:cardBackgroundColor="?attr/colorSurfaceContainerHighest"
+        app:strokeColor="?attr/colorPrimary"
+        app:strokeWidth="@dimen/stroke_width_theme">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="12dp">
+
+            <View
+                android:id="@+id/topLeftCorner"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/shape_theme_top_left"
+                app:layout_constraintBottom_toTopOf="@id/bottomCorner"
+                app:layout_constraintEnd_toStartOf="@id/topRightCorner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:backgroundTint="@color/md_theme_secondaryContainer" />
+
+            <View
+                android:id="@+id/topRightCorner"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/shape_theme_top_right"
+                app:layout_constraintBottom_toTopOf="@id/bottomCorner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/topLeftCorner"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:backgroundTint="@color/md_theme_tertiaryContainer" />
+
+            <View
+                android:id="@+id/bottomCorner"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/shape_theme_bottom"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/topLeftCorner"
+                tools:backgroundTint="@color/md_theme_primary" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/tvThemeName"
-        style="@style/NstuCalendar.TextView.Black.Label"
+        style="@style/NstuCalendar.TextView.Medium.Label"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="32dp"
-        tools:text="Cornflower" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center_horizontal"
+        android:singleLine="true"
+        tools:text="Nstu" />
 
-
-</com.google.android.material.card.MaterialCardView>
+</LinearLayout>

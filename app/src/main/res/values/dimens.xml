@@ -2,12 +2,16 @@
 <resources>
     <dimen name="theme_margin">8dp</dimen>
     <dimen name="settings_margin">16dp</dimen>
+    <dimen name="settings_margin_half">8dp</dimen>
     <dimen name="schedule_margin">8dp</dimen>
     <dimen name="group_margin">8dp</dimen>
     <dimen name="app_bar_margin">16dp</dimen>
 
-    <dimen name="corner_radius_default">12dp</dimen>
+    <dimen name="corner_radius_default">16dp</dimen>
     <dimen name="corner_radius_circle">32dp</dimen>
+    <dimen name="corner_radius_theme">128dp</dimen>
+
+    <dimen name="stroke_width_theme">3dp</dimen>
 
     <dimen name="text_size_headline">22sp</dimen>
     <dimen name="text_size_title">18sp</dimen>

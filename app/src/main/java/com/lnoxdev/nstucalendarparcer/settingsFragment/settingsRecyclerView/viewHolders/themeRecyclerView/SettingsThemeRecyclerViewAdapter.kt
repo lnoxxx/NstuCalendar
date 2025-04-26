@@ -19,13 +19,21 @@ class SettingsThemeRecyclerViewAdapter(
     inner class ThemeItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = ItemThemeBinding.bind(view)
         fun bind(theme: UiAppTheme) {
-            val backgroundColor = itemView.context.getColor(theme.colorResPrimary)
-            val textColor = itemView.context.getColor(theme.colorResOnPrimary)
+            val primary = itemView.context.getColor(theme.colorResPrimary)
+            val secondary = itemView.context.getColor(theme.colorResSecondary)
+            val tertiary = itemView.context.getColor(theme.colorResTertiary)
+            val isApplyTheme = settings.appTheme == theme
+            val strokeWidth = itemView.context.resources.getDimension(R.dimen.stroke_width_theme).toInt()
+
             binding.tvThemeName.text = itemView.context.getString(theme.themeNameResId)
-            binding.cvBackground.setCardBackgroundColor(backgroundColor)
-            binding.tvThemeName.setTextColor(textColor)
-            binding.cvBackground.checkedIconTint = ColorStateList.valueOf(textColor)
-            binding.cvBackground.isChecked = settings.appTheme == theme
+            binding.topLeftCorner.backgroundTintList = ColorStateList.valueOf(secondary)
+            binding.topRightCorner.backgroundTintList = ColorStateList.valueOf(tertiary)
+            binding.bottomCorner.backgroundTintList = ColorStateList.valueOf(primary)
+            if (isApplyTheme){
+                binding.cvStroke.strokeWidth = strokeWidth
+            }else{
+                binding.cvStroke.strokeWidth = 0
+            }
             itemView.setOnClickListener {
                 listener.onChangeTheme(theme)
             }

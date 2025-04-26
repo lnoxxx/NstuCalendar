@@ -6,25 +6,29 @@ import com.lnoxdev.nstucalendarparcer.R
 enum class UiAppTheme(
     val themeNameResId: Int,
     val colorResPrimary: Int,
-    val colorResOnPrimary: Int,
+    val colorResSecondary: Int,
+    val colorResTertiary: Int,
     val themeRes: Int
 ) {
     NSTU(
         R.string.theme_nstu,
         R.color.md_theme_primary,
-        R.color.md_theme_onPrimary,
+        R.color.md_theme_secondaryContainer,
+        R.color.md_theme_onTertiaryContainer,
         R.style.NstuCalendar_Theme_Default
     ),
     CORNFLOWER(
         R.string.theme_cornflower,
         R.color.cornflower_primary,
-        R.color.cornflower_onPrimary,
+        R.color.cornflower_secondaryContainer,
+        R.color.cornflower_onTertiaryContainer,
         R.style.NstuCalendar_Theme_Cornflower
     ),
     DARK_ORCHID(
         R.string.theme_dark_orchid,
         R.color.dark_orchid_primary,
-        R.color.dark_orchid_onPrimary,
+        R.color.dark_orchid_secondaryContainer,
+        R.color.dark_orchid_onTertiaryContainer,
         R.style.NstuCalendar_Theme_DarkOrchid
     ),
 }
