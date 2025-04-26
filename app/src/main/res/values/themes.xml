@@ -161,4 +161,311 @@
         <item name="colorSurfaceContainerHigh">@color/dark_orchid_surfaceContainerHigh</item>
         <item name="colorSurfaceContainerHighest">@color/dark_orchid_surfaceContainerHighest</item>
     </style>
+
+    <!--    Mountain meadow-->
+    <style name="NstuCalendar.Theme.MountainMeadow" parent="NstuCalendar.Theme.BaseTheme">
+        <item name="colorPrimary">@color/mountain_meadow_primary</item>
+        <item name="colorOnPrimary">@color/mountain_meadow_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/mountain_meadow_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/mountain_meadow_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/mountain_meadow_secondary</item>
+        <item name="colorOnSecondary">@color/mountain_meadow_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/mountain_meadow_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/mountain_meadow_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/mountain_meadow_tertiary</item>
+        <item name="colorOnTertiary">@color/mountain_meadow_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/mountain_meadow_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/mountain_meadow_onTertiaryContainer</item>
+        <item name="colorError">@color/mountain_meadow_error</item>
+        <item name="colorOnError">@color/mountain_meadow_onError</item>
+        <item name="colorErrorContainer">@color/mountain_meadow_errorContainer</item>
+        <item name="colorOnErrorContainer">@color/mountain_meadow_onErrorContainer</item>
+        <item name="android:colorBackground">@color/mountain_meadow_background</item>
+        <item name="colorOnBackground">@color/mountain_meadow_onBackground</item>
+        <item name="colorSurface">@color/mountain_meadow_surface</item>
+        <item name="colorOnSurface">@color/mountain_meadow_onSurface</item>
+        <item name="colorSurfaceVariant">@color/mountain_meadow_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/mountain_meadow_onSurfaceVariant</item>
+        <item name="colorOutline">@color/mountain_meadow_outline</item>
+        <item name="colorOutlineVariant">@color/mountain_meadow_outlineVariant</item>
+        <item name="colorSurfaceInverse">@color/mountain_meadow_inverseSurface</item>
+        <item name="colorOnSurfaceInverse">@color/mountain_meadow_inverseOnSurface</item>
+        <item name="colorPrimaryInverse">@color/mountain_meadow_inversePrimary</item>
+        <item name="colorPrimaryFixed">@color/mountain_meadow_primaryFixed</item>
+        <item name="colorOnPrimaryFixed">@color/mountain_meadow_onPrimaryFixed</item>
+        <item name="colorPrimaryFixedDim">@color/mountain_meadow_primaryFixedDim</item>
+        <item name="colorOnPrimaryFixedVariant">@color/mountain_meadow_onPrimaryFixedVariant</item>
+        <item name="colorSecondaryFixed">@color/mountain_meadow_secondaryFixed</item>
+        <item name="colorOnSecondaryFixed">@color/mountain_meadow_onSecondaryFixed</item>
+        <item name="colorSecondaryFixedDim">@color/mountain_meadow_secondaryFixedDim</item>
+        <item name="colorOnSecondaryFixedVariant">@color/mountain_meadow_onSecondaryFixedVariant
+        </item>
+        <item name="colorTertiaryFixed">@color/mountain_meadow_tertiaryFixed</item>
+        <item name="colorOnTertiaryFixed">@color/mountain_meadow_onTertiaryFixed</item>
+        <item name="colorTertiaryFixedDim">@color/mountain_meadow_tertiaryFixedDim</item>
+        <item name="colorOnTertiaryFixedVariant">@color/mountain_meadow_onTertiaryFixedVariant
+        </item>
+        <item name="colorSurfaceDim">@color/mountain_meadow_surfaceDim</item>
+        <item name="colorSurfaceBright">@color/mountain_meadow_surfaceBright</item>
+        <item name="colorSurfaceContainerLowest">@color/mountain_meadow_surfaceContainerLowest
+        </item>
+        <item name="colorSurfaceContainerLow">@color/mountain_meadow_surfaceContainerLow</item>
+        <item name="colorSurfaceContainer">@color/mountain_meadow_surfaceContainer</item>
+        <item name="colorSurfaceContainerHigh">@color/mountain_meadow_surfaceContainerHigh</item>
+        <item name="colorSurfaceContainerHighest">@color/mountain_meadow_surfaceContainerHighest
+        </item>
+    </style>
+
+    <!--    Pear-->
+    <style name="NstuCalendar.Theme.Pear" parent="NstuCalendar.Theme.BaseTheme">
+        <item name="colorPrimary">@color/pear_primary</item>
+        <item name="colorOnPrimary">@color/pear_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/pear_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/pear_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/pear_secondary</item>
+        <item name="colorOnSecondary">@color/pear_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/pear_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/pear_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/pear_tertiary</item>
+        <item name="colorOnTertiary">@color/pear_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/pear_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/pear_onTertiaryContainer</item>
+        <item name="colorError">@color/pear_error</item>
+        <item name="colorOnError">@color/pear_onError</item>
+        <item name="colorErrorContainer">@color/pear_errorContainer</item>
+        <item name="colorOnErrorContainer">@color/pear_onErrorContainer</item>
+        <item name="android:colorBackground">@color/pear_background</item>
+        <item name="colorOnBackground">@color/pear_onBackground</item>
+        <item name="colorSurface">@color/pear_surface</item>
+        <item name="colorOnSurface">@color/pear_onSurface</item>
+        <item name="colorSurfaceVariant">@color/pear_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/pear_onSurfaceVariant</item>
+        <item name="colorOutline">@color/pear_outline</item>
+        <item name="colorOutlineVariant">@color/pear_outlineVariant</item>
+        <item name="colorSurfaceInverse">@color/pear_inverseSurface</item>
+        <item name="colorOnSurfaceInverse">@color/pear_inverseOnSurface</item>
+        <item name="colorPrimaryInverse">@color/pear_inversePrimary</item>
+        <item name="colorPrimaryFixed">@color/pear_primaryFixed</item>
+        <item name="colorOnPrimaryFixed">@color/pear_onPrimaryFixed</item>
+        <item name="colorPrimaryFixedDim">@color/pear_primaryFixedDim</item>
+        <item name="colorOnPrimaryFixedVariant">@color/pear_onPrimaryFixedVariant</item>
+        <item name="colorSecondaryFixed">@color/pear_secondaryFixed</item>
+        <item name="colorOnSecondaryFixed">@color/pear_onSecondaryFixed</item>
+        <item name="colorSecondaryFixedDim">@color/pear_secondaryFixedDim</item>
+        <item name="colorOnSecondaryFixedVariant">@color/pear_onSecondaryFixedVariant</item>
+        <item name="colorTertiaryFixed">@color/pear_tertiaryFixed</item>
+        <item name="colorOnTertiaryFixed">@color/pear_onTertiaryFixed</item>
+        <item name="colorTertiaryFixedDim">@color/pear_tertiaryFixedDim</item>
+        <item name="colorOnTertiaryFixedVariant">@color/pear_onTertiaryFixedVariant</item>
+        <item name="colorSurfaceDim">@color/pear_surfaceDim</item>
+        <item name="colorSurfaceBright">@color/pear_surfaceBright</item>
+        <item name="colorSurfaceContainerLowest">@color/pear_surfaceContainerLowest</item>
+        <item name="colorSurfaceContainerLow">@color/pear_surfaceContainerLow</item>
+        <item name="colorSurfaceContainer">@color/pear_surfaceContainer</item>
+        <item name="colorSurfaceContainerHigh">@color/pear_surfaceContainerHigh</item>
+        <item name="colorSurfaceContainerHighest">@color/pear_surfaceContainerHighest</item>
+    </style>
+
+    <!--    Salmon orange-->
+    <style name="NstuCalendar.Theme.SalmonOrange" parent="NstuCalendar.Theme.BaseTheme">
+        <item name="colorPrimary">@color/salmon_orange_primary</item>
+        <item name="colorOnPrimary">@color/salmon_orange_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/salmon_orange_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/salmon_orange_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/salmon_orange_secondary</item>
+        <item name="colorOnSecondary">@color/salmon_orange_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/salmon_orange_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/salmon_orange_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/salmon_orange_tertiary</item>
+        <item name="colorOnTertiary">@color/salmon_orange_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/salmon_orange_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/salmon_orange_onTertiaryContainer</item>
+        <item name="colorError">@color/salmon_orange_error</item>
+        <item name="colorOnError">@color/salmon_orange_onError</item>
+        <item name="colorErrorContainer">@color/salmon_orange_errorContainer</item>
+        <item name="colorOnErrorContainer">@color/salmon_orange_onErrorContainer</item>
+        <item name="android:colorBackground">@color/salmon_orange_background</item>
+        <item name="colorOnBackground">@color/salmon_orange_onBackground</item>
+        <item name="colorSurface">@color/salmon_orange_surface</item>
+        <item name="colorOnSurface">@color/salmon_orange_onSurface</item>
+        <item name="colorSurfaceVariant">@color/salmon_orange_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/salmon_orange_onSurfaceVariant</item>
+        <item name="colorOutline">@color/salmon_orange_outline</item>
+        <item name="colorOutlineVariant">@color/salmon_orange_outlineVariant</item>
+        <item name="colorSurfaceInverse">@color/salmon_orange_inverseSurface</item>
+        <item name="colorOnSurfaceInverse">@color/salmon_orange_inverseOnSurface</item>
+        <item name="colorPrimaryInverse">@color/salmon_orange_inversePrimary</item>
+        <item name="colorPrimaryFixed">@color/salmon_orange_primaryFixed</item>
+        <item name="colorOnPrimaryFixed">@color/salmon_orange_onPrimaryFixed</item>
+        <item name="colorPrimaryFixedDim">@color/salmon_orange_primaryFixedDim</item>
+        <item name="colorOnPrimaryFixedVariant">@color/salmon_orange_onPrimaryFixedVariant</item>
+        <item name="colorSecondaryFixed">@color/salmon_orange_secondaryFixed</item>
+        <item name="colorOnSecondaryFixed">@color/salmon_orange_onSecondaryFixed</item>
+        <item name="colorSecondaryFixedDim">@color/salmon_orange_secondaryFixedDim</item>
+        <item name="colorOnSecondaryFixedVariant">@color/salmon_orange_onSecondaryFixedVariant
+        </item>
+        <item name="colorTertiaryFixed">@color/salmon_orange_tertiaryFixed</item>
+        <item name="colorOnTertiaryFixed">@color/salmon_orange_onTertiaryFixed</item>
+        <item name="colorTertiaryFixedDim">@color/salmon_orange_tertiaryFixedDim</item>
+        <item name="colorOnTertiaryFixedVariant">@color/salmon_orange_onTertiaryFixedVariant</item>
+        <item name="colorSurfaceDim">@color/salmon_orange_surfaceDim</item>
+        <item name="colorSurfaceBright">@color/salmon_orange_surfaceBright</item>
+        <item name="colorSurfaceContainerLowest">@color/salmon_orange_surfaceContainerLowest</item>
+        <item name="colorSurfaceContainerLow">@color/salmon_orange_surfaceContainerLow</item>
+        <item name="colorSurfaceContainer">@color/salmon_orange_surfaceContainer</item>
+        <item name="colorSurfaceContainerHigh">@color/salmon_orange_surfaceContainerHigh</item>
+        <item name="colorSurfaceContainerHighest">@color/salmon_orange_surfaceContainerHighest
+        </item>
+    </style>
+
+    <!--    Telemagenta-->
+    <style name="NstuCalendar.Theme.Telemagenta" parent="NstuCalendar.Theme.BaseTheme">
+        <item name="colorPrimary">@color/telemagenta_primary</item>
+        <item name="colorOnPrimary">@color/telemagenta_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/telemagenta_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/telemagenta_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/telemagenta_secondary</item>
+        <item name="colorOnSecondary">@color/telemagenta_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/telemagenta_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/telemagenta_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/telemagenta_tertiary</item>
+        <item name="colorOnTertiary">@color/telemagenta_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/telemagenta_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/telemagenta_onTertiaryContainer</item>
+        <item name="colorError">@color/telemagenta_error</item>
+        <item name="colorOnError">@color/telemagenta_onError</item>
+        <item name="colorErrorContainer">@color/telemagenta_errorContainer</item>
+        <item name="colorOnErrorContainer">@color/telemagenta_onErrorContainer</item>
+        <item name="android:colorBackground">@color/telemagenta_background</item>
+        <item name="colorOnBackground">@color/telemagenta_onBackground</item>
+        <item name="colorSurface">@color/telemagenta_surface</item>
+        <item name="colorOnSurface">@color/telemagenta_onSurface</item>
+        <item name="colorSurfaceVariant">@color/telemagenta_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/telemagenta_onSurfaceVariant</item>
+        <item name="colorOutline">@color/telemagenta_outline</item>
+        <item name="colorOutlineVariant">@color/telemagenta_outlineVariant</item>
+        <item name="colorSurfaceInverse">@color/telemagenta_inverseSurface</item>
+        <item name="colorOnSurfaceInverse">@color/telemagenta_inverseOnSurface</item>
+        <item name="colorPrimaryInverse">@color/telemagenta_inversePrimary</item>
+        <item name="colorPrimaryFixed">@color/telemagenta_primaryFixed</item>
+        <item name="colorOnPrimaryFixed">@color/telemagenta_onPrimaryFixed</item>
+        <item name="colorPrimaryFixedDim">@color/telemagenta_primaryFixedDim</item>
+        <item name="colorOnPrimaryFixedVariant">@color/telemagenta_onPrimaryFixedVariant</item>
+        <item name="colorSecondaryFixed">@color/telemagenta_secondaryFixed</item>
+        <item name="colorOnSecondaryFixed">@color/telemagenta_onSecondaryFixed</item>
+        <item name="colorSecondaryFixedDim">@color/telemagenta_secondaryFixedDim</item>
+        <item name="colorOnSecondaryFixedVariant">@color/telemagenta_onSecondaryFixedVariant</item>
+        <item name="colorTertiaryFixed">@color/telemagenta_tertiaryFixed</item>
+        <item name="colorOnTertiaryFixed">@color/telemagenta_onTertiaryFixed</item>
+        <item name="colorTertiaryFixedDim">@color/telemagenta_tertiaryFixedDim</item>
+        <item name="colorOnTertiaryFixedVariant">@color/telemagenta_onTertiaryFixedVariant</item>
+        <item name="colorSurfaceDim">@color/telemagenta_surfaceDim</item>
+        <item name="colorSurfaceBright">@color/telemagenta_surfaceBright</item>
+        <item name="colorSurfaceContainerLowest">@color/telemagenta_surfaceContainerLowest</item>
+        <item name="colorSurfaceContainerLow">@color/telemagenta_surfaceContainerLow</item>
+        <item name="colorSurfaceContainer">@color/telemagenta_surfaceContainer</item>
+        <item name="colorSurfaceContainerHigh">@color/telemagenta_surfaceContainerHigh</item>
+        <item name="colorSurfaceContainerHighest">@color/telemagenta_surfaceContainerHighest</item>
+    </style>
+
+    <!--    Toad in love-->
+    <style name="NstuCalendar.Theme.ToadInLove" parent="NstuCalendar.Theme.BaseTheme">
+        <item name="colorPrimary">@color/toad_in_love_primary</item>
+        <item name="colorOnPrimary">@color/toad_in_love_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/toad_in_love_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/toad_in_love_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/toad_in_love_secondary</item>
+        <item name="colorOnSecondary">@color/toad_in_love_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/toad_in_love_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/toad_in_love_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/toad_in_love_tertiary</item>
+        <item name="colorOnTertiary">@color/toad_in_love_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/toad_in_love_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/toad_in_love_onTertiaryContainer</item>
+        <item name="colorError">@color/toad_in_love_error</item>
+        <item name="colorOnError">@color/toad_in_love_onError</item>
+        <item name="colorErrorContainer">@color/toad_in_love_errorContainer</item>
+        <item name="colorOnErrorContainer">@color/toad_in_love_onErrorContainer</item>
+        <item name="android:colorBackground">@color/toad_in_love_background</item>
+        <item name="colorOnBackground">@color/toad_in_love_onBackground</item>
+        <item name="colorSurface">@color/toad_in_love_surface</item>
+        <item name="colorOnSurface">@color/toad_in_love_onSurface</item>
+        <item name="colorSurfaceVariant">@color/toad_in_love_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/toad_in_love_onSurfaceVariant</item>
+        <item name="colorOutline">@color/toad_in_love_outline</item>
+        <item name="colorOutlineVariant">@color/toad_in_love_outlineVariant</item>
+        <item name="colorSurfaceInverse">@color/toad_in_love_inverseSurface</item>
+        <item name="colorOnSurfaceInverse">@color/toad_in_love_inverseOnSurface</item>
+        <item name="colorPrimaryInverse">@color/toad_in_love_inversePrimary</item>
+        <item name="colorPrimaryFixed">@color/toad_in_love_primaryFixed</item>
+        <item name="colorOnPrimaryFixed">@color/toad_in_love_onPrimaryFixed</item>
+        <item name="colorPrimaryFixedDim">@color/toad_in_love_primaryFixedDim</item>
+        <item name="colorOnPrimaryFixedVariant">@color/toad_in_love_onPrimaryFixedVariant</item>
+        <item name="colorSecondaryFixed">@color/toad_in_love_secondaryFixed</item>
+        <item name="colorOnSecondaryFixed">@color/toad_in_love_onSecondaryFixed</item>
+        <item name="colorSecondaryFixedDim">@color/toad_in_love_secondaryFixedDim</item>
+        <item name="colorOnSecondaryFixedVariant">@color/toad_in_love_onSecondaryFixedVariant</item>
+        <item name="colorTertiaryFixed">@color/toad_in_love_tertiaryFixed</item>
+        <item name="colorOnTertiaryFixed">@color/toad_in_love_onTertiaryFixed</item>
+        <item name="colorTertiaryFixedDim">@color/toad_in_love_tertiaryFixedDim</item>
+        <item name="colorOnTertiaryFixedVariant">@color/toad_in_love_onTertiaryFixedVariant</item>
+        <item name="colorSurfaceDim">@color/toad_in_love_surfaceDim</item>
+        <item name="colorSurfaceBright">@color/toad_in_love_surfaceBright</item>
+        <item name="colorSurfaceContainerLowest">@color/toad_in_love_surfaceContainerLowest</item>
+        <item name="colorSurfaceContainerLow">@color/toad_in_love_surfaceContainerLow</item>
+        <item name="colorSurfaceContainer">@color/toad_in_love_surfaceContainer</item>
+        <item name="colorSurfaceContainerHigh">@color/toad_in_love_surfaceContainerHigh</item>
+        <item name="colorSurfaceContainerHighest">@color/toad_in_love_surfaceContainerHighest</item>
+    </style>
+
+    <!--    Turquoise-->
+    <style name="NstuCalendar.Theme.Turquoise" parent="NstuCalendar.Theme.BaseTheme">
+        <item name="colorPrimary">@color/turquoise_primary</item>
+        <item name="colorOnPrimary">@color/turquoise_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/turquoise_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/turquoise_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/turquoise_secondary</item>
+        <item name="colorOnSecondary">@color/turquoise_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/turquoise_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/turquoise_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/turquoise_tertiary</item>
+        <item name="colorOnTertiary">@color/turquoise_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/turquoise_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/turquoise_onTertiaryContainer</item>
+        <item name="colorError">@color/turquoise_error</item>
+        <item name="colorOnError">@color/turquoise_onError</item>
+        <item name="colorErrorContainer">@color/turquoise_errorContainer</item>
+        <item name="colorOnErrorContainer">@color/turquoise_onErrorContainer</item>
+        <item name="android:colorBackground">@color/turquoise_background</item>
+        <item name="colorOnBackground">@color/turquoise_onBackground</item>
+        <item name="colorSurface">@color/turquoise_surface</item>
+        <item name="colorOnSurface">@color/turquoise_onSurface</item>
+        <item name="colorSurfaceVariant">@color/turquoise_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/turquoise_onSurfaceVariant</item>
+        <item name="colorOutline">@color/turquoise_outline</item>
+        <item name="colorOutlineVariant">@color/turquoise_outlineVariant</item>
+        <item name="colorSurfaceInverse">@color/turquoise_inverseSurface</item>
+        <item name="colorOnSurfaceInverse">@color/turquoise_inverseOnSurface</item>
+        <item name="colorPrimaryInverse">@color/turquoise_inversePrimary</item>
+        <item name="colorPrimaryFixed">@color/turquoise_primaryFixed</item>
+        <item name="colorOnPrimaryFixed">@color/turquoise_onPrimaryFixed</item>
+        <item name="colorPrimaryFixedDim">@color/turquoise_primaryFixedDim</item>
+        <item name="colorOnPrimaryFixedVariant">@color/turquoise_onPrimaryFixedVariant</item>
+        <item name="colorSecondaryFixed">@color/turquoise_secondaryFixed</item>
+        <item name="colorOnSecondaryFixed">@color/turquoise_onSecondaryFixed</item>
+        <item name="colorSecondaryFixedDim">@color/turquoise_secondaryFixedDim</item>
+        <item name="colorOnSecondaryFixedVariant">@color/turquoise_onSecondaryFixedVariant</item>
+        <item name="colorTertiaryFixed">@color/turquoise_tertiaryFixed</item>
+        <item name="colorOnTertiaryFixed">@color/turquoise_onTertiaryFixed</item>
+        <item name="colorTertiaryFixedDim">@color/turquoise_tertiaryFixedDim</item>
+        <item name="colorOnTertiaryFixedVariant">@color/turquoise_onTertiaryFixedVariant</item>
+        <item name="colorSurfaceDim">@color/turquoise_surfaceDim</item>
+        <item name="colorSurfaceBright">@color/turquoise_surfaceBright</item>
+        <item name="colorSurfaceContainerLowest">@color/turquoise_surfaceContainerLowest</item>
+        <item name="colorSurfaceContainerLow">@color/turquoise_surfaceContainerLow</item>
+        <item name="colorSurfaceContainer">@color/turquoise_surfaceContainer</item>
+        <item name="colorSurfaceContainerHigh">@color/turquoise_surfaceContainerHigh</item>
+        <item name="colorSurfaceContainerHighest">@color/turquoise_surfaceContainerHighest</item>
+    </style>
+
 </resources>

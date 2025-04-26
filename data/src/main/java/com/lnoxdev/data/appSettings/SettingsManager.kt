@@ -26,6 +26,12 @@ class SettingsManager(private val dataStore: DataStore<Preferences>) {
             AppTheme.NSTU.saveKey -> AppTheme.NSTU
             AppTheme.CORNFLOWER.saveKey -> AppTheme.CORNFLOWER
             AppTheme.DARK_ORCHID.saveKey -> AppTheme.DARK_ORCHID
+            AppTheme.MOUNTAIN_MEADOW.saveKey -> AppTheme.MOUNTAIN_MEADOW
+            AppTheme.PEAR.saveKey -> AppTheme.PEAR
+            AppTheme.SALMON_ORANGE.saveKey -> AppTheme.SALMON_ORANGE
+            AppTheme.TELEMAGENTA.saveKey -> AppTheme.TELEMAGENTA
+            AppTheme.TOAD_IN_LOVE.saveKey -> AppTheme.TOAD_IN_LOVE
+            AppTheme.TURQUOISE.saveKey -> AppTheme.TURQUOISE
             else -> AppTheme.NSTU
         }
         Settings(group, is12TimeFormat, monet, appTheme)
@@ -68,9 +74,15 @@ class SettingsManager(private val dataStore: DataStore<Preferences>) {
         private const val FALSE = "false"
 
         enum class AppTheme(val saveKey: String) {
-            NSTU("NstuTheme"),
-            CORNFLOWER("CornflowerTheme"),
-            DARK_ORCHID("DarkOrchid")
+            NSTU("NSTU"),
+            CORNFLOWER("CORNFLOWER"),
+            DARK_ORCHID("DARK_ORCHID"),
+            MOUNTAIN_MEADOW("MOUNTAIN_MEADOW"),
+            PEAR("PEAR"),
+            SALMON_ORANGE("SALMON_ORANGE"),
+            TELEMAGENTA("TELEMAGENTA"),
+            TOAD_IN_LOVE("TOAD_IN_LOVE"),
+            TURQUOISE("TURQUOISE"),
         }
     }
 }
