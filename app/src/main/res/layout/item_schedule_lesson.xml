@@ -54,6 +54,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="@id/tvTeacherName"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLessonName"
+            app:layout_constraintVertical_bias="1.0"
             tools:text="12:30 - 13:30" />
 
         <TextView
