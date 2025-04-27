@@ -39,8 +39,10 @@ class SettingsThemeViewHolder(
         )
         if (settings.monet){
             binding.rvThemes.alpha = 0.5f
+            binding.tvTitle.alpha = 0.5f
         }else{
             binding.rvThemes.alpha = 1f
+            binding.tvTitle.alpha = 1f
         }
         adapter.changeSelectedTheme(settings)
     }
