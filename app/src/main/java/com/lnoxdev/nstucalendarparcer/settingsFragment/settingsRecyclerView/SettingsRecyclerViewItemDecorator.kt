@@ -11,13 +11,10 @@ class SettingsRecyclerViewItemDecorator(private val margin: Int) : RecyclerView.
         parent: RecyclerView,
         state: RecyclerView.State
     ) {
-        val position = parent.getChildAdapterPosition(view)
-        if (position == SettingsItem.THEME.ordinal) return
         with(outRect) {
-            top = margin / 2
+            top = margin
             left = margin
             right = margin
-            bottom = margin / 2
         }
     }
 

@@ -10,7 +10,6 @@
         android:id="@+id/ablSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorSurfaceContainer"
         android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.MaterialToolbar

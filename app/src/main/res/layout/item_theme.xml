@@ -67,6 +67,7 @@
         android:layout_marginTop="4dp"
         android:gravity="center_horizontal"
         android:singleLine="true"
+        android:textSize="12sp"
         tools:text="Nstu" />
 
 </LinearLayout>

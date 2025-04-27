@@ -13,7 +13,6 @@ class LessonPastViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val lessonTimeStart = lesson.startTime.format(getTimeFormat(lesson.is12HourTimeFormat))
         val lessonTimeEnd = lesson.endTime.format(getTimeFormat(lesson.is12HourTimeFormat))
         val lessonTime = "$lessonTimeStart - $lessonTimeEnd"
-
         with(binding) {
             tvLessonName.text = lessonName
             tvLessonTime.text = lessonTime

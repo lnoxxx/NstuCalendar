@@ -18,7 +18,6 @@ class LessonViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val lessonTimeEnd = lesson.endTime.format(getTimeFormat(lesson.is12HourTimeFormat))
         val lessonTime = "$lessonTimeStart - $lessonTimeEnd"
         val teacher = lesson.teacher?.name
-
         with(binding) {
             tvLessonType.text = lessonType
             if (colorType == null) {

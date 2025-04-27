@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingVertical="@dimen/settings_margin_half">
+    android:background="@drawable/shape_default_corners"
+    android:backgroundTint="?attr/colorSurfaceContainer"
+    android:paddingVertical="@dimen/settings_item_padding">
 
     <TextView
         android:id="@+id/tvTitle"
         style="@style/NstuCalendar.TextView.Medium.Title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:drawablePadding="8dp"
-        android:paddingHorizontal="@dimen/settings_margin"
+        android:drawablePadding="@dimen/settings_icon_margin"
+        android:paddingHorizontal="@dimen/settings_item_padding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,8 +24,9 @@
         android:id="@+id/rvThemes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:clipToPadding="false"
-        android:paddingHorizontal="@dimen/settings_margin"
+        android:paddingHorizontal="@dimen/settings_item_padding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />

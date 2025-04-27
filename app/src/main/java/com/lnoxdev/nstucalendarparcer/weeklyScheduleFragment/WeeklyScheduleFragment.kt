@@ -36,7 +36,6 @@ class WeeklyScheduleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentWeeklyScheduleBinding.inflate(inflater, container, false)
-        // fix edgeToEdge
         binding.ablWeeklySchedule.statusBarForeground =
             MaterialShapeDrawable.createWithElevationOverlay(context)
         binding.ablWeeklySchedule
@@ -44,7 +43,6 @@ class WeeklyScheduleFragment : Fragment() {
                 requireContext()
                     .getThemeColor(com.google.android.material.R.attr.colorSurfaceContainer)
             )
-        // default visibility
         binding.cpiScheduleLoading.hide()
         return binding.root
     }

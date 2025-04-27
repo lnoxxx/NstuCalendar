@@ -1,5 +1,6 @@
 package com.lnoxdev.nstucalendarparcer.settingsFragment
 
+import android.os.Parcelable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lnoxdev.data.appSettings.SettingsManager
@@ -27,7 +28,8 @@ class SettingsViewModel @Inject constructor(
                     group = it.group,
                     is12TimeFormat = it.is12TimeFormat,
                     monet = it.monetTheme,
-                    appTheme = it.appTheme.toUiAppTheme()
+                    appTheme = it.appTheme.toUiAppTheme(),
+                    themeRvState = themeRvState
                 )
                 _uiState.value = newUiState
             }
@@ -42,7 +44,9 @@ class SettingsViewModel @Inject constructor(
         return settingsManager.changeMonetThemeAsyncWithResult(enable)
     }
 
-    suspend fun changeTheme(theme: UiAppTheme): Boolean {
+    private var themeRvState: Parcelable? = null
+    suspend fun changeTheme(theme: UiAppTheme, newThemeRvState: Parcelable?): Boolean {
+        themeRvState = newThemeRvState
         return settingsManager.changeAppThemeAsyncWithResult(theme.toAppTheme())
     }
 }

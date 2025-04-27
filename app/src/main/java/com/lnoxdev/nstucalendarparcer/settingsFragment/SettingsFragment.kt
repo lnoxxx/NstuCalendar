@@ -1,6 +1,7 @@
 package com.lnoxdev.nstucalendarparcer.settingsFragment
 
 import android.os.Bundle
+import android.os.Parcelable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class SettingsFragment : Fragment(), SettingsRecyclerViewAdapter.SettingsRecyclerViewListener {
+class SettingsFragment : Fragment(), SettingsRecyclerViewAdapter.SettingsListener {
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding ?: throw IllegalStateException("Settings binding null!")
@@ -43,7 +44,7 @@ class SettingsFragment : Fragment(), SettingsRecyclerViewAdapter.SettingsRecycle
         binding.ablSettings
             .setStatusBarForegroundColor(
                 requireContext()
-                    .getThemeColor(com.google.android.material.R.attr.colorSurfaceContainer)
+                    .getThemeColor(com.google.android.material.R.attr.colorSurface)
             )
         return binding.root
     }
@@ -59,11 +60,9 @@ class SettingsFragment : Fragment(), SettingsRecyclerViewAdapter.SettingsRecycle
     private fun initRecyclerView() {
         binding.rvSettings.adapter = adapter
         binding.rvSettings.layoutManager = LinearLayoutManager(context)
-        val divider = MaterialDividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL)
-        divider.isLastItemDecorated = false
-        binding.rvSettings.addItemDecoration(divider)
         val margin = resources.getDimension(R.dimen.settings_margin).toInt()
         binding.rvSettings.addItemDecoration(SettingsRecyclerViewItemDecorator(margin))
+        binding.rvSettings.itemAnimator = null
     }
 
     private fun bindUiState(uiState: SettingsUiState) {
@@ -85,9 +84,9 @@ class SettingsFragment : Fragment(), SettingsRecyclerViewAdapter.SettingsRecycle
         }
     }
 
-    override fun onChangeTheme(theme: UiAppTheme) {
+    override fun onChangeTheme(theme: UiAppTheme, themeRvState: Parcelable?) {
         lifecycleScope.launch {
-            val recreate = viewModel.changeTheme(theme)
+            val recreate = viewModel.changeTheme(theme, themeRvState)
             if (recreate) activity?.recreate()
         }
     }

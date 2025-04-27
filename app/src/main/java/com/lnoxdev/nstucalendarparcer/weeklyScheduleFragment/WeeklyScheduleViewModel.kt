@@ -1,5 +1,6 @@
 package com.lnoxdev.nstucalendarparcer.weeklyScheduleFragment
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lnoxdev.data.DataException
@@ -94,7 +95,9 @@ class WeeklyScheduleViewModel @Inject constructor(
             return null
         }
         val daysSinceStart = ChronoUnit.DAYS.between(startDate, targetDate)
-        return (daysSinceStart / 7).toInt()
+        val dayOfWeek = daysSinceStart.mod(7)
+        val sundayTransfer = if (dayOfWeek == 6) 1 else 0
+        return (daysSinceStart / 7).toInt() + sundayTransfer
     }
 
 }

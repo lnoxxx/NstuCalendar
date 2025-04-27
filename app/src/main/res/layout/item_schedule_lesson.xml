@@ -9,9 +9,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingVertical="12dp"
+        android:clipToPadding="false"
         android:paddingHorizontal="16dp"
-        android:clipToPadding="false">
+        android:paddingVertical="12dp">
 
         <TextView
             android:id="@+id/tvLessonType"
@@ -52,8 +52,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/tvTeacherName"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvLessonName"
             tools:text="12:30 - 13:30" />
 
         <TextView
@@ -61,12 +61,13 @@
             style="@style/NstuCalendar.TextView.Regular.Label"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:gravity="end"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvLessonTime"
             app:layout_constraintTop_toBottomOf="@id/tvLessonName"
-            tools:text="Огнев И.А" />
+            tools:text="Огнев И.А " />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

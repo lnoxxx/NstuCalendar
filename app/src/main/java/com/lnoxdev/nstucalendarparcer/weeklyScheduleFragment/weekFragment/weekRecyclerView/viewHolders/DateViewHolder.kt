@@ -20,7 +20,6 @@ class DateViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             itemView.context.getThemeColor(com.google.android.material.R.attr.colorOutline)
         val todayColor =
             itemView.context.getThemeColor(com.google.android.material.R.attr.colorPrimary)
-
         with(binding) {
             tvDayOfWeek.text = dayOfWeek
             tvDate.text = dateString

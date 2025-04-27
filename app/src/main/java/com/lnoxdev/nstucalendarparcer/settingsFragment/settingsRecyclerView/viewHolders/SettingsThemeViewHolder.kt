@@ -1,5 +1,6 @@
 package com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.viewHolders
 
+import android.os.Parcelable
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lnoxdev.nstucalendarparcer.R
@@ -12,16 +13,23 @@ import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.view
 
 class SettingsThemeViewHolder(
     view: View,
-    listener: SettingsRecyclerViewAdapter.SettingsRecyclerViewListener
+    listener: SettingsRecyclerViewAdapter.SettingsListener,
+    themeRvState: Parcelable?,
 ) : SettingsItemViewHolder(view, listener) {
     private val binding = ItemSettingsThemeBinding.bind(view)
-    override fun bind(settings: SettingsUiState, settingsItem: SettingsItem) {
-        if (!settings.monet) {
-            itemView.visibility = View.VISIBLE
-        } else {
-            itemView.visibility = View.GONE
-        }
+    private val layoutManager =
+        LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
+    private val adapter = SettingsThemeRecyclerViewAdapter(listener, layoutManager)
+    private val margin = itemView.context.resources.getDimension(R.dimen.theme_margin).toInt()
 
+    init {
+        binding.rvThemes.adapter = adapter
+        binding.rvThemes.layoutManager = layoutManager
+        layoutManager.onRestoreInstanceState(themeRvState)
+        binding.rvThemes.addItemDecoration(ThemeRecyclerViewItemDecorator(margin))
+    }
+
+    override fun bind(settings: SettingsUiState, settingsItem: SettingsItem) {
         binding.tvTitle.text = itemView.context.getString(settingsItem.titleResId)
         binding.tvTitle.setCompoundDrawablesRelativeWithIntrinsicBounds(
             settingsItem.iconResId,
@@ -29,11 +37,12 @@ class SettingsThemeViewHolder(
             0,
             0
         )
-        binding.rvThemes.adapter = SettingsThemeRecyclerViewAdapter(settings, listener)
-        binding.rvThemes.layoutManager =
-            LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
-        val margin = itemView.context.resources.getDimension(R.dimen.theme_margin).toInt()
-        binding.rvThemes.addItemDecoration(ThemeRecyclerViewItemDecorator(margin))
+        if (settings.monet){
+            binding.rvThemes.alpha = 0.5f
+        }else{
+            binding.rvThemes.alpha = 1f
+        }
+        adapter.changeSelectedTheme(settings)
     }
 }
 

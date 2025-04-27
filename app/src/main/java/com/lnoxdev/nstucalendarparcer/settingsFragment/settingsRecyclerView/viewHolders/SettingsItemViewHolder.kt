@@ -7,8 +7,7 @@ import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.Sett
 import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.SettingsRecyclerViewAdapter
 
 abstract class SettingsItemViewHolder(
-    view: View,
-    protected val listener: SettingsRecyclerViewAdapter.SettingsRecyclerViewListener
+    view: View, protected val listener: SettingsRecyclerViewAdapter.SettingsListener
 ) : RecyclerView.ViewHolder(view) {
     abstract fun bind(settings: SettingsUiState, settingsItem: SettingsItem)
 }

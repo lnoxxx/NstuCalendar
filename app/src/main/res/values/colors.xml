@@ -4,9 +4,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorLecture">#957B18</color>
-    <color name="colorPractice">#1DA647</color>
-    <color name="colorLaboratory">#921413</color>
+    <color name="colorLecture">#D09205</color>
+    <color name="colorPractice">#16B34F</color>
+    <color name="colorLaboratory">#B6231D</color>
 
     <!--    Default theme Nstu-->
     <color name="md_theme_primary">#336940</color>

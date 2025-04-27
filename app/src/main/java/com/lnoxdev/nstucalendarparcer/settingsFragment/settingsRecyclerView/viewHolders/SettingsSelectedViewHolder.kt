@@ -1,7 +1,6 @@
 package com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.viewHolders
 
 import android.view.View
-import androidx.appcompat.content.res.AppCompatResources
 import com.lnoxdev.nstucalendarparcer.R
 import com.lnoxdev.nstucalendarparcer.databinding.ItemSettingsSelectedBinding
 import com.lnoxdev.nstucalendarparcer.models.SettingsUiState
@@ -10,7 +9,7 @@ import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.Sett
 
 class SettingsSelectedViewHolder(
     view: View,
-    listener: SettingsRecyclerViewAdapter.SettingsRecyclerViewListener
+    listener: SettingsRecyclerViewAdapter.SettingsListener
 ) : SettingsItemViewHolder(view, listener) {
     private val binding = ItemSettingsSelectedBinding.bind(view)
     override fun bind(settings: SettingsUiState, settingsItem: SettingsItem) {

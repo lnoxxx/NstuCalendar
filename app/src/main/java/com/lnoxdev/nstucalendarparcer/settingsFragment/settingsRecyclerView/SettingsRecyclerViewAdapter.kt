@@ -1,5 +1,6 @@
 package com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView
 
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,14 +15,14 @@ import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.view
 import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.viewHolders.SettingsThemeViewHolder
 
 class SettingsRecyclerViewAdapter(
-    private val listener: SettingsRecyclerViewListener
+    private val listener: SettingsListener
 ) : RecyclerView.Adapter<SettingsItemViewHolder>() {
 
-    interface SettingsRecyclerViewListener {
+    interface SettingsListener {
         fun onChangeTimeFormat(is12TimeFormat: Boolean)
         fun onChangeGroup()
         fun onChangeMonetTheme(enable: Boolean)
-        fun onChangeTheme(theme: UiAppTheme)
+        fun onChangeTheme(theme: UiAppTheme, themeRvState: Parcelable?)
     }
 
     private var settings: SettingsUiState? = null
@@ -67,9 +68,9 @@ class SettingsRecyclerViewAdapter(
         return SettingsSwitchViewHolder(view, listener)
     }
 
-    private fun createSettingsThemeViewHolder(parent: ViewGroup): SettingsThemeViewHolder{
+    private fun createSettingsThemeViewHolder(parent: ViewGroup): SettingsThemeViewHolder {
         val view = createView(R.layout.item_settings_theme, parent)
-        return SettingsThemeViewHolder(view, listener)
+        return SettingsThemeViewHolder(view, listener, settings?.themeRvState)
     }
 
 }
