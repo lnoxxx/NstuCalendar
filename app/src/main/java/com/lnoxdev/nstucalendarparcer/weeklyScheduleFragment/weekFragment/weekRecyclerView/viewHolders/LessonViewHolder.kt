@@ -2,6 +2,7 @@ package com.lnoxdev.nstucalendarparcer.weeklyScheduleFragment.weekFragment.weekR
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.lnoxdev.nstucalendarparcer.R
 import com.lnoxdev.nstucalendarparcer.databinding.ItemScheduleLessonBinding
 import com.lnoxdev.nstucalendarparcer.models.WeekScheduleLesson
 import com.lnoxdev.nstucalendarparcer.utils.getThemeColor
@@ -18,8 +19,11 @@ class LessonViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val lessonTimeEnd = lesson.endTime.format(getTimeFormat(lesson.is12HourTimeFormat))
         val lessonTime = "$lessonTimeStart - $lessonTimeEnd"
         val teacher = lesson.teacher?.name
+        val strokeWidth = if (lesson.isNowLesson)
+            itemView.context.resources.getDimension(R.dimen.stroke_width_lesson).toInt() else 0
         with(binding) {
             tvLessonType.text = lessonType
+            binding.cvMain.strokeWidth = strokeWidth
             if (colorType == null) {
                 val defaultTextColor =
                     itemView.context.getThemeColor(com.google.android.material.R.attr.colorOnSurface)

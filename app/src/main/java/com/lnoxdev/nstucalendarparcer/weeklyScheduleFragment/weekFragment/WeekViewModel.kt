@@ -76,6 +76,8 @@ class WeekViewModel @Inject constructor(
                     LocalDateTime.of(dayDate, lesson.time.timeStart)
                 val localDateTimeOfEndLesson =
                     LocalDateTime.of(dayDate, lesson.time.timeEnd)
+                val isNowLesson = dateTime.isAfter(localDateTimeOfStartLesson)
+                        && dateTime.isBefore(localDateTimeOfEndLesson)
                 val newLesson = WeekScheduleLesson(
                     name = lesson.name,
                     teacher = WeekScheduleTeacher(
@@ -93,11 +95,10 @@ class WeekViewModel @Inject constructor(
                     endTime = lesson.time.timeEnd,
                     isFinished = dateTime.isAfter(localDateTimeOfEndLesson),
                     index = index,
-                    is12HourTimeFormat = is12HourTimeFormat
+                    is12HourTimeFormat = is12HourTimeFormat,
+                    isNowLesson = isNowLesson
                 )
                 scheduleList.add(newLesson)
-                val isNowLesson = dateTime.isAfter(localDateTimeOfStartLesson)
-                        && dateTime.isBefore(localDateTimeOfEndLesson)
                 if (isNowLesson) {
                     val totalTime = ChronoUnit.NANOS.between(
                         lesson.time.timeStart,

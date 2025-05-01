@@ -65,6 +65,7 @@ class WeeklyScheduleViewModel @Inject constructor(
             try {
                 _isUpdate.emit(true)
                 scheduleRepository.updateSchedule()
+                _exception.emit(null)
             } catch (e: DataException) {
                 when (e) {
                     is InternetException -> emitException(UiExceptions.INTERNET)

@@ -5,5 +5,5 @@ import com.google.android.material.snackbar.Snackbar
 import com.lnoxdev.nstucalendarparcer.models.UiExceptions
 
 fun View.showErrorSnackBar(exception: UiExceptions) {
-    Snackbar.make(this, exception.textResId, Snackbar.LENGTH_INDEFINITE).show()
+    Snackbar.make(this, exception.textResId, Snackbar.LENGTH_SHORT).show()
 }

@@ -8,26 +8,29 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingVertical="12dp"
-        android:paddingHorizontal="16dp">
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="16dp">
 
         <TextView
             android:id="@+id/tvLessonTime"
-            style="@style/NstuCalendar.TextView.Black.Label.Outline"
+            style="@style/NstuCalendar.TextView.Medium.Label"
+            android:textColor="?attr/colorOutline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLessonName"
             tools:text="12:30 - 13:30" />
 
         <TextView
             android:id="@+id/tvLessonName"
-            style="@style/NstuCalendar.TextView.Medium.Text.Outline"
+            style="@style/NstuCalendar.TextView.Black.Text"
+            android:textColor="?attr/colorOutline"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvLessonTime"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Програмно-аппаратные средства обеспечения информационной безопасности" />
 
 

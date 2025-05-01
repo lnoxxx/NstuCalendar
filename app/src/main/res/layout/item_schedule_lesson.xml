@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cvMain"
+    app:strokeColor="?attr/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -10,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="12dp">
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="16dp">
 
         <TextView
             android:id="@+id/tvLessonType"
@@ -37,7 +38,7 @@
 
         <TextView
             android:id="@+id/tvLessonName"
-            style="@style/NstuCalendar.TextView.Medium.Text"
+            style="@style/NstuCalendar.TextView.Black.Text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -48,7 +49,7 @@
 
         <TextView
             android:id="@+id/tvLessonTime"
-            style="@style/NstuCalendar.TextView.Black.Label"
+            style="@style/NstuCalendar.TextView.Medium.Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -58,7 +59,7 @@
 
         <TextView
             android:id="@+id/tvTeacherName"
-            style="@style/NstuCalendar.TextView.Regular.Label"
+            style="@style/NstuCalendar.TextView.Medium.Label"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

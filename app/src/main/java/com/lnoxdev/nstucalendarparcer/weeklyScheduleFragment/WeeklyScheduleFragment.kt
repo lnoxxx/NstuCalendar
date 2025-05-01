@@ -44,6 +44,7 @@ class WeeklyScheduleFragment : Fragment() {
                     .getThemeColor(com.google.android.material.R.attr.colorSurfaceContainer)
             )
         binding.cpiScheduleLoading.hide()
+        binding.imvError.visibility = View.GONE
         return binding.root
     }
 
@@ -67,6 +68,9 @@ class WeeklyScheduleFragment : Fragment() {
         binding.tvLastUpdateTime.setOnClickListener {
             viewModel.startUpdateSchedule()
         }
+        binding.imvError.setOnClickListener {
+            viewModel.exception.value?.let { binding.root.showErrorSnackBar(it) }
+        }
         lifecycleScope.launch {
             viewModel.isUpdate.collectLatest {
                 if (it) binding.cpiScheduleLoading.show() else binding.cpiScheduleLoading.hide()
@@ -77,7 +81,11 @@ class WeeklyScheduleFragment : Fragment() {
                 if (it == UiExceptions.SETTING_GROUP) {
                     return@collect
                 }
-                it?.let { binding.root.showErrorSnackBar(it) }
+                if (it != null) {
+                    binding.imvError.visibility = View.VISIBLE
+                } else {
+                    binding.imvError.visibility = View.GONE
+                }
             }
         }
         lifecycleScope.launch {
@@ -132,7 +140,10 @@ class WeeklyScheduleFragment : Fragment() {
 
     private fun initTabLayout() {
         val weekString = getString(R.string.tab_week)
+        val nowWeek = viewModel.uiState.value?.nowWeekIndex ?: 0
         TabLayoutMediator(binding.tlWeeks, binding.vpWeeks) { tab, position ->
+            if (position < nowWeek)
+                tab.view.alpha = 0.5f
             tab.text = "${position + 1} $weekString"
         }.attach()
     }

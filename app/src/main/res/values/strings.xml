@@ -67,5 +67,7 @@
     <string name="theme_turquoise">Turquoise</string>
     <string name="change">Change</string>
     <string name="cancel">Cancel</string>
+    <string name="cd_error_icon">Error</string>
+    <string name="cd_weeks">Weeks</string>
 
 </resources>

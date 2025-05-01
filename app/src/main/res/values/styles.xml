@@ -23,6 +23,8 @@
     <style name="NstuCalendar.TabLayout.Secondary" parent="Widget.Material3.TabLayout.Secondary">
         <item name="android:background">@color/transparent</item>
         <item name="tabTextColor">@color/tab_layout_color_selector</item>
+        <item name="tabIndicator">@drawable/shape_default_corners</item>
+        <item name="tabIndicatorHeight">3dp</item>
     </style>
 
     <!--    TextInputLayout-->

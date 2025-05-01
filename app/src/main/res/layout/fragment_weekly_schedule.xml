@@ -10,9 +10,9 @@
         android:id="@+id/ablWeeklySchedule"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorSurfaceContainer"
+        android:background="@drawable/shape_top_app_bar_background"
         android:fitsSystemWindows="true"
-        app:liftOnScroll="true">
+        app:liftOnScroll="false">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/tbWeeklySchedule"
@@ -49,9 +49,23 @@
                 app:hideAnimationBehavior="escape"
                 app:indicatorSize="16dp"
                 app:layout_constraintBottom_toBottomOf="@id/tvLastUpdateTime"
-                app:layout_constraintEnd_toStartOf="@id/tvLastUpdateTime"
+                app:layout_constraintEnd_toStartOf="@id/imvError"
                 app:layout_constraintTop_toTopOf="@id/tvLastUpdateTime"
                 app:showAnimationBehavior="inward" />
+
+            <ImageView
+                android:id="@+id/imvError"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/shape_default_corners"
+                android:backgroundTint="?attr/colorError"
+                android:contentDescription="@string/cd_error_icon"
+                android:padding="4dp"
+                android:src="@drawable/ic_error"
+                app:layout_constraintBottom_toBottomOf="@id/tvLastUpdateTime"
+                app:layout_constraintEnd_toStartOf="@id/tvLastUpdateTime"
+                app:layout_constraintTop_toTopOf="@id/tvLastUpdateTime" />
 
             <TextView
                 android:id="@+id/tvLastUpdateTime"
@@ -70,6 +84,7 @@
             style="@style/NstuCalendar.TabLayout.Secondary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/cd_weeks"
             app:tabMode="scrollable" />
 
     </com.google.android.material.appbar.AppBarLayout>

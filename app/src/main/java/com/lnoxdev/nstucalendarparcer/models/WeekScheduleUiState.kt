@@ -21,6 +21,7 @@ data class WeekScheduleLesson(
     val isFinished: Boolean,
     val index: Int,
     val is12HourTimeFormat: Boolean,
+    val isNowLesson: Boolean,
 ) : WeekScheduleItem()
 
 data class WeekScheduleDate(

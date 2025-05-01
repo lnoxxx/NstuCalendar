@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:background="@drawable/shape_default_corners"
     android:backgroundTint="?attr/colorSurfaceContainer"
-    android:padding="@dimen/settings_item_padding">
+    android:paddingVertical="12dp"
+    android:paddingHorizontal="@dimen/settings_item_padding">
 
     <TextView
         android:id="@+id/tvTitle"
