@@ -115,10 +115,11 @@
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView
-        app:menu="@menu/menu_nav"
         android:id="@+id/drawer"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start" />
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header_drawer"
+        app:menu="@menu/menu_nav" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

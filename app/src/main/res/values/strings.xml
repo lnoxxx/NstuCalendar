@@ -66,5 +66,7 @@
     <string name="cancel">Cancel</string>
     <string name="cd_error_icon">Error</string>
     <string name="cd_weeks">Weeks</string>
+    <string name="cd_icon">Icon</string>
+    <string name="menu_main_category">Main</string>
 
 </resources>
