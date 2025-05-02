@@ -143,7 +143,7 @@ class WeeklyScheduleFragment : Fragment() {
         val nowWeek = viewModel.uiState.value?.nowWeekIndex ?: 0
         TabLayoutMediator(binding.tlWeeks, binding.vpWeeks) { tab, position ->
             if (position < nowWeek)
-                tab.view.alpha = 0.5f
+                tab.view.alpha = 0.60f
             tab.text = "${position + 1} $weekString"
         }.attach()
     }

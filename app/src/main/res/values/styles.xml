@@ -122,22 +122,22 @@
 
     <style name="NstuCalendar.TextView.Medium.Label.TertiaryBackground">
         <item name="android:background">@drawable/shape_corners_circle</item>
-        <item name="android:backgroundTint">?attr/colorTertiaryContainer</item>
+        <item name="android:backgroundTint">?attr/colorTertiary</item>
         <item name="android:paddingHorizontal">12dp</item>
         <item name="android:paddingVertical">4dp</item>
         <item name="android:drawablePadding">4dp</item>
-        <item name="android:textColor">?attr/colorOnTertiaryContainer</item>
-        <item name="drawableTint">?attr/colorOnTertiaryContainer</item>
+        <item name="android:textColor">?attr/colorOnTertiary</item>
+        <item name="drawableTint">?attr/colorOnTertiary</item>
     </style>
 
     <style name="NstuCalendar.TextView.Medium.Label.SecondaryBackground">
         <item name="android:background">@drawable/shape_corners_circle</item>
-        <item name="android:backgroundTint">?attr/colorSecondaryContainer</item>
+        <item name="android:backgroundTint">?attr/colorSecondary</item>
         <item name="android:paddingHorizontal">12dp</item>
         <item name="android:paddingVertical">4dp</item>
         <item name="android:drawablePadding">4dp</item>
-        <item name="android:textColor">?attr/colorOnSecondaryContainer</item>
-        <item name="drawableTint">?attr/colorOnSecondaryContainer</item>
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="drawableTint">?attr/colorOnSecondary</item>
     </style>
 
 

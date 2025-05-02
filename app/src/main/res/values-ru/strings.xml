@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_internet">Проблемы с Интернетом, попробуйте позже!</string>
+    <string name="error_parse">Ошибка приложения, попробуйте еще раз позже или свяжитесь с разработчиком!</string>
+    <string name="error_save">Ошибка сохранения, повторите попытку позже или переустановите приложение!</string>
+    <string name="error_unknown">Неизвестная ошибка!</string>
+    <string name="error_settings_group">Group not selected!</string>
+
+    <string name="lesson_type_lecture">Лекция</string>
+    <string name="lesson_type_practice">Практика</string>
+    <string name="lesson_type_laboratory">Лабораторная</string>
+    <string name="lesson_type_other">Занятие</string>
+
+    <string name="day_of_week_monday">Понедельник</string>
+    <string name="day_of_week_tuesday">Вторник</string>
+    <string name="day_of_week_wednesday">Среда</string>
+    <string name="day_of_week_thursday">Четверг</string>
+    <string name="day_of_week_friday">Пятница</string>
+    <string name="day_of_week_saturday">Суббота</string>
+    <string name="day_of_week_sunday">Воскресенье</string>
+    <string name="day_of_week_unknown">Неизвестный</string>
+
+    <string name="month_january">Январь</string>
+    <string name="month_february">Февраль</string>
+    <string name="month_march">Март</string>
+    <string name="month_april">Апрель</string>
+    <string name="month_may">Май</string>
+    <string name="month_june">Июнь</string>
+    <string name="month_july">Июль</string>
+    <string name="month_august">Август</string>
+    <string name="month_september">Сентябрь</string>
+    <string name="month_october">Октябрь</string>
+    <string name="month_november">Ноябрь</string>
+    <string name="month_december">Декабрь</string>
+    <string name="month_unknown">Неизвестный</string>
+
+    <string name="bottom_nav_schedule">Расписание</string>
+    <string name="bottom_nav_settings">Настройки</string>
+
+    <string name="settings_group">Группа</string>
+    <string name="settings_not_select">Не выбрано</string>
+    <string name="settings_time">Использовать 12-часовой формат времени</string>
+    <string name="settings_monet">Динамические цвета (для Android 12 и выше)</string>
+    <string name="settings_theme">Темы</string>
+
+    <string name="theme_nstu">НГТУ</string>
+    <string name="theme_cornflower">Василек</string>
+    <string name="theme_dark_orchid">Орхидея</string>
+    <string name="theme_mountain_meadow">Горы</string>
+    <string name="theme_pear">Груша</string>
+    <string name="theme_salmon_orange">Лосось</string>
+    <string name="theme_telemagenta">Телемаджента</string>
+    <string name="theme_toad_in_love">Жаба</string>
+    <string name="theme_turquoise">Бирюзовый</string>
+
+    <string name="hint_group_name">Название группы</string>
+    <string name="tab_week">неделя</string>
+    <string name="toolbar_title_schedule">Расписание</string>
+    <string name="not_update">Не обновлено</string>
+    <string name="toolbar_item_today">На сегодняшний день</string>
+    <string name="select_group">Выберите группу!</string>
+    <string name="cd_now_lesson_up">Значок сейчас урок вверх</string>
+    <string name="toolbar_title_settings">Настройки</string>
+    <string name="change">Изменить</string>
+    <string name="cancel">Отмена</string>
+    <string name="cd_error_icon">Ошибка</string>
+    <string name="cd_weeks">Недели</string>
+
+</resources>

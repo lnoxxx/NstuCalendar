@@ -12,7 +12,7 @@
         style="@style/NstuCalendar.CardView.Outlined"
         android:layout_width="78dp"
         android:layout_height="78dp"
-        app:cardBackgroundColor="?attr/colorSurfaceContainerHighest"
+        app:cardBackgroundColor="?attr/colorSurfaceContainerLow"
         app:strokeColor="?attr/colorPrimary"
         app:strokeWidth="@dimen/stroke_width_theme">
 

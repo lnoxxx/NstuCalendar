@@ -1,8 +1,5 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <string name="app_name">NstuCalendar</string>
+    <string name="app_name" translatable="false">NSTU Calendar</string>
 
     <string name="error_internet">Internet problems, try again later!</string>
     <string name="error_parse">Application error, please try again later or contact the developer!</string>
@@ -13,7 +10,7 @@
     <string name="lesson_type_lecture">Lecture</string>
     <string name="lesson_type_practice">Practice</string>
     <string name="lesson_type_laboratory">Laboratory</string>
-    <string name="lesson_type_other">Other</string>
+    <string name="lesson_type_other">Lesson</string>
 
     <string name="day_of_week_monday">Monday</string>
     <string name="day_of_week_tuesday">Tuesday</string>
@@ -23,7 +20,6 @@
     <string name="day_of_week_saturday">Saturday</string>
     <string name="day_of_week_sunday">Sunday</string>
     <string name="day_of_week_unknown">Unknown</string>
-    <string name="bottom_nav_schedule">Schedule</string>
 
     <string name="month_january">January</string>
     <string name="month_february">February</string>
@@ -39,24 +35,16 @@
     <string name="month_december">December</string>
     <string name="month_unknown">Unknown</string>
 
+    <string name="bottom_nav_schedule">Schedule</string>
     <string name="bottom_nav_settings">Settings</string>
+
     <string name="settings_group">Group</string>
     <string name="settings_not_select">Not selected</string>
-    <string name="settings_time">Use 12 hour time format</string>
-    <string name="hint_group_name">Group name</string>
-    <string name="tab_week">week</string>
-    <string name="toolbar_title_schedule">Schedule</string>
-    <string name="not_update">Not updated</string>
-    <string name="toolbar_item_today">To today</string>
-
-    <string name="select_group">Select a group!</string>
-
-    <string name="cd_now_lesson_up">Icon now lesson up</string>
-    <string name="settings_monet">Use Monet theme with Dynamic Colors (Android 12 and above)</string>
-    <string name="toolbar_title_settings">Settings</string>
-
+    <string name="settings_time">Use 12-hour time format</string>
+    <string name="settings_monet">Dynamic colors (for Android 12 and above)</string>
     <string name="settings_theme">Theme</string>
-    <string name="theme_nstu">Nstu</string>
+
+    <string name="theme_nstu">NSTU</string>
     <string name="theme_cornflower">Cornflower</string>
     <string name="theme_dark_orchid">Dark orchid</string>
     <string name="theme_mountain_meadow">Mountain</string>
@@ -65,6 +53,15 @@
     <string name="theme_telemagenta">Telemagenta</string>
     <string name="theme_toad_in_love">Toad in love</string>
     <string name="theme_turquoise">Turquoise</string>
+
+    <string name="hint_group_name">Group name</string>
+    <string name="tab_week">week</string>
+    <string name="toolbar_title_schedule">Schedule</string>
+    <string name="not_update">Not updated</string>
+    <string name="toolbar_item_today">To today</string>
+    <string name="select_group">Select a group!</string>
+    <string name="cd_now_lesson_up">Icon now lesson up</string>
+    <string name="toolbar_title_settings">Settings</string>
     <string name="change">Change</string>
     <string name="cancel">Cancel</string>
     <string name="cd_error_icon">Error</string>
