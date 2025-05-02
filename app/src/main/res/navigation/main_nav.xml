@@ -3,12 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@+id/schedule_tab">
+    app:startDestination="@id/weeklyScheduleFragment">
 
-    <include app:graph="@navigation/schedule_tab" />
-    <include app:graph="@navigation/settings_tab" />
     <dialog
         android:id="@+id/selectGroupBottomSheet"
         android:name="com.lnoxdev.nstucalendarparcer.settingsFragment.selectGroup.SelectGroupBottomSheet"
         tools:layout="@layout/bottom_sheet_select_group" />
+    <fragment
+        android:id="@+id/weeklyScheduleFragment"
+        android:name="com.lnoxdev.nstucalendarparcer.weeklyScheduleFragment.WeeklyScheduleFragment"
+        tools:layout="@layout/fragment_weekly_schedule" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.lnoxdev.nstucalendarparcer.settingsFragment.SettingsFragment"
+        android:label="@string/toolbar_title_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

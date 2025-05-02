@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/schedule_tab"
+        android:id="@+id/weeklyScheduleFragment"
         android:enabled="true"
         android:icon="@drawable/ic_nav_schedule"
         android:title="@string/bottom_nav_schedule" />
 
     <item
-        android:id="@+id/settings_tab"
+        android:id="@+id/settingsFragment"
         android:enabled="true"
         android:icon="@drawable/ic_nav_settings"
         android:title="@string/bottom_nav_settings" />

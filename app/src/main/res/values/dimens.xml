@@ -5,7 +5,7 @@
     <dimen name="settings_item_padding_half">6dp</dimen>
     <dimen name="settings_item_padding">20dp</dimen>
     <dimen name="settings_icon_margin">12dp</dimen>
-    <dimen name="schedule_margin">12dp</dimen>
+    <dimen name="schedule_margin">8dp</dimen>
     <dimen name="group_margin">8dp</dimen>
     <dimen name="app_bar_margin">16dp</dimen>
 

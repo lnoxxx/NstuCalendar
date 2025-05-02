@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lnoxdev.nstucalendarparcer.R
@@ -42,6 +44,11 @@ class WeekFragment : Fragment() {
     ): View {
         _binding = FragmentWeekBinding.inflate(inflater, container, false)
         initRecyclerView()
+        binding.rvWeekSchedule.setOnApplyWindowInsetsListener { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.updatePadding(bottom = systemBars.bottom)
+            return@setOnApplyWindowInsetsListener insets
+        }
         return binding.root
     }
 

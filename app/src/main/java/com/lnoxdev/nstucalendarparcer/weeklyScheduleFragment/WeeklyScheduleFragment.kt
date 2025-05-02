@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.view.updatePadding
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.tabs.TabLayoutMediator
 import com.lnoxdev.nstucalendarparcer.R
@@ -43,6 +44,7 @@ class WeeklyScheduleFragment : Fragment() {
                 requireContext()
                     .getThemeColor(com.google.android.material.R.attr.colorSurfaceContainer)
             )
+        navigationInit()
         binding.cpiScheduleLoading.hide()
         binding.imvError.visibility = View.GONE
         return binding.root
@@ -92,6 +94,13 @@ class WeeklyScheduleFragment : Fragment() {
             viewModel.uiState.collectLatest { state ->
                 state?.let { bindUiState(it) }
             }
+        }
+    }
+
+    private fun navigationInit() {
+        binding.drawer.setupWithNavController(findNavController())
+        binding.tbWeeklySchedule.setNavigationOnClickListener {
+            binding.drawerLayout.open()
         }
     }
 

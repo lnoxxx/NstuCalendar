@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/shape_default_corners"
-    android:backgroundTint="?attr/colorSurfaceContainerHighest"
+    android:backgroundTint="?attr/colorSurfaceContainer"
     android:paddingVertical="12dp"
     android:paddingHorizontal="@dimen/settings_item_padding">
 

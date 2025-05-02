@@ -12,7 +12,7 @@ class SettingsRecyclerViewItemDecorator(private val margin: Int) : RecyclerView.
         state: RecyclerView.State
     ) {
         with(outRect) {
-            top = margin
+            bottom = margin
             left = margin
             right = margin
         }
