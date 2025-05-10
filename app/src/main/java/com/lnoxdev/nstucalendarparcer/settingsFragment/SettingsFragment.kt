@@ -16,6 +16,7 @@ import com.lnoxdev.nstucalendarparcer.models.SettingsUiState
 import com.lnoxdev.nstucalendarparcer.models.UiAppTheme
 import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.SettingsRecyclerViewAdapter
 import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.SettingsRecyclerViewItemDecorator
+import com.lnoxdev.nstucalendarparcer.utils.TransitionAnimations
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -35,6 +36,7 @@ class SettingsFragment : Fragment(), SettingsRecyclerViewAdapter.SettingsListene
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSettingsBinding.inflate(inflater)
+        TransitionAnimations.initDefaultTransitionAnimation(this)
         _adapter = SettingsRecyclerViewAdapter(this)
         binding.tbSettings.setNavigationOnClickListener { findNavController().navigateUp() }
         return binding.root

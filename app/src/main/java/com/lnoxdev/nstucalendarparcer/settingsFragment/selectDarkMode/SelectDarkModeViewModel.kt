@@ -28,8 +28,8 @@ class SelectDarkModeViewModel @Inject constructor(
         }
     }
 
-    fun changeDarkMode(darkMode: UiDarkMode){
-        settingsManager.changeDarkMode(darkMode.toAppDarkMode())
+    suspend fun changeDarkMode(darkMode: UiDarkMode): Boolean {
+        return settingsManager.changeDarkModeAsyncWithResult(darkMode.toAppDarkMode())
     }
 
 }

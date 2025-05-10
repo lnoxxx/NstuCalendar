@@ -50,7 +50,15 @@ class SelectDarkModeBottomSheet : BottomSheetDialogFragment() {
                 R.id.rbSystemDarkMode -> UiDarkMode.SYSTEM
                 else -> null
             }
-            newDarkMode?.let { viewModel.changeDarkMode(it) }
+            newDarkMode?.let { changeMode(it) }
+        }
+    }
+
+    private fun changeMode(mode: UiDarkMode) {
+        lifecycleScope.launch {
+            val recreate = viewModel.changeDarkMode(mode)
+            dialog?.dismiss()
+            if (recreate) activity?.recreate()
         }
     }
 

@@ -17,6 +17,7 @@ import com.lnoxdev.nstucalendarparcer.databinding.FragmentWeeklyScheduleBinding
 import com.lnoxdev.nstucalendarparcer.exceptions.showErrorSnackBar
 import com.lnoxdev.nstucalendarparcer.models.UiExceptions
 import com.lnoxdev.nstucalendarparcer.models.WeeklyScheduleState
+import com.lnoxdev.nstucalendarparcer.utils.TransitionAnimations
 import com.lnoxdev.nstucalendarparcer.utils.getDateTimeFormatter
 import com.lnoxdev.nstucalendarparcer.utils.getThemeColor
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,6 +38,7 @@ class WeeklyScheduleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentWeeklyScheduleBinding.inflate(inflater, container, false)
+        TransitionAnimations.initDefaultTransitionAnimation(this)
         binding.ablWeeklySchedule.statusBarForeground =
             MaterialShapeDrawable.createWithElevationOverlay(context)
         binding.ablWeeklySchedule

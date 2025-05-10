@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
     tools:context=".settingsFragment.SettingsFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -14,11 +15,11 @@
         app:liftOnScrollColor="?attr/colorSurfaceContainerHigh">
 
         <com.google.android.material.appbar.MaterialToolbar
-            app:navigationIcon="@drawable/ic_back"
             android:id="@+id/tbSettings"
             style="@style/NstuCalendar.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/ic_back"
             app:title="@string/toolbar_title_settings" />
 
     </com.google.android.material.appbar.AppBarLayout>

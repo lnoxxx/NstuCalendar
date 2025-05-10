@@ -63,11 +63,10 @@ class SettingsManager(private val dataStore: DataStore<Preferences>) {
         }
     }
 
-    fun changeDarkMode(darkMode: AppDarkMode) {
-        CoroutineScope(Dispatchers.IO).launch {
-            dataStore.edit {
-                it[DARK_MODE] = darkMode.saveKey
-            }
+    suspend fun changeDarkModeAsyncWithResult(darkMode: AppDarkMode): Boolean {
+        return withContext(Dispatchers.IO) {
+            dataStore.edit { it[DARK_MODE] = darkMode.saveKey }
+            true
         }
     }
 
