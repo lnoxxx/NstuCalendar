@@ -23,6 +23,8 @@ class SettingsRecyclerViewAdapter(
         fun onChangeGroup()
         fun onChangeMonetTheme(enable: Boolean)
         fun onChangeTheme(theme: UiAppTheme, themeRvState: Parcelable?)
+        fun onChangeLanguage()
+        fun onChangeDarkMode()
     }
 
     private var settings: SettingsUiState? = null
@@ -33,6 +35,8 @@ class SettingsRecyclerViewAdapter(
             SettingsItem.TIME_FORMAT.ordinal -> createSettingsSwitchViewHolder(parent)
             SettingsItem.MONET.ordinal -> createSettingsSwitchViewHolder(parent)
             SettingsItem.THEME.ordinal -> createSettingsThemeViewHolder(parent)
+            SettingsItem.LANGUAGE.ordinal -> createSettingsSelectedViewHolder(parent)
+            SettingsItem.DARK_MODE.ordinal -> createSettingsSelectedViewHolder(parent)
             else -> throw IllegalStateException("SettingsRecyclerViewAdapter unknown viewType!")
         }
     }

@@ -23,9 +23,15 @@ class SettingsSelectedViewHolder(
         if (settingsItem == SettingsItem.GROUP) {
             binding.tvSelectedItem.text =
                 settings.group ?: itemView.context.getString(R.string.settings_not_select)
-            itemView.setOnClickListener {
-                listener.onChangeGroup()
-            }
+            itemView.setOnClickListener { listener.onChangeGroup() }
+        }
+        if (settingsItem == SettingsItem.LANGUAGE) {
+            binding.tvSelectedItem.text = itemView.context.getString(settings.language.nameResId)
+            itemView.setOnClickListener { listener.onChangeLanguage() }
+        }
+        if (settingsItem == SettingsItem.DARK_MODE) {
+            binding.tvSelectedItem.text = itemView.context.getString(settings.darkMode.nameResId)
+            itemView.setOnClickListener { listener.onChangeDarkMode() }
         }
     }
 }

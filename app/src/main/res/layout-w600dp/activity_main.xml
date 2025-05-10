@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="?attr/colorSurfaceContainer"
     tools:context=".MainActivity">
 
     <com.google.android.material.card.MaterialCardView
-        style="@style/NstuCalendar.CardView.Outlined"
+        style="@style/NstuCalendar.CardView.Filled"
         android:layout_width="match_parent"
-        android:layout_margin="8dp"
         android:layout_height="match_parent"
         app:cardBackgroundColor="?attr/colorSurface">
 

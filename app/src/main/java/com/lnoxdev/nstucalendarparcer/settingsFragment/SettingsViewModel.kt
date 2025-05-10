@@ -7,7 +7,9 @@ import com.lnoxdev.data.appSettings.SettingsManager
 import com.lnoxdev.nstucalendarparcer.models.SettingsUiState
 import com.lnoxdev.nstucalendarparcer.models.UiAppTheme
 import com.lnoxdev.nstucalendarparcer.models.toAppTheme
+import com.lnoxdev.nstucalendarparcer.models.toUiAppLanguage
 import com.lnoxdev.nstucalendarparcer.models.toUiAppTheme
+import com.lnoxdev.nstucalendarparcer.models.toUiDarkMode
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -29,18 +31,20 @@ class SettingsViewModel @Inject constructor(
                     is12TimeFormat = it.is12TimeFormat,
                     monet = it.monetTheme,
                     appTheme = it.appTheme.toUiAppTheme(),
-                    themeRvState = themeRvState
+                    themeRvState = themeRvState,
+                    language = it.language.toUiAppLanguage(),
+                    darkMode = it.darkMode.toUiDarkMode(),
                 )
                 _uiState.value = newUiState
             }
         }
     }
 
-    fun changeTimeFormat(is12TimeFormat: Boolean){
+    fun changeTimeFormat(is12TimeFormat: Boolean) {
         settingsManager.changeTimeFormat(is12TimeFormat)
     }
 
-    suspend fun changeMonetTheme(enable: Boolean): Boolean{
+    suspend fun changeMonetTheme(enable: Boolean): Boolean {
         return settingsManager.changeMonetThemeAsyncWithResult(enable)
     }
 

@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lnoxdev.nstucalendarparcer.R
 import com.lnoxdev.nstucalendarparcer.databinding.FragmentSettingsBinding
@@ -37,7 +36,7 @@ class SettingsFragment : Fragment(), SettingsRecyclerViewAdapter.SettingsListene
     ): View {
         _binding = FragmentSettingsBinding.inflate(inflater)
         _adapter = SettingsRecyclerViewAdapter(this)
-        binding.tbSettings.setupWithNavController(findNavController())
+        binding.tbSettings.setNavigationOnClickListener { findNavController().navigateUp() }
         return binding.root
     }
 
@@ -81,5 +80,13 @@ class SettingsFragment : Fragment(), SettingsRecyclerViewAdapter.SettingsListene
             val recreate = viewModel.changeTheme(theme, themeRvState)
             if (recreate) activity?.recreate()
         }
+    }
+
+    override fun onChangeLanguage() {
+        findNavController().navigate(R.id.selectLanguageBottomSheet)
+    }
+
+    override fun onChangeDarkMode() {
+        findNavController().navigate(R.id.selectDarkModeBottomSheet)
     }
 }

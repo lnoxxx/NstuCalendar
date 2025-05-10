@@ -7,5 +7,7 @@ data class SettingsUiState(
     val is12TimeFormat: Boolean,
     val monet: Boolean,
     val appTheme: UiAppTheme,
-    val themeRvState: Parcelable?
+    val themeRvState: Parcelable?,
+    val language: UiAppLanguage,
+    val darkMode: UiDarkMode
 )

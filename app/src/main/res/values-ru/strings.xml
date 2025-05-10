@@ -42,6 +42,15 @@
     <string name="settings_time">Использовать 12-часовой формат времени</string>
     <string name="settings_monet">Динамические цвета (для Android 12 и выше)</string>
     <string name="settings_theme">Темы</string>
+    <string name="settings_language">Язык</string>
+    <string name="settings_title_select_language">Выберите язык</string>
+    <string name="settings_english">Английский</string>
+    <string name="settings_russian">Русский</string>
+    <string name="settings_as_on_the_device">Как на устройстве</string>
+    <string name="settings_light">Светлая</string>
+    <string name="settings_dark">Темная</string>
+    <string name="settings_dark_mode">Темная тема</string>
+    <string name="settings_title_customization">Кастомизация</string>
 
     <string name="theme_nstu">НГТУ</string>
     <string name="theme_cornflower">Василек</string>

@@ -18,4 +18,14 @@
         android:name="com.lnoxdev.nstucalendarparcer.settingsFragment.SettingsFragment"
         android:label="@string/toolbar_title_settings"
         tools:layout="@layout/fragment_settings" />
+    <dialog
+        android:id="@+id/selectLanguageBottomSheet"
+        android:name="com.lnoxdev.nstucalendarparcer.settingsFragment.selectLanguage.SelectLanguageBottomSheet"
+        android:label="bottom_sheet_select_language"
+        tools:layout="@layout/bottom_sheet_select_language" />
+    <dialog
+        android:id="@+id/selectDarkModeBottomSheet"
+        android:name="com.lnoxdev.nstucalendarparcer.settingsFragment.selectDarkMode.SelectDarkModeBottomSheet"
+        android:label="bottom_sheet_select_dark_mode"
+        tools:layout="@layout/bottom_sheet_select_dark_mode" />
 </navigation>

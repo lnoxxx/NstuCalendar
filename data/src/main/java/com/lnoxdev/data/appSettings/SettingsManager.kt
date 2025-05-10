@@ -34,7 +34,19 @@ class SettingsManager(private val dataStore: DataStore<Preferences>) {
             AppTheme.TURQUOISE.saveKey -> AppTheme.TURQUOISE
             else -> AppTheme.NSTU
         }
-        Settings(group, is12TimeFormat, monet, appTheme)
+        val darkMode = when (it[DARK_MODE]) {
+            AppDarkMode.DARK.saveKey -> AppDarkMode.DARK
+            AppDarkMode.LIGHT.saveKey -> AppDarkMode.LIGHT
+            AppDarkMode.SYSTEM.saveKey -> AppDarkMode.SYSTEM
+            else -> AppDarkMode.SYSTEM
+        }
+        val language = when (it[LANGUAGE]) {
+            AppLanguage.EN.saveKey -> AppLanguage.EN
+            AppLanguage.RU.saveKey -> AppLanguage.RU
+            AppLanguage.SYSTEM.saveKey -> AppLanguage.SYSTEM
+            else -> AppLanguage.SYSTEM
+        }
+        Settings(group, is12TimeFormat, monet, appTheme, darkMode, language)
     }
 
     fun changeGroup(group: String) {
@@ -47,6 +59,22 @@ class SettingsManager(private val dataStore: DataStore<Preferences>) {
         CoroutineScope(Dispatchers.IO).launch {
             dataStore.edit {
                 it[TIME_FORMAT] = if (is12TimeFormat) TRUE else FALSE
+            }
+        }
+    }
+
+    fun changeDarkMode(darkMode: AppDarkMode) {
+        CoroutineScope(Dispatchers.IO).launch {
+            dataStore.edit {
+                it[DARK_MODE] = darkMode.saveKey
+            }
+        }
+    }
+
+    fun changeLanguage(language: AppLanguage) {
+        CoroutineScope(Dispatchers.IO).launch {
+            dataStore.edit {
+                it[LANGUAGE] = language.saveKey
             }
         }
     }
@@ -70,8 +98,23 @@ class SettingsManager(private val dataStore: DataStore<Preferences>) {
         private val TIME_FORMAT = stringPreferencesKey("time format")
         private val MONET_THEME = stringPreferencesKey("monet theme")
         private val APP_THEME = stringPreferencesKey("app theme")
+        private val LANGUAGE = stringPreferencesKey("language")
+        private val DARK_MODE = stringPreferencesKey("dark mode")
+
         private const val TRUE = "true"
         private const val FALSE = "false"
+
+        enum class AppDarkMode(val saveKey: String) {
+            DARK("DARK"),
+            LIGHT("LIGHT"),
+            SYSTEM("SYSTEM")
+        }
+
+        enum class AppLanguage(val saveKey: String) {
+            EN("ENGLISH"),
+            RU("RUSSIAN"),
+            SYSTEM("SYSTEM")
+        }
 
         enum class AppTheme(val saveKey: String) {
             NSTU("NSTU"),

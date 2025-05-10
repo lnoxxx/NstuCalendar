@@ -43,12 +43,18 @@ class SelectGroupBottomSheet : BottomSheetDialogFragment(), GroupRecyclerViewLis
         binding.tvException.visibility = View.GONE
         lifecycleScope.launch {
             viewModel.groups.collect {
-                it?.let { bindGroupList(it) }
+                it?.let {
+                    binding.cpiGroupsLoading.hide()
+                    bindGroupList(it)
+                }
             }
         }
         lifecycleScope.launch {
             viewModel.exception.collect {
-                it?.let { bindException(it) }
+                it?.let {
+                    binding.cpiGroupsLoading.hide()
+                    bindException(it)
+                }
             }
         }
         return dialog
@@ -56,6 +62,7 @@ class SelectGroupBottomSheet : BottomSheetDialogFragment(), GroupRecyclerViewLis
 
     private fun setOnTextChangeListener() {
         binding.etSearch.editText?.doOnTextChanged { text, _, _, _ ->
+            binding.cpiGroupsLoading.show()
             viewModel.search(text.toString())
         }
     }

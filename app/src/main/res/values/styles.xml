@@ -3,6 +3,13 @@
 
     <style name="NstuCalendar" />
 
+    <!--    RadioButton-->
+
+    <style name="NstuCalendar.RadioButton" parent="Widget.Material3.CompoundButton.RadioButton">
+        <item name="android:paddingHorizontal">8dp</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
     <!--    Button-->
 
     <style name="NstuCalendar.Button" parent="Widget.Material3.Button" />

@@ -30,6 +30,8 @@ class SettingsRecyclerViewDiffUtil(
             SettingsItem.TIME_FORMAT -> oldSettings.is12TimeFormat == newSettings.is12TimeFormat
             SettingsItem.MONET -> oldSettings.monet == newSettings.monet
             SettingsItem.THEME -> oldSettings.appTheme == newSettings.appTheme
+            SettingsItem.LANGUAGE -> oldSettings.language == newSettings.language
+            SettingsItem.DARK_MODE -> oldSettings.darkMode == newSettings.darkMode
         }
     }
 

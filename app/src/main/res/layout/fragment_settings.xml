@@ -14,11 +14,12 @@
         app:liftOnScrollColor="?attr/colorSurfaceContainerHigh">
 
         <com.google.android.material.appbar.MaterialToolbar
+            app:navigationIcon="@drawable/ic_back"
             android:id="@+id/tbSettings"
             style="@style/NstuCalendar.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:title="@string/toolbar_title_settings" />
+            app:title="@string/toolbar_title_settings" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

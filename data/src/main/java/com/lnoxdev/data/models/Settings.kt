@@ -6,5 +6,7 @@ data class Settings(
     val group: String?,
     val is12TimeFormat: Boolean,
     val monetTheme: Boolean,
-    val appTheme: SettingsManager.Companion.AppTheme
+    val appTheme: SettingsManager.Companion.AppTheme,
+    val darkMode: SettingsManager.Companion.AppDarkMode,
+    val language: SettingsManager.Companion.AppLanguage
 )

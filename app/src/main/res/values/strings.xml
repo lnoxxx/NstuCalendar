@@ -43,6 +43,15 @@
     <string name="settings_time">Use 12-hour time format</string>
     <string name="settings_monet">Dynamic colors (for Android 12 and above)</string>
     <string name="settings_theme">Theme</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_title_select_language">Select language</string>
+    <string name="settings_english">English</string>
+    <string name="settings_russian">Russian</string>
+    <string name="settings_as_on_the_device">As on the device</string>
+    <string name="settings_light">Light</string>
+    <string name="settings_dark">Dark</string>
+    <string name="settings_dark_mode">Dark mode</string>
+    <string name="settings_title_customization">Customization</string>
 
     <string name="theme_nstu">NSTU</string>
     <string name="theme_cornflower">Cornflower</string>
@@ -68,5 +77,4 @@
     <string name="cd_weeks">Weeks</string>
     <string name="cd_icon">Icon</string>
     <string name="menu_main_category">Main</string>
-
 </resources>
