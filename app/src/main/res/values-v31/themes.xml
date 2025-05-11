@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="NstuCalendar.Theme.BaseTheme" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar">
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_splash_animated</item>
+        <item name="android:windowSplashScreenAnimationDuration">500</item>
+        <item name="android:fontFamily">@font/medium</item>
+        <item name="android:textViewStyle">@style/NstuCalendar.TextView.Medium</item>
+        <item name="materialCardViewStyle">@style/NstuCalendar.CardView.Filled</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.NstuCalendar.BottomSheet
+        </item>
+    </style>
+</resources>

@@ -36,21 +36,17 @@ class SettingsFragment : Fragment(), SettingsRecyclerViewAdapter.SettingsListene
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSettingsBinding.inflate(inflater)
-        TransitionAnimations.initDefaultTransitionAnimation(this)
-        _adapter = SettingsRecyclerViewAdapter(this)
-        binding.tbSettings.setNavigationOnClickListener { findNavController().navigateUp() }
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         lifecycleScope.launch {
             viewModel.uiState.collect { it?.let { bindUiState(it) } }
         }
+        TransitionAnimations.initDefaultEnterTransitionAnimation(this)
+        binding.tbSettings.setNavigationOnClickListener { findNavController().navigateUp() }
+        return binding.root
     }
 
     private fun initRecyclerView() {
+        _adapter = SettingsRecyclerViewAdapter(this)
         binding.rvSettings.adapter = adapter
         binding.rvSettings.layoutManager = LinearLayoutManager(context)
         val margin = resources.getDimension(R.dimen.settings_margin).toInt()

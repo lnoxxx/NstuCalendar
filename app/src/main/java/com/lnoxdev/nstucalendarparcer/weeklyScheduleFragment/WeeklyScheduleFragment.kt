@@ -38,7 +38,7 @@ class WeeklyScheduleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentWeeklyScheduleBinding.inflate(inflater, container, false)
-        TransitionAnimations.initDefaultTransitionAnimation(this)
+        TransitionAnimations.initDefaultExitTransitionAnimation(this)
         binding.ablWeeklySchedule.statusBarForeground =
             MaterialShapeDrawable.createWithElevationOverlay(context)
         binding.ablWeeklySchedule

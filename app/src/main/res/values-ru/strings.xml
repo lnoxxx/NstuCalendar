@@ -76,5 +76,6 @@
     <string name="cd_weeks">Недели</string>
     <string name="cd_icon">Иконка</string>
     <string name="menu_main_category">Основное</string>
+    <string name="temporarily_out_of_service">Временно не работает :(</string>
 
 </resources>

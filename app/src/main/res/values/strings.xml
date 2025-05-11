@@ -77,4 +77,5 @@
     <string name="cd_weeks">Weeks</string>
     <string name="cd_icon">Icon</string>
     <string name="menu_main_category">Main</string>
+    <string name="temporarily_out_of_service">Temporarily out of service :(</string>
 </resources>
