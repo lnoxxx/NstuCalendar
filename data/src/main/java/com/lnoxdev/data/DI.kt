@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.lnoxdev.data.appSettings.SettingsManager
 import com.lnoxdev.data.appSettings.dataStore
+import com.lnoxdev.data.gCalendarExport.GCalendarExportManager
 import com.lnoxdev.data.neti.NetiScheduleRepository
 import com.lnoxdev.data.neti.NetiApi
 import com.lnoxdev.data.neti.netiFindGroupDataSource.NetiFindGroupRepository
@@ -95,4 +96,11 @@ object DataModule {
     @Singleton
     fun provideNetiFindGroupRepository(netiApi: NetiApi): NetiFindGroupRepository =
         NetiFindGroupRepository(netiApi)
+
+    @Provides
+    @Singleton
+    fun provideGCalendarExportManager(
+        @ApplicationContext context: Context,
+        netiScheduleRepository: NetiScheduleRepository
+    ): GCalendarExportManager = GCalendarExportManager(context, netiScheduleRepository)
 }

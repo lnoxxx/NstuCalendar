@@ -9,15 +9,15 @@ import android.view.ViewGroup
 import androidx.core.view.updatePadding
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.tabs.TabLayoutMediator
+import com.lnoxdev.nstucalendarparcer.NavigationActivity
 import com.lnoxdev.nstucalendarparcer.R
+import com.lnoxdev.nstucalendarparcer.TransitionAnimations
 import com.lnoxdev.nstucalendarparcer.databinding.FragmentWeeklyScheduleBinding
 import com.lnoxdev.nstucalendarparcer.exceptions.showErrorSnackBar
 import com.lnoxdev.nstucalendarparcer.models.UiExceptions
 import com.lnoxdev.nstucalendarparcer.models.WeeklyScheduleState
-import com.lnoxdev.nstucalendarparcer.utils.TransitionAnimations
 import com.lnoxdev.nstucalendarparcer.utils.getDateTimeFormatter
 import com.lnoxdev.nstucalendarparcer.utils.getThemeColor
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,7 +38,7 @@ class WeeklyScheduleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentWeeklyScheduleBinding.inflate(inflater, container, false)
-        TransitionAnimations.initDefaultExitTransitionAnimation(this)
+        TransitionAnimations.initFadeAnimation(this)
         binding.ablWeeklySchedule.statusBarForeground =
             MaterialShapeDrawable.createWithElevationOverlay(context)
         binding.ablWeeklySchedule
@@ -46,6 +46,7 @@ class WeeklyScheduleFragment : Fragment() {
                 requireContext()
                     .getThemeColor(com.google.android.material.R.attr.colorSurfaceContainer)
             )
+        hideHello()
         navigationInit()
         binding.cpiScheduleLoading.hide()
         binding.imvError.visibility = View.GONE
@@ -100,9 +101,8 @@ class WeeklyScheduleFragment : Fragment() {
     }
 
     private fun navigationInit() {
-        binding.drawer.setupWithNavController(findNavController())
         binding.tbWeeklySchedule.setNavigationOnClickListener {
-            binding.drawerLayout.open()
+            (activity as NavigationActivity).openDrawer()
         }
     }
 

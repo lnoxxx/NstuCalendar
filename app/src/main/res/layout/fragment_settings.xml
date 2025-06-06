@@ -11,15 +11,14 @@
         android:id="@+id/ablSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        app:liftOnScrollColor="?attr/colorSurfaceContainerHigh">
+        android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/tbSettings"
             style="@style/NstuCalendar.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:navigationIcon="@drawable/ic_back"
+            app:navigationIcon="@drawable/ic_nav_menu"
             app:title="@string/toolbar_title_settings" />
 
     </com.google.android.material.appbar.AppBarLayout>

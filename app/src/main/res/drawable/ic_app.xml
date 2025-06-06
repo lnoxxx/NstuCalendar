@@ -2,7 +2,7 @@
     android:width="16dp"
     android:height="19dp"
     android:viewportWidth="16"
-    android:tint="?attr/colorOnTertiaryContainer"
+    android:tint="?attr/colorOnSurface"
     android:viewportHeight="19">
   <path
       android:pathData="M0,2H14C15.105,2 16,2.895 16,4V4C16,5.105 15.105,6 14,6H4C1.791,6 0,4.209 0,2V2Z"

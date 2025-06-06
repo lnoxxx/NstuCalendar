@@ -4,7 +4,7 @@
     <string name="error_parse">Ошибка приложения, попробуйте еще раз позже или свяжитесь с разработчиком!</string>
     <string name="error_save">Ошибка сохранения, повторите попытку позже или переустановите приложение!</string>
     <string name="error_unknown">Неизвестная ошибка!</string>
-    <string name="error_settings_group">Group not selected!</string>
+    <string name="error_settings_group">Группа не выбрана!</string>
 
     <string name="lesson_type_lecture">Лекция</string>
     <string name="lesson_type_practice">Практика</string>
@@ -36,6 +36,9 @@
 
     <string name="bottom_nav_schedule">Расписание</string>
     <string name="bottom_nav_settings">Настройки</string>
+    <string name="bottom_nav_export">Экспорт в календарь (появиться позже)</string>
+    <string name="bottom_nav_about_app">О приложении</string>
+    <string name="bottom_nav_contact_developer">Связь с разработчиком</string>
 
     <string name="settings_group">Группа</string>
     <string name="settings_not_select">Не выбрано</string>
@@ -77,5 +80,10 @@
     <string name="cd_icon">Иконка</string>
     <string name="menu_main_category">Основное</string>
     <string name="temporarily_out_of_service">Временно не работает :(</string>
-
+    <string name="menu_additionally_category">Дополнительно</string>
+    <string name="permission__calendar_is_required">Требуется разрешение на работу с календарем</string>
+    <string name="grant_permission">Предоставить</string>
+    <string name="toolbar_title_export">Экспорт в календарь</string>
+    <string name="select_calendar_to_export_title">Выберите календарь для экспорта:</string>
+    <string name="about_app_text">Неофициальное приложение для студентов НГТУ НЭТИ для быстрого просмотра расписания группы без авторизации и переносе его в календарь устройства. Приложение умеет сохранять загруженное расписание для возможности его просмотра без доступа к интернету.</string>
 </resources>

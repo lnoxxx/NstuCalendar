@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/weeklyScheduleFragment"
+        android:checkable="true"
         android:enabled="true"
         android:icon="@drawable/ic_nav_schedule"
-        android:title="@string/bottom_nav_schedule" />
+        android:title="@string/bottom_nav_schedule"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/gCalendarExportFragment"
+        android:checkable="true"
+        android:enabled="false"
+        android:icon="@drawable/ic_nav_export"
+        android:title="@string/bottom_nav_export"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/settingsFragment"
+        android:checkable="true"
         android:enabled="true"
         android:icon="@drawable/ic_nav_settings"
-        android:title="@string/bottom_nav_settings" />
+        android:title="@string/bottom_nav_settings"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/additionally_item"
+        android:title="@string/menu_additionally_category">
+        <menu>
+            <item
+                android:id="@+id/aboutAppFragment"
+                android:checkable="true"
+                android:enabled="true"
+                android:icon="@drawable/ic_nav_about_app"
+                android:title="@string/bottom_nav_about_app"
+                app:showAsAction="ifRoom" />
+        </menu>
+    </item>
 </menu>

@@ -10,13 +10,14 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.lnoxdev.nstucalendarparcer.NavigationActivity
 import com.lnoxdev.nstucalendarparcer.R
+import com.lnoxdev.nstucalendarparcer.TransitionAnimations
 import com.lnoxdev.nstucalendarparcer.databinding.FragmentSettingsBinding
 import com.lnoxdev.nstucalendarparcer.models.SettingsUiState
 import com.lnoxdev.nstucalendarparcer.models.UiAppTheme
 import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.SettingsRecyclerViewAdapter
 import com.lnoxdev.nstucalendarparcer.settingsFragment.settingsRecyclerView.SettingsRecyclerViewItemDecorator
-import com.lnoxdev.nstucalendarparcer.utils.TransitionAnimations
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -36,13 +37,20 @@ class SettingsFragment : Fragment(), SettingsRecyclerViewAdapter.SettingsListene
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSettingsBinding.inflate(inflater)
+        TransitionAnimations.initFadeAnimation(this)
         initRecyclerView()
         lifecycleScope.launch {
             viewModel.uiState.collect { it?.let { bindUiState(it) } }
         }
-        TransitionAnimations.initDefaultEnterTransitionAnimation(this)
-        binding.tbSettings.setNavigationOnClickListener { findNavController().navigateUp() }
+        requireActivity().applicationContext
+        initNavigation()
         return binding.root
+    }
+
+    private fun initNavigation(){
+        binding.tbSettings.setNavigationOnClickListener {
+            (activity as NavigationActivity).openDrawer()
+        }
     }
 
     private fun initRecyclerView() {

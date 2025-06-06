@@ -1,4 +1,7 @@
 <resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+
     <string name="app_name" translatable="false">NSTU Calendar</string>
 
     <string name="error_internet">Internet problems, try again later!</string>
@@ -37,6 +40,9 @@
 
     <string name="bottom_nav_schedule">Schedule</string>
     <string name="bottom_nav_settings">Settings</string>
+    <string name="bottom_nav_export">Export to calendar (coming later)</string>
+    <string name="bottom_nav_about_app">About app</string>
+    <string name="bottom_nav_contact_developer">Contact the developer</string>
 
     <string name="settings_group">Group</string>
     <string name="settings_not_select">Not selected</string>
@@ -78,4 +84,10 @@
     <string name="cd_icon">Icon</string>
     <string name="menu_main_category">Main</string>
     <string name="temporarily_out_of_service">Temporarily out of service :(</string>
+    <string name="menu_additionally_category">Additionally</string>
+    <string name="permission__calendar_is_required">Permission to work with the calendar is required</string>
+    <string name="grant_permission">Grant permission</string>
+    <string name="toolbar_title_export">Export to calendar</string>
+    <string name="select_calendar_to_export_title">Select a calendar to export:</string>
+    <string name="about_app_text">An unofficial application for students of NSTU NETI for quick viewing of the group schedule without authorization and transferring it to the device calendar. The application can save the downloaded schedule for viewing it without Internet access.</string>
 </resources>

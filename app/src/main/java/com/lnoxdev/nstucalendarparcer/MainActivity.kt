@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.color.DynamicColors
 import com.lnoxdev.data.appSettings.SettingsManager
 import com.lnoxdev.nstucalendarparcer.databinding.ActivityMainBinding
@@ -16,7 +18,7 @@ import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationActivity {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -28,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         activeTheme()
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
+        initNavigation()
         setContentView(binding.root)
     }
 
@@ -47,4 +50,15 @@ class MainActivity : AppCompatActivity() {
         }
         AppCompatDelegate.setDefaultNightMode(appDelegateMode)
     }
+
+    private fun initNavigation() {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.navHostFragmentContainer) as NavHostFragment
+        binding.drawer.setupWithNavController(navHostFragment.navController)
+    }
+
+    override fun openDrawer() {
+        binding.drawerLayout?.open()
+    }
+
 }

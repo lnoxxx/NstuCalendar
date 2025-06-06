@@ -1,9 +1,8 @@
 package com.lnoxdev.nstucalendarparcer.weeklyScheduleFragment
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lnoxdev.data.DataException
+import com.lnoxdev.data.ScheduleException
 import com.lnoxdev.data.InternetException
 import com.lnoxdev.data.ParseException
 import com.lnoxdev.data.SaveException
@@ -66,7 +65,7 @@ class WeeklyScheduleViewModel @Inject constructor(
                 _isUpdate.emit(true)
                 scheduleRepository.updateSchedule()
                 _exception.emit(null)
-            } catch (e: DataException) {
+            } catch (e: ScheduleException) {
                 when (e) {
                     is InternetException -> emitException(UiExceptions.INTERNET)
                     is ParseException -> emitException(UiExceptions.PARSE)

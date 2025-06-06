@@ -28,4 +28,14 @@
         android:name="com.lnoxdev.nstucalendarparcer.settingsFragment.selectDarkMode.SelectDarkModeBottomSheet"
         android:label="bottom_sheet_select_dark_mode"
         tools:layout="@layout/bottom_sheet_select_dark_mode" />
+    <fragment
+        android:id="@+id/gCalendarExportFragment"
+        android:name="com.lnoxdev.nstucalendarparcer.gCalendarExportFragment.GCalendarExportFragment"
+        android:label="fragment_g_calendar_export"
+        tools:layout="@layout/fragment_g_calendar_export" />
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="com.lnoxdev.nstucalendarparcer.aboutAppFragment.AboutAppFragment"
+        android:label="fragment_about_app"
+        tools:layout="@layout/fragment_about_app" />
 </navigation>

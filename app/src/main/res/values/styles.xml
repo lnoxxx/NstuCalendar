@@ -3,6 +3,11 @@
 
     <style name="NstuCalendar" />
 
+    <!--    DrawerLayout-->
+    <style name="NstuCalendar.Drawer" parent="Widget.Material3.NavigationView">
+
+    </style>
+
     <!--    RadioButton-->
 
     <style name="NstuCalendar.RadioButton" parent="Widget.Material3.CompoundButton.RadioButton">
