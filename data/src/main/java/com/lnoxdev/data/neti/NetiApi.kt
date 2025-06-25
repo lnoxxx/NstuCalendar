@@ -9,7 +9,13 @@ interface NetiApi {
     @GET("studies/schedule/schedule_classes/schedule")
     suspend fun getSchedule(
         @Query("group") group: String,
-        @Query("print") print: String = "true"
+        @Query("print") print: String = "true",
+        @Query("week") week: String = "1"
+        // я добавил параметр week, что на первый взгляд вообще не логично
+        // ведь это расписание на весь семестр, казалось бы - зачем указывать номер недели?
+        // но когда начнается сессия, по ✨необъяснимым✨ причинам без этого параметра расписание не отобразится
+        // возможно это баг сайта и его когда-то исправят. Но вот уже два года (как минимум) он существует...
+
     ): Response<ResponseBody>
 
     @GET("studies/schedule/schedule_classes/schedule")
