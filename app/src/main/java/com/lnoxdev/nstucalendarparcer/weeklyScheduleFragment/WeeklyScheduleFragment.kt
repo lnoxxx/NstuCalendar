@@ -16,7 +16,7 @@ import com.lnoxdev.nstucalendarparcer.R
 import com.lnoxdev.nstucalendarparcer.TransitionAnimations
 import com.lnoxdev.nstucalendarparcer.databinding.FragmentWeeklyScheduleBinding
 import com.lnoxdev.nstucalendarparcer.exceptions.showErrorSnackBar
-import com.lnoxdev.nstucalendarparcer.models.UiExceptions
+import com.lnoxdev.nstucalendarparcer.models.UiScheduleExceptions
 import com.lnoxdev.nstucalendarparcer.models.WeeklyScheduleState
 import com.lnoxdev.nstucalendarparcer.utils.getDateTimeFormatter
 import com.lnoxdev.nstucalendarparcer.utils.getThemeColor
@@ -83,7 +83,7 @@ class WeeklyScheduleFragment : Fragment() {
         }
         lifecycleScope.launch {
             viewModel.exception.collect {
-                if (it == UiExceptions.SETTING_GROUP) {
+                if (it == UiScheduleExceptions.SETTING_GROUP) {
                     return@collect
                 }
                 if (it != null) {

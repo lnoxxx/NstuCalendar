@@ -10,7 +10,7 @@ import com.lnoxdev.data.SettingGroupException
 import com.lnoxdev.data.Time
 import com.lnoxdev.data.appSettings.SettingsManager
 import com.lnoxdev.data.neti.NetiScheduleRepository
-import com.lnoxdev.nstucalendarparcer.models.UiExceptions
+import com.lnoxdev.nstucalendarparcer.models.UiScheduleExceptions
 import com.lnoxdev.nstucalendarparcer.models.WeeklyScheduleState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -36,8 +36,8 @@ class WeeklyScheduleViewModel @Inject constructor(
     private val _isUpdate = MutableStateFlow(false)
     val isUpdate: StateFlow<Boolean> = _isUpdate
 
-    private val _exception = MutableStateFlow<UiExceptions?>(null)
-    val exception: StateFlow<UiExceptions?> = _exception
+    private val _exception = MutableStateFlow<UiScheduleExceptions?>(null)
+    val exception: StateFlow<UiScheduleExceptions?> = _exception
 
     init {
         viewModelScope.launch {
@@ -67,20 +67,20 @@ class WeeklyScheduleViewModel @Inject constructor(
                 _exception.emit(null)
             } catch (e: ScheduleException) {
                 when (e) {
-                    is InternetException -> emitException(UiExceptions.INTERNET)
-                    is ParseException -> emitException(UiExceptions.PARSE)
-                    is SaveException -> emitException(UiExceptions.SAVE)
-                    is SettingGroupException -> emitException(UiExceptions.SETTING_GROUP)
+                    is InternetException -> emitException(UiScheduleExceptions.INTERNET)
+                    is ParseException -> emitException(UiScheduleExceptions.PARSE)
+                    is SaveException -> emitException(UiScheduleExceptions.SAVE)
+                    is SettingGroupException -> emitException(UiScheduleExceptions.SETTING_GROUP)
                 }
             } catch (e: Exception) {
-                emitException(UiExceptions.UNKNOWN)
+                emitException(UiScheduleExceptions.UNKNOWN)
             } finally {
                 _isUpdate.emit(false)
             }
         }
     }
 
-    private suspend fun emitException(exception: UiExceptions) {
+    private suspend fun emitException(exception: UiScheduleExceptions) {
         _exception.emit(exception)
     }
 

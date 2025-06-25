@@ -10,6 +10,12 @@
     <string name="error_unknown">Unknown error!</string>
     <string name="error_settings_group">Group not selected!</string>
 
+    <string name="error_get_schedule">Failed to get schedule. Maybe you haven\'t selected a group!</string>
+    <string name="error_calendar_permission">The app does not have access to your calendar. Please grant permission!</string>
+    <string name="error_create_calendar">Failed to create calendar.</string>
+    <string name="error_add_event">Failed to add some classes to the calendar.</string>
+    <string name="error_delete_calendar">Failed to delete calendar.</string>
+
     <string name="lesson_type_lecture">Lecture</string>
     <string name="lesson_type_practice">Practice</string>
     <string name="lesson_type_laboratory">Laboratory</string>
@@ -40,7 +46,7 @@
 
     <string name="bottom_nav_schedule">Schedule</string>
     <string name="bottom_nav_settings">Settings</string>
-    <string name="bottom_nav_export">Export to calendar (coming later)</string>
+    <string name="bottom_nav_export">Export to calendar</string>
     <string name="bottom_nav_about_app">About app</string>
     <string name="bottom_nav_contact_developer">Contact the developer</string>
 
@@ -90,4 +96,9 @@
     <string name="toolbar_title_export">Export to calendar</string>
     <string name="select_calendar_to_export_title">Select a calendar to export:</string>
     <string name="about_app_text">An unofficial application for students of NSTU NETI for quick viewing of the group schedule without authorization and transferring it to the device calendar. The application can save the downloaded schedule for viewing it without Internet access.</string>
+    <string name="clear_calendar">Clear calendar</string>
+    <string name="export">Export</string>
+    <string name="enable_reminder">Enable reminder for:</string>
+    <string name="minutes">Minutes</string>
+    <string name="export_description">Экспортируйте расписание выбранной группы в календарь вашего устройства. Проверить актуальное расписание также можно во вкладке Расписание.\n\nВажно: Приложение создаст новый локальный календарь (NstuCalendar). Для корректного отображения событий необходимо активировать этот календарь в настройках вашего стандартного приложения «Календарь». Примеры расположения настроек:\n‣ Настройки ‣ Управление аккаунтами ‣ NstuCalendar (включить)\n‣ Настройки ‣ Управление календарями ‣ Мой телефон (включить)\nРасположение настроек может изменяться в зависимости от вашего устройства</string>
 </resources>

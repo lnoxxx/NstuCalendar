@@ -12,7 +12,7 @@
     <item
         android:id="@+id/gCalendarExportFragment"
         android:checkable="true"
-        android:enabled="false"
+        android:enabled="true"
         android:icon="@drawable/ic_nav_export"
         android:title="@string/bottom_nav_export"
         app:showAsAction="ifRoom" />

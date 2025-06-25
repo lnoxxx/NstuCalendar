@@ -15,7 +15,7 @@ ksp = "2.0.21-1.0.27"
 navigationFragmentVersion = "2.9.0"
 okhttp = "4.12.0"
 retrofit = "2.11.0"
-roomRuntime = "2.7.1"
+roomRuntime = "2.7.2"
 lifecycleViewmodelKtx = "2.9.1"
 fragmentKtx = "1.8.8"
 

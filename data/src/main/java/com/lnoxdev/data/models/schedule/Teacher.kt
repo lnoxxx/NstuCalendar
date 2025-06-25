@@ -1,4 +1,4 @@
-package com.lnoxdev.data.models
+package com.lnoxdev.data.models.schedule
 
 import kotlinx.serialization.Serializable
 

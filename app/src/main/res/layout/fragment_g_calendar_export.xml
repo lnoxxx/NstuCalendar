@@ -26,43 +26,85 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCalendar"
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/swcEnableReminder"
+        style="@style/NstuCalendar.Switch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:checked="true"
+        android:text="@string/enable_reminder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ablExport" />
+        app:layout_constraintTop_toBottomOf="@id/tvExportDescription" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etReminderTime"
         style="@style/NstuCalendar.TextInputLayout.Filled"
-        android:layout_width="96dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Минут"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rvCalendar">
+        android:layout_marginTop="4dp"
+        android:hint="@string/minutes"
+        app:layout_constraintEnd_toEndOf="@+id/swcEnableReminder"
+        app:layout_constraintStart_toStartOf="@+id/swcEnableReminder"
+        app:layout_constraintTop_toBottomOf="@+id/swcEnableReminder">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="30"
+            tools:ignore="HardcodedText" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/tvExportDescription"
+        style="@style/NstuCalendar.TextView.Regular.Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/export_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ablExport" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/piLoading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:hideAnimationBehavior="escape"
+        app:layout_constraintBottom_toBottomOf="@id/ablExport"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:showAnimationBehavior="inward" />
 
     <Button
         android:id="@+id/btnExport"
-        android:layout_width="wrap_content"
+        style="@style/NstuCalendar.Button"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Тестовый экспорт"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/export"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/btnDeleteCalendar" />
+
+    <Button
+        android:id="@+id/btnDeleteCalendar"
+        style="@style/NstuCalendar.Button.Error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/clear_calendar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvGrantPermission"

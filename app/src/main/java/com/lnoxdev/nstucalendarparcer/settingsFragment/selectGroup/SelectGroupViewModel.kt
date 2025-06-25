@@ -6,7 +6,7 @@ import com.lnoxdev.data.InternetException
 import com.lnoxdev.data.ParseException
 import com.lnoxdev.data.appSettings.SettingsManager
 import com.lnoxdev.data.neti.netiFindGroupDataSource.NetiFindGroupRepository
-import com.lnoxdev.nstucalendarparcer.models.UiExceptions
+import com.lnoxdev.nstucalendarparcer.models.UiScheduleExceptions
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -22,8 +22,8 @@ class SelectGroupViewModel @Inject constructor(
     private val _groups = MutableStateFlow<List<String>?>(null)
     val groups: StateFlow<List<String>?> = _groups
 
-    private val _exception = MutableStateFlow<UiExceptions?>(null)
-    val exception: StateFlow<UiExceptions?> = _exception
+    private val _exception = MutableStateFlow<UiScheduleExceptions?>(null)
+    val exception: StateFlow<UiScheduleExceptions?> = _exception
 
     init {
         search("")
@@ -35,11 +35,11 @@ class SelectGroupViewModel @Inject constructor(
                 val result = netiFindGroupRepository.findGroup(searchText)
                 _groups.value = result
             } catch (e: InternetException) {
-                _exception.value = UiExceptions.INTERNET
+                _exception.value = UiScheduleExceptions.INTERNET
             } catch (e: ParseException) {
-                _exception.value = UiExceptions.PARSE
+                _exception.value = UiScheduleExceptions.PARSE
             } catch (e: Exception) {
-                _exception.value = UiExceptions.UNKNOWN
+                _exception.value = UiScheduleExceptions.UNKNOWN
             }
         }
     }
