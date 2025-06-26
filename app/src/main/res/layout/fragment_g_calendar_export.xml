@@ -26,49 +26,35 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.materialswitch.MaterialSwitch
-        android:id="@+id/swcEnableReminder"
-        style="@style/NstuCalendar.Switch"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/laCalendar"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:checked="true"
-        android:text="@string/enable_reminder"
+        android:layout_height="204dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvExportDescription" />
+        app:layout_constraintTop_toBottomOf="@id/ablExport"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/calendar" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/etReminderTime"
-        style="@style/NstuCalendar.TextInputLayout.Filled"
+    <ScrollView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:hint="@string/minutes"
-        app:layout_constraintEnd_toEndOf="@+id/swcEnableReminder"
-        app:layout_constraintStart_toStartOf="@+id/swcEnableReminder"
-        app:layout_constraintTop_toBottomOf="@+id/swcEnableReminder">
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@id/cvReminder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/laCalendar">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
+            android:id="@+id/tvExportDescription"
+            style="@style/NstuCalendar.TextView.Regular.Text"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="number"
-            android:text="30"
-            tools:ignore="HardcodedText" />
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:text="@string/export_description" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/tvExportDescription"
-        style="@style/NstuCalendar.TextView.Regular.Text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/export_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ablExport" />
+    </ScrollView>
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/piLoading"
@@ -80,6 +66,54 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:showAnimationBehavior="inward" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvReminder"
+        style="@style/NstuCalendar.CardView.Outlined"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="32dp"
+        app:layout_constraintBottom_toTopOf="@id/btnExport"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/swcEnableReminder"
+                style="@style/NstuCalendar.Switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginBottom="8dp"
+                android:checked="true"
+                android:text="@string/enable_reminder" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etReminderTime"
+                style="@style/NstuCalendar.TextInputLayout.Filled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/minutes">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:text="30"
+                    tools:ignore="HardcodedText" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <Button
         android:id="@+id/btnExport"
@@ -96,7 +130,7 @@
 
     <Button
         android:id="@+id/btnDeleteCalendar"
-        style="@style/NstuCalendar.Button.Error"
+        style="@style/NstuCalendar.Button.Outline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -104,7 +138,6 @@
         android:text="@string/clear_calendar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvGrantPermission"

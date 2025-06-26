@@ -19,8 +19,7 @@
 
     <style name="NstuCalendar.Button" parent="Widget.Material3.Button" />
 
-    <style name="NstuCalendar.Button.Error"  parent="Widget.Material3.Button.OutlinedButton">
-    </style>
+    <style name="NstuCalendar.Button.Outline"  parent="Widget.Material3.Button.OutlinedButton"/>
 
     <!--    Switch-->
 

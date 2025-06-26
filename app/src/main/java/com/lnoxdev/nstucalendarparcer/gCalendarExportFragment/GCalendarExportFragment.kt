@@ -8,11 +8,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.lifecycle.lifecycleScope
 import com.lnoxdev.nstucalendarparcer.NavigationActivity
+import com.lnoxdev.nstucalendarparcer.R
 import com.lnoxdev.nstucalendarparcer.TransitionAnimations
 import com.lnoxdev.nstucalendarparcer.databinding.FragmentGCalendarExportBinding
 import com.lnoxdev.nstucalendarparcer.exceptions.showErrorSnackBar
@@ -75,6 +77,11 @@ class GCalendarExportFragment : Fragment() {
         lifecycleScope.launch {
             viewModel.exceptionFlow.collect { exception ->
                 exception?.let { binding.clMain.showErrorSnackBar(it) }
+            }
+        }
+        lifecycleScope.launch {
+            viewModel.finishExportFlow.collect {
+                if (it) Toast.makeText(context, R.string.finish_export, Toast.LENGTH_SHORT).show()
             }
         }
     }

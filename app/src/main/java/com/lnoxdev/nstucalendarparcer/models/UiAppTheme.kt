@@ -1,14 +1,16 @@
 package com.lnoxdev.nstucalendarparcer.models
 
+import androidx.annotation.ColorRes
+import androidx.annotation.StyleRes
 import com.lnoxdev.data.appSettings.SettingsManager
 import com.lnoxdev.nstucalendarparcer.R
 
 enum class UiAppTheme(
     val themeNameResId: Int,
-    val colorResPrimary: Int,
-    val colorResSecondary: Int,
-    val colorResTertiary: Int,
-    val themeRes: Int
+    @ColorRes val colorResPrimary: Int,
+    @ColorRes val colorResSecondary: Int,
+    @ColorRes val colorResTertiary: Int,
+    @StyleRes val themeRes: Int
 ) {
     NSTU(
         R.string.theme_nstu,

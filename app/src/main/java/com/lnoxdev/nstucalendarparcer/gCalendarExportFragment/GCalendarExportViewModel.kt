@@ -28,6 +28,9 @@ class GCalendarExportViewModel @Inject constructor(
     private val _loadingFlow = MutableStateFlow(false)
     val loadingFlow = _loadingFlow.asStateFlow()
 
+    private val _finishExportFlow = MutableSharedFlow<Boolean>()
+    val finishExportFlow = _finishExportFlow.asSharedFlow()
+
     private val _exceptionFlow: MutableSharedFlow<UiCalendarExportException?> = MutableSharedFlow()
     val exceptionFlow = _exceptionFlow.asSharedFlow()
 
@@ -36,6 +39,7 @@ class GCalendarExportViewModel @Inject constructor(
             try {
                 _loadingFlow.emit(true)
                 gCalendarExportManager.export(ExportSettings(reminderMinutes = reminderTime))
+                _finishExportFlow.emit(true)
             } catch (e: GCalendarExportException) {
                 val uiPermission = when (e) {
                     is CalendarAddingEventException -> UiCalendarExportException.ADD

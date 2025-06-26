@@ -1,5 +1,7 @@
 package com.lnoxdev.nstucalendarparcer.models
 
+import androidx.annotation.ColorRes
+import androidx.annotation.StringRes
 import com.lnoxdev.nstucalendarparcer.R
 import java.time.LocalDate
 import java.time.LocalTime
@@ -43,7 +45,10 @@ data class WeekScheduleTeacher(
     val url: String?,
 )
 
-enum class WeekScheduleLessonType(val stringResource: Int, val colorResId: Int?) {
+enum class WeekScheduleLessonType(
+    @StringRes val stringResource: Int,
+    @ColorRes val colorResId: Int?
+) {
     LECTURE(R.string.lesson_type_lecture, R.color.colorLecture),
     PRACTICE(R.string.lesson_type_practice, R.color.colorPractice),
     LABORATORY(R.string.lesson_type_laboratory, R.color.colorLaboratory),

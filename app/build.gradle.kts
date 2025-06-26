@@ -41,6 +41,7 @@ android {
 dependencies {
     implementation(project(":data"))
     implementation (libs.androidx.core.splashscreen)
+    implementation (libs.lottie)
     implementation(libs.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
     implementation(libs.hilt.android)

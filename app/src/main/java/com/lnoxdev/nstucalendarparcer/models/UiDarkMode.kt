@@ -1,9 +1,10 @@
 package com.lnoxdev.nstucalendarparcer.models
 
+import androidx.annotation.StringRes
 import com.lnoxdev.data.appSettings.SettingsManager
 import com.lnoxdev.nstucalendarparcer.R
 
-enum class UiDarkMode(val nameResId: Int) {
+enum class UiDarkMode(@StringRes val nameResId: Int) {
     LIGHT(R.string.settings_light),
     DARK(R.string.settings_dark),
     SYSTEM(R.string.settings_as_on_the_device)
