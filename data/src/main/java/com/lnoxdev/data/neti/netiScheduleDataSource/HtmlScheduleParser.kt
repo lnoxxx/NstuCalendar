@@ -5,7 +5,7 @@ import com.lnoxdev.data.models.schedule.ScheduleDay
 import com.lnoxdev.data.models.schedule.lesson.Lesson
 import com.lnoxdev.data.models.schedule.lesson.LessonDateType
 import com.lnoxdev.data.models.schedule.lesson.LessonType
-import com.lnoxdev.data.models.Teacher
+import com.lnoxdev.data.models.schedule.Teacher
 import com.lnoxdev.data.models.schedule.lesson.LessonTime
 import com.lnoxdev.data.neti.netiScheduleDatabase.Schedule
 import org.jsoup.Jsoup

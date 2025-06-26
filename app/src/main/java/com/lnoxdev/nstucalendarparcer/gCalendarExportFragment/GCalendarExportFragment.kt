@@ -8,33 +8,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.lnoxdev.nstucalendarparcer.NavigationActivity
+import com.lnoxdev.nstucalendarparcer.R
 import com.lnoxdev.nstucalendarparcer.TransitionAnimations
 import com.lnoxdev.nstucalendarparcer.databinding.FragmentGCalendarExportBinding
-import com.lnoxdev.nstucalendarparcer.gCalendarExportFragment.selectCalendarRecyclerView.CalendarItemsAdapter
-import com.lnoxdev.nstucalendarparcer.gCalendarExportFragment.selectCalendarRecyclerView.SelectCalendarListener
-import com.lnoxdev.nstucalendarparcer.models.CalendarItem
-import com.lnoxdev.nstucalendarparcer.models.GCalendarUiState
+import com.lnoxdev.nstucalendarparcer.exceptions.showErrorSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-// in development!
-
 @AndroidEntryPoint
-class GCalendarExportFragment : Fragment(), SelectCalendarListener {
+class GCalendarExportFragment : Fragment() {
 
     private var _binding: FragmentGCalendarExportBinding? = null
     private val binding
         get() = _binding ?: throw IllegalStateException("GCalendarExportFragment binding null!")
 
     private val viewModel: GCalendarExportViewModel by viewModels()
-
-    private val calendarAdapter = CalendarItemsAdapter(this)
 
     private val requestCalendarPermissions =
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
@@ -52,7 +46,6 @@ class GCalendarExportFragment : Fragment(), SelectCalendarListener {
         _binding = FragmentGCalendarExportBinding.inflate(inflater)
         TransitionAnimations.initFadeAnimation(this)
         initNavigation()
-        initCalendarRecyclerView()
         binding.clMain.setOnApplyWindowInsetsListener { v, insets ->
             val windowInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.updatePadding(bottom = windowInsets.bottom)
@@ -63,34 +56,34 @@ class GCalendarExportFragment : Fragment(), SelectCalendarListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (arePermissionsGranted()) {
-            onCalendarPermissionsGranted()
-        } else {
-            onCalendarPermissionsDenied()
-        }
-        binding.btnExport.setOnClickListener {
-            val time = binding.etReminderTime.editText?.text.toString()
-            viewModel.export(time)
-        }
+        requestCalendarPermissionsIfNeeded()
         binding.btnGrandPermission.setOnClickListener {
             requestCalendarPermissionsIfNeeded()
         }
+        binding.btnExport.setOnClickListener {
+            exportSchedule()
+        }
+        binding.btnDeleteCalendar.setOnClickListener {
+            viewModel.deleteCalendar()
+        }
+        binding.swcEnableReminder.setOnCheckedChangeListener { _, isChecked ->
+            binding.etReminderTime.isEnabled = isChecked
+        }
         lifecycleScope.launch {
-            viewModel.uiState.collect {
-                it?.let { state -> bindNewUiState(state) }
+            viewModel.loadingFlow.collect {
+                showLoading(it)
             }
         }
-    }
-
-    private fun bindNewUiState(state: GCalendarUiState) {
-        calendarAdapter.updateItems(state.calendars)
-    }
-
-    private fun initCalendarRecyclerView() {
-        binding.rvCalendar.itemAnimator = null
-        binding.rvCalendar.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvCalendar.adapter = calendarAdapter
+        lifecycleScope.launch {
+            viewModel.exceptionFlow.collect { exception ->
+                exception?.let { binding.clMain.showErrorSnackBar(it) }
+            }
+        }
+        lifecycleScope.launch {
+            viewModel.finishExportFlow.collect {
+                if (it) Toast.makeText(context, R.string.finish_export, Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun arePermissionsGranted(): Boolean {
@@ -135,7 +128,22 @@ class GCalendarExportFragment : Fragment(), SelectCalendarListener {
         binding.btnExport.isEnabled = false
     }
 
-    override fun selectCalendar(calendar: CalendarItem) {
-        viewModel.changeSelectedCalendar(calendar)
+    private fun exportSchedule() {
+        val reminderTime = if (binding.swcEnableReminder.isChecked)
+            binding.etReminderTime.editText?.text.toString().toIntOrNull()
+        else null
+        viewModel.export(reminderTime)
+    }
+
+    private fun showLoading(loading: Boolean) {
+        if (loading) {
+            binding.piLoading.show()
+            binding.btnExport.isEnabled = false
+            binding.btnDeleteCalendar.isEnabled = false
+        } else {
+            binding.piLoading.hide()
+            binding.btnExport.isEnabled = true
+            binding.btnDeleteCalendar.isEnabled = true
+        }
     }
 }

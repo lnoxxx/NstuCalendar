@@ -16,7 +16,7 @@ import com.lnoxdev.nstucalendarparcer.R
 import com.lnoxdev.nstucalendarparcer.TransitionAnimations
 import com.lnoxdev.nstucalendarparcer.databinding.FragmentWeeklyScheduleBinding
 import com.lnoxdev.nstucalendarparcer.exceptions.showErrorSnackBar
-import com.lnoxdev.nstucalendarparcer.models.UiExceptions
+import com.lnoxdev.nstucalendarparcer.models.UiScheduleExceptions
 import com.lnoxdev.nstucalendarparcer.models.WeeklyScheduleState
 import com.lnoxdev.nstucalendarparcer.utils.getDateTimeFormatter
 import com.lnoxdev.nstucalendarparcer.utils.getThemeColor
@@ -83,7 +83,7 @@ class WeeklyScheduleFragment : Fragment() {
         }
         lifecycleScope.launch {
             viewModel.exception.collect {
-                if (it == UiExceptions.SETTING_GROUP) {
+                if (it == UiScheduleExceptions.SETTING_GROUP) {
                     return@collect
                 }
                 if (it != null) {
@@ -107,7 +107,7 @@ class WeeklyScheduleFragment : Fragment() {
     }
 
     private fun bindUiState(state: WeeklyScheduleState) {
-        binding.tvGroup.text = state.group ?: getString(R.string.select_group)
+        binding.tvGroup.text = state.group ?: getString(R.string.group_not_select)
         val updateTime = state.lastUpdateTime
         binding.tvLastUpdateTime.text =
             updateTime?.format(getDateTimeFormatter(state.is12HourTimeFormat))
@@ -124,7 +124,7 @@ class WeeklyScheduleFragment : Fragment() {
         binding.tlWeeks.visibility = View.GONE
         val clPadding = resources.getDimension(R.dimen.app_bar_margin).toInt()
         binding.clAppBarContentContainer.updatePadding(bottom = clPadding)
-        binding.btnSelectGroup.visibility = View.VISIBLE
+        binding.llHelloContainer.visibility = View.VISIBLE
         binding.btnSelectGroup.setOnClickListener {
             findNavController().navigate(R.id.selectGroupBottomSheet)
         }
@@ -133,7 +133,7 @@ class WeeklyScheduleFragment : Fragment() {
     private fun hideHello() {
         binding.tlWeeks.visibility = View.VISIBLE
         binding.clAppBarContentContainer.updatePadding(bottom = 0)
-        binding.btnSelectGroup.visibility = View.GONE
+        binding.llHelloContainer.visibility = View.GONE
     }
 
     private fun initViewPager(weeksCount: Int, nowWeek: Int?) {

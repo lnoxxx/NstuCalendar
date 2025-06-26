@@ -6,6 +6,12 @@
     <string name="error_unknown">Неизвестная ошибка!</string>
     <string name="error_settings_group">Группа не выбрана!</string>
 
+    <string name="error_get_schedule">Не удалось получить расписание. Возможно вы не выбрали группу!</string>
+    <string name="error_calendar_permission">У приложения нет доступа к календарю. Предоставьте разрешение!</string>
+    <string name="error_create_calendar">Не удалось создать календарь.</string>
+    <string name="error_add_event">Не удалось добавить некоторые занятия в календарь.</string>
+    <string name="error_delete_calendar">Не удалось удалить календарь.</string>
+
     <string name="lesson_type_lecture">Лекция</string>
     <string name="lesson_type_practice">Практика</string>
     <string name="lesson_type_laboratory">Лабораторная</string>
@@ -36,7 +42,7 @@
 
     <string name="bottom_nav_schedule">Расписание</string>
     <string name="bottom_nav_settings">Настройки</string>
-    <string name="bottom_nav_export">Экспорт в календарь (появиться позже)</string>
+    <string name="bottom_nav_export">Экспорт в календарь</string>
     <string name="bottom_nav_about_app">О приложении</string>
     <string name="bottom_nav_contact_developer">Связь с разработчиком</string>
 
@@ -85,5 +91,16 @@
     <string name="grant_permission">Предоставить</string>
     <string name="toolbar_title_export">Экспорт в календарь</string>
     <string name="select_calendar_to_export_title">Выберите календарь для экспорта:</string>
-    <string name="about_app_text">Неофициальное приложение для студентов НГТУ НЭТИ для быстрого просмотра расписания группы без авторизации и переносе его в календарь устройства. Приложение умеет сохранять загруженное расписание для возможности его просмотра без доступа к интернету.</string>
+    <string name="clear_calendar">Отчистить календарь</string>
+    <string name="export">Экспорт</string>
+    <string name="enable_reminder">Включить напоминание за:</string>
+    <string name="minutes">Минут</string>
+    <string name="export_description">Экспортируйте расписание выбранной группы в календарь вашего устройства. Проверить актуальное расписание также можно во вкладке Расписание.\n\nВажно: Приложение создаст новый локальный календарь (NstuCalendar). Для корректного отображения событий необходимо активировать этот календарь в настройках вашего стандартного приложения «Календарь».</string>
+    <string name="finish_export">Экспорт успешно завершен</string>
+    <string name="group_not_select">Группа не выбрана</string>
+    <string name="failed_open_link">Не удалось открыть ссылку</string>
+    <string name="about_app_text">Приложение создано для студентов НГТУ НЭТИ, чтобы сделать доступ к учебному расписанию максимально простым и быстрым. Оно дает возможность:
+\n• просматривать расписание своей группы;
+\n• сохранять загруженные данные, обеспечивая доступ к расписанию в оффлайн-режиме;
+\n• переносить расписание в календарь устройства.</string>
 </resources>

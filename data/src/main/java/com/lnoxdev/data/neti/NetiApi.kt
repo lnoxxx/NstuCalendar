@@ -9,7 +9,8 @@ interface NetiApi {
     @GET("studies/schedule/schedule_classes/schedule")
     suspend fun getSchedule(
         @Query("group") group: String,
-        @Query("print") print: String = "true"
+        @Query("print") print: String = "true",
+        @Query("week") week: String = "1",
     ): Response<ResponseBody>
 
     @GET("studies/schedule/schedule_classes/schedule")

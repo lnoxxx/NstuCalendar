@@ -1,9 +1,10 @@
 package com.lnoxdev.nstucalendarparcer.models
 
+import androidx.annotation.StringRes
 import com.lnoxdev.data.appSettings.SettingsManager
 import com.lnoxdev.nstucalendarparcer.R
 
-enum class UiAppLanguage(val nameResId: Int) {
+enum class UiAppLanguage(@StringRes val nameResId: Int) {
     EN(R.string.settings_english),
     RU(R.string.settings_russian),
     SYSTEM(R.string.settings_as_on_the_device)

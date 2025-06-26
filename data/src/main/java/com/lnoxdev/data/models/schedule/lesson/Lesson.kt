@@ -1,6 +1,6 @@
 package com.lnoxdev.data.models.schedule.lesson
 
-import com.lnoxdev.data.models.Teacher
+import com.lnoxdev.data.models.schedule.Teacher
 import kotlinx.serialization.Serializable
 
 @Serializable

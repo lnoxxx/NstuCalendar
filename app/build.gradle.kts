@@ -13,8 +13,8 @@ android {
         applicationId = "com.lnoxdev.nstucalendarparcer"
         minSdk = 30
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
     }
 
     buildTypes {
@@ -41,6 +41,7 @@ android {
 dependencies {
     implementation(project(":data"))
     implementation (libs.androidx.core.splashscreen)
+    implementation (libs.lottie)
     implementation(libs.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
     implementation(libs.hilt.android)
