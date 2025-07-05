@@ -10,6 +10,12 @@
     <string name="error_unknown">Unknown error!</string>
     <string name="error_settings_group">Group not selected!</string>
 
+    <string name="error_get_schedule">Failed to get schedule. Maybe you haven\'t selected a group!</string>
+    <string name="error_calendar_permission">The app does not have access to your calendar. Please grant permission!</string>
+    <string name="error_create_calendar">Failed to create calendar.</string>
+    <string name="error_add_event">Failed to add some classes to the calendar.</string>
+    <string name="error_delete_calendar">Failed to delete calendar.</string>
+
     <string name="lesson_type_lecture">Lecture</string>
     <string name="lesson_type_practice">Practice</string>
     <string name="lesson_type_laboratory">Laboratory</string>
@@ -40,7 +46,7 @@
 
     <string name="bottom_nav_schedule">Schedule</string>
     <string name="bottom_nav_settings">Settings</string>
-    <string name="bottom_nav_export">Export to calendar (coming later)</string>
+    <string name="bottom_nav_export">Export to calendar</string>
     <string name="bottom_nav_about_app">About app</string>
     <string name="bottom_nav_contact_developer">Contact the developer</string>
 
@@ -89,5 +95,16 @@
     <string name="grant_permission">Grant permission</string>
     <string name="toolbar_title_export">Export to calendar</string>
     <string name="select_calendar_to_export_title">Select a calendar to export:</string>
-    <string name="about_app_text">An unofficial application for students of NSTU NETI for quick viewing of the group schedule without authorization and transferring it to the device calendar. The application can save the downloaded schedule for viewing it without Internet access.</string>
+    <string name="clear_calendar">Clear calendar</string>
+    <string name="export">Export</string>
+    <string name="enable_reminder">Enable reminder for:</string>
+    <string name="minutes">Minutes</string>
+    <string name="export_description">Export the selected group\'s schedule to your device\'s calendar. You can also check the current schedule in the Schedule tab.\n\nImportant: The application will create a new local calendar (NstuCalendar). To display events correctly, you must activate this calendar in the settings of your standard Calendar application.</string>
+    <string name="finish_export">Export completed successfully</string>
+    <string name="group_not_select">Group not selected</string>
+    <string name="cd_rustore" translatable="false">Rustore link</string>
+    <string name="cd_github" translatable="false">Github link</string>
+    <string name="nstu_ncalendar_about_app" translatable="false">Nstu\nCalendar</string>
+    <string name="failed_open_link">Failed to open link</string>
+    <string name="about_app_text">The application was created for NSTU NETI students to make access to the academic schedule as simple and fast as possible. It allows you to:\n• view your group\'s schedule;\n• save downloaded data, providing access to the schedule in offline mode;\n •transfer the schedule to the device calendar.</string>
 </resources>

@@ -19,6 +19,8 @@
 
     <style name="NstuCalendar.Button" parent="Widget.Material3.Button" />
 
+    <style name="NstuCalendar.Button.Outline"  parent="Widget.Material3.Button.OutlinedButton"/>
+
     <!--    Switch-->
 
     <style name="NstuCalendar.Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch" />

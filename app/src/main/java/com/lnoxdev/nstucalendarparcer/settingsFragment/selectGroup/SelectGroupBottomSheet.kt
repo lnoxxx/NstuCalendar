@@ -14,7 +14,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.lnoxdev.nstucalendarparcer.R
 import com.lnoxdev.nstucalendarparcer.databinding.BottomSheetSelectGroupBinding
-import com.lnoxdev.nstucalendarparcer.models.UiExceptions
+import com.lnoxdev.nstucalendarparcer.models.UiScheduleExceptions
 import com.lnoxdev.nstucalendarparcer.settingsFragment.selectGroup.groupRecyclerView.GroupDecorator
 import com.lnoxdev.nstucalendarparcer.settingsFragment.selectGroup.groupRecyclerView.GroupRecyclerViewAdapter
 import com.lnoxdev.nstucalendarparcer.settingsFragment.selectGroup.groupRecyclerView.GroupRecyclerViewListener
@@ -80,7 +80,7 @@ class SelectGroupBottomSheet : BottomSheetDialogFragment(), GroupRecyclerViewLis
         adapter.updateGroupList(groups)
     }
 
-    private fun bindException(exception: UiExceptions) {
+    private fun bindException(exception: UiScheduleExceptions) {
         binding.tvException.visibility = View.VISIBLE
         adapter.clear()
         binding.tvException.text = getString(exception.textResId)
