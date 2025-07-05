@@ -6,3 +6,9 @@
 - сохранять загруженные данные, обеспечивая доступ к расписанию в оффлайн-режиме;
 - переносить расписание в календарь устройства.
 ### Скриншоты
+<div style="display: flex;">
+  <img src="screenshots/rs_screen_1.jpg" width="240" />
+  <img src="screenshots/rs_screen_2.jpg" width="240" />
+  <img src="screenshots/rs_screen_3.jpg" width="240" />
+  <img src="screenshots/rs_screen_4.jpg" width="240" />
+</div>
